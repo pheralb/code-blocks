@@ -14,6 +14,9 @@ importers:
       '@radix-ui/react-slot':
         specifier: 1.1.1
         version: 1.1.1(@types/react@19.0.8)(react@19.0.0)
+      '@react-symbols/icons':
+        specifier: 1.2.8
+        version: 1.2.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       class-variance-authority:
         specifier: 0.7.1
         version: 0.7.1
@@ -591,6 +594,12 @@ packages:
 
   '@radix-ui/rect@1.1.0':
     resolution: {integrity: sha512-A9+lCBZoaMJlVKcRBz2YByCG+Cp2t6nAnMnNba+XiWxnj6r4JUFqfsgwocMBZU9LPtdxC6wB56ySYpc7LQIoJg==}
+
+  '@react-symbols/icons@1.2.8':
+    resolution: {integrity: sha512-G5FnRexeWnaa2JW8/3mFRKULqnJCO6t0jsJCVHS+DTq/Os61euX4rUZEWmrVoRGga+jPNT/jJQsPswkbvZtcGQ==}
+    peerDependencies:
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -2591,6 +2600,11 @@ snapshots:
       '@types/react': 19.0.8
 
   '@radix-ui/rect@1.1.0': {}
+
+  '@react-symbols/icons@1.2.8(react-dom@19.0.0(react@19.0.0))(react@19.0.0)':
+    dependencies:
+      react: 19.0.0
+      react-dom: 19.0.0(react@19.0.0)
 
   '@rtsao/scc@1.1.0': {}
 
