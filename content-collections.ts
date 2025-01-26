@@ -1,5 +1,7 @@
 import { defineCollection, defineConfig } from "@content-collections/core";
 import { compileMDX } from "@content-collections/mdx";
+import path from "node:path";
+import fs from "node:fs/promises";
 
 // MDX Plugins:
 import {
@@ -11,6 +13,7 @@ import GithubSlugger from "github-slugger";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 import { visit } from "unist-util-visit";
 import rehypeShiki, { type RehypeShikiOptions } from "@shikijs/rehype";
+import { rehypeComponent } from "./src/mdx/rehypeComponent";
 
 // Domain:
 const domain = "codeblocks.pheralb.dev";
@@ -42,9 +45,17 @@ const docs = defineCollection({
     description: z.string(),
   }),
   transform: async (document, context) => {
+    const filePath = path.join(
+      context.collection.directory,
+      document._meta.filePath,
+    );
+    const { mtimeMs, birthtimeMs } = await fs.stat(filePath);
     const mdx = await compileMDX(context, document, {
       remarkPlugins: [remarkGfm, remarkHeading, remarkStructure],
       rehypePlugins: [
+        // Rehype Component:
+        rehypeComponent,
+        // Shiki Syntax Highlighting:
         [rehypeShiki, shikiOptions],
         // Open External Links in New Tab:
         () => (tree) => {
@@ -65,7 +76,7 @@ const docs = defineCollection({
     const slugger = new GithubSlugger();
     const regXHeader = /\n(?<flag>#+)\s+(?<content>.+)/g;
     const tableOfContents = Array.from(
-      document.content.matchAll(regXHeader)
+      document.content.matchAll(regXHeader),
     ).map(({ groups }) => {
       const flag = groups?.flag;
       const content = groups?.content;
@@ -81,6 +92,8 @@ const docs = defineCollection({
       slug: document._meta.path,
       url: `/${document._meta.path}`,
       toc: tableOfContents,
+      createdAt: new Date(birthtimeMs),
+      updatedAt: new Date(mtimeMs),
     };
   },
 });
