@@ -1,7 +1,7 @@
 {
   "name": "@pheralb/codeblocks",
   "version": "1.0.0",
-  "description": "A beautifully code block component for React. Built on top of Shiki",
+  "description": "A beautifully code block component for React & MDX. Built with Shiki.",
   "type": "module",
   "private": true,
   "scripts": {
