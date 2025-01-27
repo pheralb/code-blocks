@@ -35,7 +35,7 @@ const CopyToClipboardBtn = (props: CopyToClipboardBtnProps) => {
       onMouseEnter={() => controls.start("animate")}
       onMouseLeave={() => controls.start("normal")}
       onClick={() => handleCopy()}
-      className="text-neutral-500 transition-colors hover:text-black focus:outline-none dark:text-neutral-400 dark:hover:text-white"
+      className="text-neutral-500 cursor-pointer transition-colors hover:text-black focus:outline-none dark:text-neutral-400 dark:hover:text-white"
     >
       <svg
         xmlns="http://www.w3.org/2000/svg"
