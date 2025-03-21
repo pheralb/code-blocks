@@ -4,6 +4,5 @@
     "dbaeumer.vscode-eslint",
     "dsznajder.es7-react-js-snippets",
     "usernamehw.errorlens"
-  ],
-  "unwantedRecommendations": []
+  ]
 }
