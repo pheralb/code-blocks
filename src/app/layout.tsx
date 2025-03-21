@@ -3,8 +3,12 @@ import type { ReactNode } from "react";
 
 // Styles:
 import "@/styles/globals.css";
+import "@/styles/codeblock.css";
 import { fontMono, fontSans } from "@/ui/fonts";
 import { cn } from "@/utils/cn";
+
+// Providers:
+import { ThemeProvider } from "@/providers/themeProvider";
 
 // Metadata:
 export const metadata: Metadata = {
@@ -24,11 +28,18 @@ export default function RootLayout({
         className={cn(
           `${fontSans.variable} ${fontMono.variable}`,
           "bg-neutral-50 dark:bg-neutral-900",
-          "font-sans antialiased scroll-smooth",
+          "scroll-smooth font-sans antialiased",
           "text-neutral-900 dark:text-neutral-50",
         )}
       >
-        {children}
+        <ThemeProvider
+          attribute="class"
+          defaultTheme="system"
+          enableSystem
+          disableTransitionOnChange
+        >
+          <main className="py-12">{children}</main>
+        </ThemeProvider>
       </body>
     </html>
   );
