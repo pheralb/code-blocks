@@ -1,7 +1,10 @@
 import type { NextConfig } from "next";
+import { withContentCollections } from "@content-collections/next";
 
 const nextConfig: NextConfig = {
-  /* config options here */
+  compiler: {
+    removeConsole: process.env.NODE_ENV === "production",
+  },
 };
 
-export default nextConfig;
+export default withContentCollections(nextConfig);
