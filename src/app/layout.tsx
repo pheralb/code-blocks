@@ -1,8 +1,10 @@
 import type { Metadata } from "next";
+import type { ReactNode } from "react";
 
 // Styles:
 import "@/styles/globals.css";
 import { fontMono, fontSans } from "@/ui/fonts";
+import { cn } from "@/utils/cn";
 
 // Metadata:
 export const metadata: Metadata = {
@@ -14,11 +16,18 @@ export const metadata: Metadata = {
 export default function RootLayout({
   children,
 }: Readonly<{
-  children: React.ReactNode;
+  children: ReactNode;
 }>) {
   return (
-    <html lang="en">
-      <body className={`${fontSans.variable} ${fontMono.variable} antialiased`}>
+    <html lang="en" suppressHydrationWarning>
+      <body
+        className={cn(
+          `${fontSans.variable} ${fontMono.variable}`,
+          "bg-neutral-50 dark:bg-neutral-900",
+          "font-sans antialiased scroll-smooth",
+          "text-neutral-900 dark:text-neutral-50",
+        )}
+      >
         {children}
       </body>
     </html>
