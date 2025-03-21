@@ -12,38 +12,38 @@ importers:
         specifier: 15.2.3
         version: 15.2.3(react-dom@19.0.0(react@19.0.0))(react@19.0.0)
       react:
-        specifier: ^19.0.0
+        specifier: 19.0.0
         version: 19.0.0
       react-dom:
-        specifier: ^19.0.0
+        specifier: 19.0.0
         version: 19.0.0(react@19.0.0)
     devDependencies:
       '@eslint/eslintrc':
-        specifier: ^3
+        specifier: 3.3.0
         version: 3.3.0
       '@tailwindcss/postcss':
-        specifier: ^4
+        specifier: 4.0.15
         version: 4.0.15
       '@types/node':
-        specifier: ^20
+        specifier: 20.17.25
         version: 20.17.25
       '@types/react':
-        specifier: ^19
+        specifier: 19.0.12
         version: 19.0.12
       '@types/react-dom':
-        specifier: ^19
+        specifier: 19.0.4
         version: 19.0.4(@types/react@19.0.12)
       eslint:
-        specifier: ^9
+        specifier: 9.22.0
         version: 9.22.0(jiti@2.4.2)
       eslint-config-next:
         specifier: 15.2.3
         version: 15.2.3(eslint@9.22.0(jiti@2.4.2))(typescript@5.8.2)
       tailwindcss:
-        specifier: ^4
+        specifier: 4.0.15
         version: 4.0.15
       typescript:
-        specifier: ^5
+        specifier: 5.8.2
         version: 5.8.2
 
 packages:
