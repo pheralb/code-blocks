@@ -4,11 +4,14 @@ import type { ReactNode } from "react";
 // Styles:
 import "@/styles/globals.css";
 import "@/styles/codeblock.css";
+import { container } from "@/ui/container";
 import { fontMono, fontSans } from "@/ui/fonts";
 import { cn } from "@/utils/cn";
 
 // Providers:
 import { ThemeProvider } from "@/providers/themeProvider";
+import Header from "@/components/header";
+import Footer from "@/components/footer";
 
 // Metadata:
 export const metadata: Metadata = {
@@ -39,7 +42,11 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <main className="py-12">{children}</main>
+          <div className={cn(container, "py-10", "flex min-h-dvh flex-col")}>
+            <Header />
+            <main>{children}</main>
+          </div>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>
