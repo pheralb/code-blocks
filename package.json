@@ -10,6 +10,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@radix-ui/react-popover": "1.1.6",
     "@radix-ui/react-slot": "1.1.2",
     "@react-symbols/icons": "1.2.8",
     "class-variance-authority": "0.7.1",
