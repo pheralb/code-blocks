@@ -5,7 +5,7 @@ import type { ReactNode } from "react";
 import "@/styles/globals.css";
 import "@/styles/codeblock.css";
 import { container } from "@/ui/container";
-import { fontMono, fontSans } from "@/ui/fonts";
+import { fontMono, fontSans, fontHeadings } from "@/ui/fonts";
 import { cn } from "@/utils/cn";
 
 // Providers:
@@ -29,8 +29,8 @@ export default function RootLayout({
     <html lang="en" suppressHydrationWarning>
       <body
         className={cn(
-          `${fontSans.variable} ${fontMono.variable}`,
-          "bg-neutral-50 dark:bg-neutral-900",
+          `${fontSans.variable} ${fontHeadings.variable} ${fontMono.variable}`,
+          "bg-neutral-100 dark:bg-neutral-900",
           "scroll-smooth font-sans antialiased",
           "text-neutral-900 dark:text-neutral-50",
           "selection:bg-neutral-300 dark:selection:bg-neutral-700",
