@@ -103,7 +103,7 @@ const BuiltBy = forwardRef<BuiltByHandle, BuiltByProps>(
       >
         <ExternalLink
           href="https://pheralb.dev/"
-          className="group flex items-center space-x-2 font-serif"
+          className="group flex items-center space-x-2"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
