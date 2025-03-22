@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "@radix-ui/react-slot": "1.1.2",
+    "@react-symbols/icons": "1.2.8",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-react": "0.483.0",
