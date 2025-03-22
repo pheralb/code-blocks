@@ -3,8 +3,6 @@ import type { Metadata } from "next";
 import { allDocs } from "content-collections";
 import { notFound } from "next/navigation";
 import { MDX } from "@/mdx";
-import { cn } from "@/utils/cn";
-import { container } from "@/ui/container";
 
 const indexPage = "index";
 
@@ -26,7 +24,7 @@ const Page = () => {
   }
 
   return (
-    <article className={cn(container)}>
+    <article>
       <MDX code={document.mdxSource} />
     </article>
   );
