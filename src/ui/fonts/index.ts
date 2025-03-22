@@ -1,5 +1,4 @@
 import localFont from "next/font/local";
-import { Instrument_Serif } from "next/font/google";
 
 export const fontSans = localFont({
   variable: "--font-sans",
@@ -17,8 +16,10 @@ export const fontMono = localFont({
   preload: true,
 });
 
-export const fontSerif = Instrument_Serif({
-  variable: "--font-serif",
-  weight: "400",
-  subsets: ["latin"],
+export const fontHeadings = localFont({
+  variable: "--font-headings",
+  src: "./Satoshi-Variable.woff2",
+  weight: "100 900",
+  display: "swap",
+  preload: true,
 });
