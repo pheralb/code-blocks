@@ -2,7 +2,21 @@ import type { RehypeShikiOptions } from "@shikijs/rehype";
 
 export const rehypeShikiOptions: RehypeShikiOptions = {
   themes: {
-    light: "catppuccin-latte",
-    dark: "vesper",
+    light: "one-light",
+    dark: "one-dark-pro",
   },
+  transformers: [
+    {
+      name: "AddPreProperties",
+      pre(node) {
+        node.properties["data-language"] = this.options.lang || "plaintext";
+      },
+    },
+    {
+      name: "WordWrap",
+      pre(node) {
+        node.properties["style"] = "white-space: pre-wrap;";
+      },
+    },
+  ],
 };
