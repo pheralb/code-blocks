@@ -30,6 +30,7 @@ export default function RootLayout({
           "bg-neutral-50 dark:bg-neutral-900",
           "scroll-smooth font-sans antialiased",
           "text-neutral-900 dark:text-neutral-50",
+          "selection:bg-neutral-300 dark:selection:bg-neutral-700",
         )}
       >
         <ThemeProvider
