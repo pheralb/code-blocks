@@ -84,6 +84,7 @@ const CopyButton = ({ text, label, className }: CopyButtonProps) => {
 
   return (
     <button
+      title={label}
       aria-label={label}
       className={cn(
         buttonVariants({
@@ -94,7 +95,6 @@ const CopyButton = ({ text, label, className }: CopyButtonProps) => {
         className,
       )}
       onClick={handleCopy}
-      title={label}
     >
       {isMounted && <CopyButtonIcon isAnimating={isAnimating} />}
     </button>
