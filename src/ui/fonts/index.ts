@@ -1,4 +1,5 @@
 import localFont from "next/font/local";
+import { Geist_Mono } from "next/font/google";
 
 export const fontSans = localFont({
   variable: "--font-sans",
@@ -8,12 +9,8 @@ export const fontSans = localFont({
   preload: true,
 });
 
-export const fontMono = localFont({
+export const fontMono = Geist_Mono({
   variable: "--font-mono",
-  src: "./CascadiaCodePL.woff2",
-  weight: "400 900",
-  display: "swap",
-  preload: true,
 });
 
 export const fontHeadings = localFont({
