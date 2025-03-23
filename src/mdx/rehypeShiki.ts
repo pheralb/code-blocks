@@ -1,4 +1,5 @@
 import type { RehypeShikiOptions } from "@shikijs/rehype";
+import { transformerNotationHighlight } from "@shikijs/transformers";
 
 export const rehypeShikiOptions: RehypeShikiOptions = {
   themes: {
@@ -6,24 +7,12 @@ export const rehypeShikiOptions: RehypeShikiOptions = {
     dark: "one-dark-pro",
   },
   transformers: [
-    {
-      name: "AddLineClass",
-      code(node) {
-        return {
-          ...node,
-          children: node.children.map((child) => {
-            if (child.type === "element" && child.tagName === "span") {
-              child.properties.className = ["line"];
-            }
-            return child;
-          }),
-        };
-      },
-    },
+    transformerNotationHighlight(),
     {
       name: "AddPreProperties",
       pre(node) {
         node.properties["data-language"] = this.options.lang || "plaintext";
+        node.properties["data-extra"] = this.options.meta?.__raw || "";
       },
     },
     {
