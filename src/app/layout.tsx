@@ -1,4 +1,4 @@
-import type { Metadata } from "next";
+import type { Metadata, Viewport } from "next";
 import type { ReactNode } from "react";
 import { globals } from "@/globals";
 
@@ -38,6 +38,15 @@ export const metadata: Metadata = {
   creator: "@pheralb_",
 };
 
+// Viewport:
+export const viewport: Viewport = {
+  colorScheme: "light dark",
+  themeColor: [
+    { media: "(prefers-color-scheme: dark)", color: "#171717" },
+    { media: "(prefers-color-scheme: light)", color: "#f5f5f5" },
+  ],
+};
+
 // App layout:
 export default function RootLayout({
   children,
@@ -45,7 +54,7 @@ export default function RootLayout({
   children: ReactNode;
 }>) {
   return (
-    <html lang="en" suppressHydrationWarning>
+    <html lang="en" className="overflow-x-hidden" suppressHydrationWarning>
       <body
         className={cn(
           `${fontSans.variable} ${fontHeadings.variable} ${fontMono.variable}`,
@@ -66,7 +75,7 @@ export default function RootLayout({
           <div
             className={cn(
               container,
-              "pt-6 pb-10",
+              "pt-6 pb-18",
               "flex min-h-dvh flex-col space-y-3",
             )}
           >
