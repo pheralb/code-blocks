@@ -1,11 +1,12 @@
 "use client";
 
+import type { FC, SVGProps } from "react";
+import type { Variants } from "motion/react";
+
 import { useCallback, useRef, useState } from "react";
-import { Check, Copy } from "lucide-react";
-import { AnimatePresence, type Variants, motion } from "motion/react";
+import { AnimatePresence, motion } from "motion/react";
 
 import { cn } from "@/utils/cn";
-import { buttonVariants } from "@/ui/button";
 import { useIsMounted } from "@/hooks/isMounted";
 
 interface CopyButtonIconProps {
@@ -19,6 +20,39 @@ interface CopyButtonProps {
 }
 
 const COPY_ANIMATION_DURATION = 2000;
+
+const CopyIcon: FC<SVGProps<SVGElement>> = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="13"
+    height="13"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
+    <rect width="14" height="14" x="8" y="8" rx="2" ry="2"></rect>
+    <path d="M4 16c-1.1 0-2-.9-2-2V4c0-1.1.9-2 2-2h10c1.1 0 2 .9 2 2"></path>
+  </svg>
+);
+
+const CheckIcon: FC<SVGProps<SVGElement>> = () => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="13"
+    height="13"
+    fill="none"
+    stroke="currentColor"
+    strokeLinecap="round"
+    strokeLinejoin="round"
+    strokeWidth="2"
+    viewBox="0 0 24 24"
+  >
+    <path d="M20 6 9 17l-5-5"></path>
+  </svg>
+);
 
 const variants: Variants = {
   visible: {
@@ -44,7 +78,7 @@ const CopyButtonIcon = ({ isAnimating }: CopyButtonIconProps) => {
           key="copied"
           variants={variants}
         >
-          <Check className="size-3.5" />
+          <CheckIcon />
         </motion.div>
       ) : (
         <motion.div
@@ -54,7 +88,7 @@ const CopyButtonIcon = ({ isAnimating }: CopyButtonIconProps) => {
           key="copy"
           variants={variants}
         >
-          <Copy className="size-3.5" />
+          <CopyIcon />
         </motion.div>
       )}
     </AnimatePresence>
@@ -86,14 +120,7 @@ const CopyButton = ({ text, label, className }: CopyButtonProps) => {
     <button
       title={label}
       aria-label={label}
-      className={cn(
-        buttonVariants({
-          variant: "ghost",
-          size: "icon",
-        }),
-        "px-1.5",
-        className,
-      )}
+      className={cn(className)}
       onClick={handleCopy}
     >
       {isMounted && <CopyButtonIcon isAnimating={isAnimating} />}
