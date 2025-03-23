@@ -1,11 +1,13 @@
+import { globals } from "@/globals";
 import { container } from "@/ui/container";
 import { cn } from "@/utils/cn";
 
 import { BuiltBy } from "@/components/builtBy";
-import ExternalLink from "@/ui/externalLink";
 import { Github, X } from "@/ui/logos";
 import { buttonVariants } from "@/ui/button";
-import ModeToggle from "./modeToggle";
+
+import ExternalLink from "@/ui/externalLink";
+import ModeToggle from "@/components/modeToggle";
 
 const Footer = () => {
   return (
@@ -22,7 +24,7 @@ const Footer = () => {
           <div className="flex items-center space-x-0.5">
             <ExternalLink
               title="GitHub Repository"
-              href="https://github.com/pheralb/codeblocks"
+              href={globals.social.github}
               className={buttonVariants({
                 variant: "ghost",
                 size: "icon",
@@ -32,7 +34,7 @@ const Footer = () => {
             </ExternalLink>
             <ExternalLink
               title="Twitter"
-              href="https://x.com/pheralb_"
+              href={globals.social.twitter}
               className={buttonVariants({
                 variant: "ghost",
                 size: "icon",
