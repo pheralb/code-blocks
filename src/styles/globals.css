@@ -14,3 +14,33 @@
     "var(--font-headings)", ui-sans-serif, system-ui, sans-serif,
     "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
+
+@supports (view-transition-name: none) {
+  @media not (prefers-reduced-motion: reduce) {
+    ::view-transition-old(fade) {
+      animation: disappear 0.3s ease forwards;
+    }
+    ::view-transition-new(fade) {
+      opacity: 0;
+      animation: appear 0.3s ease forwards;
+    }
+  }
+}
+
+@keyframes appear {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes disappear {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
+}
