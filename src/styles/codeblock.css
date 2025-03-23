@@ -1,3 +1,5 @@
+/* Light & Dark Theme */
+
 html.light code[data-theme*=" "],
 html.light code[data-theme*=" "] span,
 html.light .shiki,
@@ -14,6 +16,8 @@ html.dark .shiki span {
   background-color: transparent !important;
 }
 
+/* Line Numbers */
+
 code {
   counter-reset: step;
   counter-increment: step 0;
@@ -26,5 +30,36 @@ code:has(.line:nth-child(2)) .line::before {
   margin-right: 1.5rem;
   display: inline-block;
   text-align: right;
-  color: rgba(115,138,148,.4)
+}
+
+html.light code:has(.line:nth-child(2)) .line::before {
+  color: #a0a0a0;
+}
+
+html.dark code:has(.line:nth-child(2)) .line::before {
+  color: #525252;
+}
+
+/* Highlighted Lines */
+
+[data-highlighted-line] {
+  position: relative;
+  z-index: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: -16px;
+    right: -16px;
+    bottom: 0;
+    background-color: #d4d4d4;
+    border-left: 1px solid #a3a3a3;
+    z-index: -1;
+  }
+
+  .dark &::before {
+    background-color: #404040;
+    border-left: 1px solid #262626;
+  }
 }
