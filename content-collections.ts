@@ -5,9 +5,10 @@ import fs from "node:fs/promises";
 // MDX Plugins:
 import { compileMDX } from "@content-collections/mdx";
 import rehypeShiki from "@shikijs/rehype";
-import { rehypeShikiOptions } from "./src/mdx/rehypeShiki";
 import { visit } from "unist-util-visit";
 import remarkGfm from "remark-gfm";
+import { rehypeShikiOptions } from "./src/mdx/rehypeShiki";
+import { rehypeComponent } from "./src/mdx/rehypeComponent";
 
 // Global Config:
 const mainDomain = "codeblocks.pheralb.dev";
@@ -29,6 +30,7 @@ const docs = defineCollection({
     const mdx = await compileMDX(context, document, {
       remarkPlugins: [remarkGfm],
       rehypePlugins: [
+        rehypeComponent,
         // Shiki:
         [rehypeShiki, rehypeShikiOptions],
         // Open External Links:
@@ -41,6 +43,14 @@ const docs = defineCollection({
               !e.properties.href.toString().includes(mainDomain)
             ) {
               e.properties!["target"] = "_blank";
+            }
+          });
+        },
+        // Search <ComponentSource> and <ComponentPreview> from MDX and add data-title to <pre> tags:
+        () => (tree) => {
+          visit(tree, "element", (e) => {
+            if (e.tagName === "pre") {
+              e.properties!["data-title"] = "Click to Copy";
             }
           });
         },
