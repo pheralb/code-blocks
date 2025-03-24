@@ -22,7 +22,7 @@ const Navbar = () => {
     <nav
       className={cn(
         "sticky top-0 z-50",
-        "bg-neutral-100 backdrop-blur-md dark:bg-neutral-900",
+        "bg-neutral-100/30 backdrop-blur-md dark:bg-neutral-900/30",
         "border-y border-dashed border-neutral-200 dark:border-neutral-800",
       )}
     >

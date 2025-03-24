@@ -16,7 +16,6 @@ export async function generateMetadata(): Promise<Metadata> {
   }
   return {
     title: `${document.title} - ${globals.name}`,
-    description: document.description,
   };
 }
 

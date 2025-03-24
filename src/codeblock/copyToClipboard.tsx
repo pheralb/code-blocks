@@ -9,6 +9,8 @@ import { AnimatePresence, motion } from "motion/react";
 import { cn } from "@/utils/cn";
 import { useIsMounted } from "@/hooks/isMounted";
 
+/** Types */
+
 interface CopyButtonIconProps {
   isAnimating: boolean;
 }
@@ -18,6 +20,14 @@ interface CopyButtonProps {
   className?: string;
   label?: string;
 }
+
+/** Styles **/
+
+const CopyToClipboardStyles = cn(
+  "text-neutral-600 dark:text-neutral-400",
+  "hover:text-black dark:hover:text-white",
+  "transition-colors",
+);
 
 const COPY_ANIMATION_DURATION = 2000;
 
@@ -120,7 +130,7 @@ const CopyButton = ({ text, label, className }: CopyButtonProps) => {
     <button
       title={label}
       aria-label={label}
-      className={cn(className)}
+      className={cn(CopyToClipboardStyles, className)}
       onClick={handleCopy}
     >
       {isMounted && <CopyButtonIcon isAnimating={isAnimating} />}
