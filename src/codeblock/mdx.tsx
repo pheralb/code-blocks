@@ -23,7 +23,6 @@ const Codeblock = ({
   ["data-extra"]: dataExtra = "",
   ...props
 }: CodeblockProps) => {
-
   // Get the icon for the language:
   const getIcon = (lang: string) => {
     const icon = icons.find((icon) => icon.lang === lang);
@@ -45,6 +44,12 @@ const Codeblock = ({
       return getTextContent(childElement.props.children);
     }
     return "";
+  };
+
+  // Extract the title from the data-extra attribute:
+  const handleExtractTitle = (input: string) => {
+    const match = input.match(/title="([^"]+)"/);
+    return match ? match[1] : null;
   };
 
   const content = getTextContent(children);
@@ -69,7 +74,7 @@ const Codeblock = ({
         >
           <div className="flex items-center space-x-2">
             {getIcon(dataLanguage)}
-            <span>{dataExtra.split("title=").pop()}</span>
+            <span>{handleExtractTitle(dataExtra)}</span>
           </div>
           <CopyButton label="Copy to clipboard" text={content} />
         </div>
