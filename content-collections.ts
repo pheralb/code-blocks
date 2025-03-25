@@ -7,8 +7,13 @@ import { compileMDX } from "@content-collections/mdx";
 import rehypeShiki from "@shikijs/rehype";
 import { visit } from "unist-util-visit";
 import remarkGfm from "remark-gfm";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeSlug from "rehype-slug";
+
+// Custom Plugins:
 import { rehypeShikiOptions } from "./src/mdx/rehypeShiki";
 import { rehypeComponent } from "./src/mdx/rehypeComponent";
+import { headingLinkStyles } from "./src/ui/headingLink";
 
 // Global Config:
 const mainDomain = "codeblocks.pheralb.dev";
@@ -46,14 +51,17 @@ const docs = defineCollection({
             }
           });
         },
-        // Search <ComponentSource> and <ComponentPreview> from MDX and add data-title to <pre> tags:
-        () => (tree) => {
-          visit(tree, "element", (e) => {
-            if (e.tagName === "pre") {
-              e.properties!["data-title"] = "Click to Copy";
-            }
-          });
-        },
+        // Add Autolink Headings:
+        rehypeSlug,
+        [
+          rehypeAutolinkHeadings,
+          {
+            behavior: "wrap",
+            properties: {
+              className: [headingLinkStyles],
+            },
+          },
+        ],
       ],
     });
     return {
