@@ -33,11 +33,11 @@ const Navbar = () => {
             href={link.path}
             className={cn(
               "px-4 py-3",
-              "text-neutral-900 dark:text-neutral-50",
+              "text-neutral-600 hover:text-black dark:text-neutral-500 dark:hover:text-neutral-50",
               "hover:bg-neutral-200 dark:hover:bg-neutral-800",
               "transition-colors",
               link.path === pathname &&
-                "border-b border-neutral-400 dark:border-neutral-500",
+                "border-b border-neutral-400 text-black dark:border-neutral-500 dark:text-white",
             )}
           >
             {link.title}
