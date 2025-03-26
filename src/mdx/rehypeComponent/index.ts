@@ -11,16 +11,19 @@ export function rehypeComponent() {
   return async (tree: UnistTree) => {
     visit(tree, (node: UnistNode) => {
       if (node.name === "ComponentSource" || node.name === "ComponentPreview") {
-        const name = getNodeAttributeByName(node, "name")?.value as string;
+        const registryName = getNodeAttributeByName(node, "registry")
+          ?.value as string;
 
-        if (!name) {
+        if (!registryName) {
           return null;
         }
 
         try {
-          const component = Registry.find((item) => item.registryName === name);
+          const component = Registry.find(
+            (item) => item.registryName === registryName,
+          );
           if (!component) {
-            console.warn(`Component "${name}" not found in registry.`);
+            console.warn(`Component "${registryName}" not found in registry.`);
             return;
           }
           const src = path.join(process.cwd(), component.sourceFile);

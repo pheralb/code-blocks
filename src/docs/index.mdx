@@ -3,7 +3,7 @@ title: "Introduction"
 category: "Getting Started"
 ---
 
-```js {1} title="Greet" 
+```js {1} title="Greet"
 function greet(name) {
   return `Hello, ${name}!`;
 }
@@ -39,9 +39,9 @@ npm install motion @react-symbols/icons clsx tailwind-merge -E
 
 > If you're using [**shadcn/ui**](https://ui.shadcn.com/), you can skip this step.
 
-- Create a custom utility with [clsx](https://github.com/lukeed/clsx) and [tailwind-merge](https://github.com/dcastil/tailwind-merge):
+Create a custom utility with [clsx](https://github.com/lukeed/clsx) and [tailwind-merge](https://github.com/dcastil/tailwind-merge):
 
-```ts title=src/utils/cn.ts 
+```ts title="cn utility"
 import { clsx, type ClassValue } from "clsx";
 import { twMerge } from "tailwind-merge";
 
@@ -52,72 +52,6 @@ export function cn(...inputs: ClassValue[]) {
 
 ## Styles
 
-- Create a ``codeblock.css`` file with the following content:
+Create a CSS file with the following content:
 
-```css title=codeblock.css
-/* Light & Dark Theme */
-
-html.light code[data-theme*=" "],
-html.light code[data-theme*=" "] span,
-html.light .shiki,
-html.light .shiki span {
-  color: var(--shiki-light);
-  background-color: transparent !important;
-}
-
-html.dark code[data-theme*=" "],
-html.dark code[data-theme*=" "] span,
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  background-color: transparent !important;
-}
-
-/* Line Numbers */
-
-code {
-  counter-reset: step;
-  counter-increment: step 0;
-}
-
-code:has(.line:nth-child(2)) .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 1rem;
-  margin-right: 1.5rem;
-  display: inline-block;
-  text-align: right;
-}
-
-html.light code:has(.line:nth-child(2)) .line::before {
-  color: #a0a0a0;
-}
-
-html.dark code:has(.line:nth-child(2)) .line::before {
-  color: #525252;
-}
-
-/* Highlighted Lines */
-
-[data-highlighted-line] {
-  position: relative;
-  z-index: 0;
-
-  &::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: -16px;
-    right: -16px;
-    bottom: 0;
-    background-color: #d4d4d4;
-    border-left: 1px solid #a3a3a3;
-    z-index: -1;
-  }
-
-  .dark &::before {
-    background-color: #404040;
-    border-left: 1px solid #262626;
-  }
-}
-```
+<ComponentSource registry="codeblock-mdx-styles" />
