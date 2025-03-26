@@ -1,9 +1,9 @@
 import type { HTMLProps, ReactElement, ReactNode } from "react";
-import { Document } from "@react-symbols/icons";
+import type { IconsData } from "@/codeblock/icons";
 
-import CopyButton from "./copyToClipboard";
+import CopyButton from "@/codeblock/copyToClipboard";
 import { cn } from "@/utils/cn";
-import { icons } from "./icons";
+import { icons } from "@/codeblock/icons";
 
 /** Types **/
 
@@ -17,16 +17,16 @@ type CodeProps = HTMLProps<HTMLElement>;
 
 /** Components **/
 
-const Codeblock = ({
+const CodeblockMDX = ({
   children,
   ["data-language"]: dataLanguage = "ts",
   ["data-extra"]: dataExtra = "",
   ...props
 }: CodeblockProps) => {
   // Get the icon for the language:
-  const getIcon = (lang: string) => {
+  const getIcon = (lang: string): IconsData => {
     const icon = icons.find((icon) => icon.lang === lang);
-    return icon ? icon.icon : <Document width={14} height={14} />;
+    return icon || icons[0];
   };
 
   // Utility function to get the text content of a ReactNode:
@@ -63,28 +63,26 @@ const Codeblock = ({
         props.className,
       )}
     >
-      {dataExtra ? (
-        <div
-          className={cn(
-            "flex items-center justify-between text-sm",
-            "px-2 py-1",
-            "bg-neutral-200/30 dark:bg-neutral-800/30",
-            "border-b border-neutral-200 dark:border-neutral-800",
+      <div
+        className={cn(
+          "flex items-center justify-between text-sm",
+          "px-2 py-1",
+          "bg-neutral-200/30 dark:bg-neutral-800/30",
+          "border-b border-neutral-200 dark:border-neutral-800",
+        )}
+      >
+        <div className="flex items-center space-x-2">
+          {getIcon(dataLanguage).icon}
+          {dataExtra ? (
+            <p>{handleExtractTitle(dataExtra)}</p>
+          ) : (
+            <p className="text-neutral-600 dark:text-neutral-400">
+              {getIcon(dataLanguage).name}
+            </p>
           )}
-        >
-          <div className="flex items-center space-x-2">
-            {getIcon(dataLanguage)}
-            <span>{handleExtractTitle(dataExtra)}</span>
-          </div>
-          <CopyButton label="Copy to clipboard" text={content} />
         </div>
-      ) : (
-        <CopyButton
-          label="Copy to clipboard"
-          text={content}
-          className="absolute top-2 right-2"
-        />
-      )}
+        <CopyButton label="Copy to clipboard" text={content} />
+      </div>
       <div className="not-prose max-h-64 overflow-y-auto px-2.5 py-3">
         <pre {...props}>{children}</pre>
       </div>
@@ -92,7 +90,7 @@ const Codeblock = ({
   );
 };
 
-const Code = (props: CodeProps) => {
+const CodeMDX = (props: CodeProps) => {
   return (
     <code
       className={cn(
@@ -104,4 +102,4 @@ const Code = (props: CodeProps) => {
   );
 };
 
-export { Codeblock, Code };
+export { CodeblockMDX, CodeMDX };

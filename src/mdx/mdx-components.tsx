@@ -1,6 +1,6 @@
 import type { MDXComponents } from "mdx/types";
 
-import { Code, Codeblock } from "@/codeblock/mdx";
+import { CodeMDX, CodeblockMDX } from "@/codeblock/mdx";
 import {
   ComponentPreview,
   ComponentSource,
@@ -9,8 +9,8 @@ import { MDXTypography } from "@/ui/typography";
 import Separator from "@/ui/separator";
 
 export const MDXCustomComponents: MDXComponents = {
-  pre: (props) => <Codeblock {...props} />,
-  code: (props) => <Code {...props} />,
+  pre: (props) => <CodeblockMDX {...props} />,
+  code: (props) => <CodeMDX {...props} />,
   Separator,
   ComponentPreview,
   ComponentSource,
