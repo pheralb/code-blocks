@@ -12,7 +12,7 @@ import { fontMono, fontSans, fontHeadings } from "@/ui/fonts";
 
 // Providers:
 import { unstable_ViewTransition as ViewTransition } from "react";
-import { ThemeProvider } from "@/providers/themeProvider";
+import { ThemeProvider } from "@/components/providers/themeProvider";
 
 // Layout:
 import { container } from "@/ui/container";
