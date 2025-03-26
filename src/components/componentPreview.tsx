@@ -1,24 +1,26 @@
 "use client";
 
+import type { HTMLAttributes } from "react";
 import { createElement, Suspense, useMemo } from "react";
-import { LoaderIcon } from "lucide-react";
+import { BoxIcon, LoaderIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 import { Registry } from "@/registry";
 
-interface ComponentSourceProps extends React.HTMLAttributes<HTMLDivElement> {
-  name: string;
+interface ComponentSourceProps extends HTMLAttributes<HTMLDivElement> {
+  registry: string;
 }
 
 const ComponentPreview = ({
-  name,
+  registry,
+  title,
   children,
   className,
   ...props
 }: ComponentSourceProps) => {
   const componentEntry = useMemo(() => {
-    return Registry.find((item) => item.registryName === name);
-  }, [name]);
+    return Registry.find((item) => item.registryName === registry);
+  }, [registry]);
 
   const Preview = useMemo(() => {
     if (!componentEntry) {
@@ -35,29 +37,29 @@ const ComponentPreview = ({
   }, [componentEntry]);
 
   return (
-    <div
-      className={cn(
-        "relative my-4 flex flex-col space-y-4 lg:max-w-[120ch]",
-        className,
-      )}
-      {...props}
-    >
-      <Suspense
-        fallback={
-          <div className="text-muted-foreground flex items-center text-sm">
-            <LoaderIcon className="mr-2 h-4 w-4 animate-spin" />
-            Loading...
+    <section className={cn(className)} {...props}>
+      <div className="flex flex-col space-y-1.5">
+        <div className="flex flex-col">
+          <header className="flex w-fit items-center space-x-2 rounded-t-md border-x border-t p-2 text-sm text-neutral-500 dark:border-neutral-800 dark:bg-neutral-900 dark:text-neutral-400">
+            <BoxIcon size={14} />
+            <span>{title}</span>
+          </header>
+          <div className="rounded-r-md rounded-b-md border border-neutral-200 bg-neutral-50 p-5 dark:border-neutral-800 dark:bg-neutral-900">
+            <Suspense
+              fallback={
+                <div className="flex items-center justify-center text-sm">
+                  <LoaderIcon className="mr-2 h-4 w-4 animate-spin" />
+                  <span>Loading...</span>
+                </div>
+              }
+            >
+              {Preview}
+            </Suspense>
           </div>
-        }
-      >
-        {Preview}
-      </Suspense>
-      {children && (
-        <div className="w-full rounded-md [&_pre]:my-0 [&_pre]:max-h-[350px] [&_pre]:overflow-auto">
-          {children}
         </div>
-      )}
-    </div>
+        {children && children}
+      </div>
+    </section>
   );
 };
 

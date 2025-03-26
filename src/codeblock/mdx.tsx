@@ -7,13 +7,13 @@ import { icons } from "@/codeblock/icons";
 
 /** Types **/
 
-interface CodeblockProps extends HTMLProps<HTMLPreElement> {
+export type CodeblockMDXProps = {
   ["data-language"]?: string;
   ["data-extra"]?: string;
   title?: string;
-}
+} & HTMLProps<HTMLPreElement>;
 
-type CodeProps = HTMLProps<HTMLElement>;
+export type CodeMDXProps = HTMLProps<HTMLElement>;
 
 /** Components **/
 
@@ -22,7 +22,7 @@ const CodeblockMDX = ({
   ["data-language"]: dataLanguage = "ts",
   ["data-extra"]: dataExtra = "",
   ...props
-}: CodeblockProps) => {
+}: CodeblockMDXProps) => {
   // Get the icon for the language:
   const getIcon = (lang: string): IconsData => {
     const icon = icons.find((icon) => icon.lang === lang);
@@ -90,7 +90,7 @@ const CodeblockMDX = ({
   );
 };
 
-const CodeMDX = (props: CodeProps) => {
+const CodeMDX = (props: CodeMDXProps) => {
   return (
     <code
       className={cn(
