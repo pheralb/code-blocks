@@ -40,7 +40,7 @@ export const MDXTypography: MDXComponents = {
   ),
   p: (props) => (
     <p
-      className="leading-7 text-balance text-neutral-900 dark:text-neutral-100 [&:not(:first-child)]:mt-6"
+      className="leading-7 text-balance text-neutral-900 dark:text-neutral-100 [&:not(:first-child)]:mt-5"
       {...props}
     />
   ),
