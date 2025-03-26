@@ -1,21 +1,20 @@
 /* Light & Dark Theme */
 
-html.light code[data-theme*=" "],
-html.light code[data-theme*=" "] span,
+html.light code[data-theme=" "],
+html.light code[data-theme=" "] span,
 html.light .shiki,
 html.light .shiki span {
   color: var(--shiki-light);
   background-color: transparent !important;
 }
 
-html.dark code[data-theme*=" "],
-html.dark code[data-theme*=" "] span,
+html.dark code[data-theme=" "],
+html.dark code[data-theme=" "] span,
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark) !important;
   background-color: transparent !important;
 }
-
 /* Line Numbers */
 
 code {
