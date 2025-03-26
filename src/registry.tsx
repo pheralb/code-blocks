@@ -1,6 +1,7 @@
 import { lazy } from "react";
 
 export const Registry = [
+  // MDX Component:
   {
     registryName: "codeblock-mdx",
     sourceFile: "src/codeblock/mdx.tsx",
@@ -11,10 +12,16 @@ export const Registry = [
     sourceFile: "src/styles/codeblock.css",
     fileType: "css",
   },
+  // Client Component:
   {
     registryName: "codeblock-client",
     sourceFile: "src/codeblock/client.tsx",
     fileType: "tsx",
-    reactComponent: lazy(() => import("@/codeblock/client")),
+  },
+  {
+    registryName: "codeblock-client-example",
+    sourceFile: "src/codeblock/client.tsx",
+    fileType: "tsx",
+    reactComponent: lazy(() => import("@/components/examples/codeblockClient")),
   },
 ];
