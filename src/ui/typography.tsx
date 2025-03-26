@@ -6,12 +6,13 @@ import { cn } from "@/utils/cn";
 
 export const MDXTypography: MDXComponents = {
   a: ({ href, ...props }) => {
+    const aStyles = cn(
+      "underline underline-offset-[5px] decoration-neutral-600 dark:decoration-neutral-500 hover:opacity-70 transition-opacity",
+    );
     if (href.startsWith("https://") || href.startsWith("http://")) {
-      return (
-        <ExternalLink className={cn("underline")} href={href} {...props} />
-      );
+      return <ExternalLink className={aStyles} href={href} {...props} />;
     }
-    return <Link className={cn("underline")} href={href} {...props} />;
+    return <Link className={aStyles} href={href} {...props} />;
   },
   h1: (props) => (
     <h1
@@ -47,5 +48,7 @@ export const MDXTypography: MDXComponents = {
   blockquote: (props) => (
     <blockquote className="border-l-2 pl-6 italic" {...props} />
   ),
-  ul: (props) => <ul className="my-6 ml-6 list-disc [&>li]:mt-2" {...props} />,
+  ul: (props) => (
+    <ul className="mt-5 mb-4 ml-6 list-disc [&>li]:mt-2" {...props} />
+  ),
 };
