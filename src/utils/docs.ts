@@ -1,4 +1,14 @@
-import { allDocs, type Doc } from "content-collections";
+import type { Document } from "@content-collections/core";
+import {
+  allGenerals,
+  type General,
+  allShikis,
+  type Shiki,
+} from "content-collections";
+
+const allDocs = [...allGenerals, ...allShikis];
+
+type Doc = Document & (General | Shiki);
 
 interface GetAllDocs {
   category: string;

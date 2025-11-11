@@ -41,15 +41,23 @@ const docTransform = async (document: DocsDocument, context: Context) => {
   };
 };
 
-// Collection:
-const docs = defineCollection({
-  name: "docs",
+// Collections:
+const generalDocs = defineCollection({
+  name: "general",
   directory: "src/docs",
   include: "**/*.mdx",
   schema: docSchema,
   transform: docTransform,
 });
 
+const shikiDocs = defineCollection({
+  name: "shiki",
+  directory: "src/docs/shiki",
+  include: "**/*.mdx",
+  schema: docSchema,
+  transform: docTransform,
+});
+
 export default defineConfig({
-  collections: [docs],
+  collections: [generalDocs, shikiDocs],
 });
