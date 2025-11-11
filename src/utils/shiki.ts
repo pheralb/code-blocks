@@ -12,13 +12,17 @@ import darkTheme from "@shikijs/themes/one-dark-pro";
 // Languages:
 import js from "@shikijs/langs/js";
 import ts from "@shikijs/langs/ts";
-import css from "@shikijs/langs/css";
 import tsx from "@shikijs/langs/tsx";
+import css from "@shikijs/langs/css";
 import bash from "@shikijs/langs/bash";
 import markdown from "@shikijs/langs/markdown";
 
 let jsEngine: RegexEngine | null = null;
 let highlighter: Promise<HighlighterCore> | null = null;
+
+// Set types for UI Components
+type Themes = "one-light" | "one-dark-pro";
+type Languages = "js" | "ts" | "tsx" | "css" | "bash" | "markdown";
 
 const getJsEngine = (): RegexEngine => {
   jsEngine ??= createJavaScriptRegexEngine();
@@ -34,4 +38,4 @@ const shikiHighlighter = async (): Promise<HighlighterCore> => {
   return highlighter;
 };
 
-export { shikiHighlighter };
+export { shikiHighlighter, type Themes, type Languages };
