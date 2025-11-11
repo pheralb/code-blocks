@@ -1,4 +1,5 @@
 import { fileURLToPath } from "node:url";
+import { includeIgnoreFile } from "@eslint/compat";
 import { defineConfig, globalIgnores } from "eslint/config";
 
 // Plugins:
@@ -15,6 +16,20 @@ const eslintConfig = defineConfig([
   ...nextVitals,
   ...nextTs,
   prettier,
+  {
+    rules: {
+      "@typescript-eslint/no-unused-vars": [
+        "warn",
+        {
+          argsIgnorePattern: "^_",
+          varsIgnorePattern: "^_",
+        },
+      ],
+    },
+    linterOptions: {
+      reportUnusedDisableDirectives: "warn",
+    },
+  },
 ]);
 
 export default eslintConfig;
