@@ -6,9 +6,20 @@
 /* Light/Dark */
 @custom-variant dark (&:is(.dark *));
 
+/* Fonts */
+@theme {
+  --font-sans:
+    var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono:
+    var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace, "Apple Color Emoji";
+}
+
 /* Shiki */
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark) !important;
   background-color: var(--shiki-dark-bg) !important;
+  font-family: var(--font-mono) !important;
 }
