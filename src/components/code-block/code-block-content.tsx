@@ -1,14 +1,18 @@
 import type { ComponentProps } from "react";
 import { cn } from "@/utils/cn";
 
-const CodeBlockGroup = ({
+const CodeBlockContent = ({
   className,
   children,
   ...props
 }: ComponentProps<"div">) => {
   return (
     <div
-      className={cn("flex items-center justify-between", className)}
+      className={cn(
+        "rounded-lg p-3 font-mono text-sm leading-6 whitespace-pre",
+        "bg-zinc-50 dark:bg-zinc-900",
+        className,
+      )}
       {...props}
     >
       {children}
@@ -16,4 +20,4 @@ const CodeBlockGroup = ({
   );
 };
 
-export { CodeBlockGroup };
+export { CodeBlockContent };
