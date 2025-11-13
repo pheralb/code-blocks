@@ -31,7 +31,7 @@ const CodeBlockHeader = ({
         {icon
           ? icon
           : LanguageIcon && (
-              <LanguageIcon className="size-4 text-zinc-500 dark:text-zinc-400" />
+              <LanguageIcon className="size-4" />
             )}
         <p>{title ? title : LanguageData?.title}</p>
       </div>
