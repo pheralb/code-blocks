@@ -23,3 +23,20 @@ html.dark .shiki span {
   background-color: var(--shiki-dark-bg) !important;
   font-family: var(--font-mono) !important;
 }
+
+/* Shiki Line Numbers */
+pre.shiki-line-numbers code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+pre.shiki-line-numbers code:has(.line:nth-child(2)) .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 0.5rem;
+  margin-right: 1rem;
+  margin-left: 0.3rem;
+  display: inline-block;
+  text-align: right;
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-600;
+}
