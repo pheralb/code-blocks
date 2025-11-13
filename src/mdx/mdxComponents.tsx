@@ -11,15 +11,17 @@ import { CodeBlockContent } from "@/components/code-block/code-block-content";
 // Get data from Shiki transformers
 interface PreProps extends ComponentProps<"pre"> {
   ["data-language"]: string;
+  ["data-title"]?: string;
 }
 
 const MDXCustomComponents: MDXComponents = {
   pre: ({ children, ...props }: PreProps) => {
     const content = reactToText(children);
+    const title = props["data-title"];
     const language = props["data-language"];
     return (
       <CodeBlock>
-        <CodeBlockHeader language={language}>
+        <CodeBlockHeader language={language} title={title}>
           <CopyContent content={content} />
         </CodeBlockHeader>
         <CodeBlockContent>
