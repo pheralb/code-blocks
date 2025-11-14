@@ -9,7 +9,7 @@ const CodeBlockContent = ({
   return (
     <div
       className={cn(
-        "rounded-lg p-3 font-mono text-sm leading-6 whitespace-pre",
+        "rounded-lg p-3 font-mono text-sm leading-5 whitespace-pre",
         "bg-zinc-50 dark:bg-zinc-900",
         className,
       )}
