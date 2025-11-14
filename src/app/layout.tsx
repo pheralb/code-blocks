@@ -43,10 +43,10 @@ export default function RootLayout({
         >
           <SidebarProvider>
             <SidebarAppContent />
-            <main>
+            <div>
               <SidebarTrigger />
-              {children}
-            </main>
+              <main className="p-4">{children}</main>
+            </div>
           </SidebarProvider>
         </ThemeProvider>
       </body>
