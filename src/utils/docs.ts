@@ -1,34 +1,30 @@
 import type { Document } from "@content-collections/core";
 import {
   allGenerals,
-  type General,
+  allGstarteds,
   allShikis,
+  type General,
+  type Gstarted,
   type Shiki,
 } from "content-collections";
 
-const allDocs = [...allGenerals, ...allShikis];
+const allDocs = [...allGenerals, ...allGstarteds, ...allShikis];
 
-type Doc = Document & (General | Shiki);
+type Doc = Document & (General | Gstarted | Shiki);
 
-interface GetAllDocs {
-  category: string;
-  documents: Doc[];
+interface GetDocument {
+  folder: string;
+  document: string;
 }
 
-export const getAllDocs = (): GetAllDocs[] => {
-  const categoriesMap: Record<string, Doc[]> = {};
-  allDocs.forEach((doc) => {
-    if (!categoriesMap[doc.category]) {
-      categoriesMap[doc.category] = [];
-    }
-    categoriesMap[doc.category].push(doc);
-  });
-  return Object.entries(categoriesMap).map(([category, documents]) => ({
-    category,
-    documents,
-  }));
+const getDocument = ({ folder, document }: GetDocument): Doc | undefined => {
+  const doc = allDocs.find(
+    (doc) => doc.folder === folder && doc._meta.path === document,
+  );
+  if (!doc) {
+    return undefined;
+  }
+  return doc;
 };
 
-export const getDocument = (documentPath: string): Doc | undefined => {
-  return allDocs.find((doc) => doc._meta.path === documentPath);
-};
+export { getDocument };
