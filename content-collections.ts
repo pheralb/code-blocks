@@ -12,8 +12,9 @@ import remarkGfm from "remark-gfm";
 import rehypeShiki from "@shikijs/rehype/core";
 import { compileMDX } from "@content-collections/mdx";
 import { shikiHighlighter } from "./src/utils/shiki";
-import { rehypeShikiOptions } from "./src/mdx/rehypeShiki";
-import { getTableOfContents } from "./src/mdx/generateToC";
+import { rehypeShikiOptions } from "./src/mdx/plugins/rehypeShiki";
+import { getTableOfContents } from "./src/mdx/plugins/generateToC";
+import { rehypeComponent } from "./src/mdx/plugins/rehypeComponent";
 
 // Schema:
 const docSchema = z.object({
@@ -27,15 +28,23 @@ type DocSchema = z.infer<typeof docSchema>;
 type DocsDocument = Document & DocSchema;
 
 // Transform:
-const docTransform = async (document: DocsDocument, context: Context) => {
+const docTransform = async (
+  folder: string,
+  document: DocsDocument,
+  context: Context,
+) => {
   const highlighter = await shikiHighlighter();
   const tableOfContents = getTableOfContents(document.content);
   const mdx = await compileMDX(context, document, {
     remarkPlugins: [remarkGfm],
-    rehypePlugins: [[rehypeShiki, highlighter, rehypeShikiOptions]],
+    rehypePlugins: [
+      rehypeComponent,
+      [rehypeShiki, highlighter, rehypeShikiOptions],
+    ],
   });
   return {
     ...document,
+    folder,
     tableOfContents,
     mdx,
   };
@@ -47,7 +56,16 @@ const generalDocs = defineCollection({
   directory: "src/docs",
   include: "**/*.mdx",
   schema: docSchema,
-  transform: docTransform,
+  transform: (document, context) => docTransform("general", document, context),
+});
+
+const gstartedDocs = defineCollection({
+  name: "gstarted",
+  directory: "src/docs/getting-started",
+  include: "**/*.mdx",
+  schema: docSchema,
+  transform: (document, context) =>
+    docTransform("getting-started", document, context),
 });
 
 const shikiDocs = defineCollection({
@@ -55,9 +73,9 @@ const shikiDocs = defineCollection({
   directory: "src/docs/shiki",
   include: "**/*.mdx",
   schema: docSchema,
-  transform: docTransform,
+  transform: (document, context) => docTransform("shiki", document, context),
 });
 
 export default defineConfig({
-  collections: [generalDocs, shikiDocs],
+  collections: [generalDocs, gstartedDocs, shikiDocs],
 });
