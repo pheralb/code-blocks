@@ -1,0 +1,151 @@
+import type { UnistNode, UnistTree } from "@/mdx/types/unist";
+import type { RegistryComponent } from "@/components/registry/types";
+
+import fs from "fs";
+import path from "path";
+import { u } from "unist-builder";
+import { visit } from "unist-util-visit";
+
+// Components Registry:
+import { RegistryData } from "@/components/registry/data";
+
+const getComponent = (title: string): RegistryComponent | undefined => {
+  return RegistryData.find((group) => group.title === title);
+};
+
+export function rehypeComponent() {
+  return async (tree: UnistTree) => {
+    visit(tree, (node: UnistNode) => {
+      if (node.name === "ComponentPreview") {
+        if (!node.name) {
+          return null;
+        }
+
+        const title = getNodeAttributeByName(node, "component")
+          ?.value as string;
+
+        if (!title) {
+          return null;
+        }
+
+        try {
+          const component = getComponent(title);
+
+          if (!component) {
+            console.warn(
+              `⚠️ mdx/rehypeComponent/plugin - Component "${title}" not found in registry.`,
+            );
+            return;
+          }
+
+          if (!component.exampleSourceFile) {
+            console.warn(
+              `⚠️ mdx/rehypeComponent/plugin - Component "${title}" does not have an example source file. Add "exampleSourceFile" to the component registry.`,
+            );
+            return;
+          }
+
+          const src = path.resolve(process.cwd(), component.exampleSourceFile);
+          const source = fs.readFileSync(src, "utf8");
+
+          if (!source) {
+            throw new Error(
+              `Source code for component "${title}" is empty or not found.`,
+            );
+          }
+
+          node.children?.push(
+            u("element", {
+              tagName: "pre",
+              properties: {
+                className: [`language-${component.fileType}`],
+              },
+              children: [
+                u("element", {
+                  tagName: "code",
+                  properties: {
+                    className: [`language-${component.fileType}`],
+                  },
+                  children: [
+                    {
+                      type: "text",
+                      value: source,
+                    },
+                  ],
+                }),
+              ],
+            }),
+          );
+        } catch (error) {
+          console.error(
+            `❌ mdx/rehypeComponent/plugin - Error: ${error as string}`,
+          );
+        }
+      }
+
+      if (node.name === "ShowSource") {
+        if (!node.name) {
+          return null;
+        }
+
+        const title = getNodeAttributeByName(node, "component")
+          ?.value as string;
+
+        if (!title) {
+          return null;
+        }
+
+        try {
+          const component = getComponent(title);
+
+          if (!component) {
+            console.warn(
+              `⚠️ mdx/rehypeComponent/plugin - Component "${title}" not found in registry.`,
+            );
+            return;
+          }
+
+          const src = path.resolve(process.cwd(), component.mainSourceFile);
+          const source = fs.readFileSync(src, "utf8");
+
+          if (!source) {
+            throw new Error(
+              `Source code for component "${title}" is empty or not found.`,
+            );
+          }
+
+          node.children?.push(
+            u("element", {
+              tagName: "pre",
+              properties: {
+                className: [`language-${component.fileType}`],
+              },
+              children: [
+                u("element", {
+                  tagName: "code",
+                  properties: {
+                    className: [`language-${component.fileType}`],
+                  },
+                  children: [
+                    {
+                      type: "text",
+                      value: source,
+                    },
+                  ],
+                }),
+              ],
+            }),
+          );
+        } catch (error) {
+          console.error(
+            `❌ mdx/rehypeComponent/plugin - Error: ${error as string}`,
+          );
+        }
+      }
+    });
+  };
+}
+
+function getNodeAttributeByName(node: UnistNode, name: string) {
+  return node.attributes?.find((attribute) => attribute.name === name);
+}
