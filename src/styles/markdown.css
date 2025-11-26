@@ -1,0 +1,71 @@
+@import "./globals.css";
+
+.markdown {
+  @apply max-w-full text-zinc-950 dark:text-zinc-50;
+
+  /* Headings */
+
+  & h1:not(.not-markdown h1) {
+    @apply scroll-m-20 text-center text-3xl font-semibold text-balance;
+  }
+
+  & h2:not(.not-markdown h2) {
+    @apply mt-10 mb-3 scroll-m-20 border-b border-zinc-200 pb-1.5 text-2xl font-semibold first:mt-0 dark:border-zinc-800;
+  }
+
+  & h3:not(.not-markdown h3) {
+    @apply scroll-m-20 text-xl font-semibold not-first:mt-8 not-first:mb-3;
+  }
+
+  & h4:not(.not-markdown h4) {
+    @apply scroll-m-20 text-lg font-medium;
+  }
+
+  /* Paragraphs */
+
+  & p:not(.not-markdown p) {
+    @apply mb-1.5 leading-7 not-first:mt-4;
+  }
+
+  /* Links */
+
+  & a:not(.not-markdown a) {
+    @apply font-medium underline underline-offset-4 transition-opacity hover:opacity-80;
+  }
+
+  /* Blockquotes */
+
+  & blockquote:not(.not-markdown blockquote) {
+    @apply mt-6 border-l-2 border-zinc-300 bg-zinc-200/50 pl-4 text-zinc-700 dark:border-zinc-700 dark:bg-zinc-800/50 dark:text-zinc-300;
+  }
+
+  /* Tables */
+
+  & table:not(.not-markdown table) {
+    @apply w-full;
+  }
+
+  & tr:not(.not-markdown tr) {
+    @apply m-0 border-t p-0 even:bg-zinc-200 dark:even:bg-zinc-800;
+  }
+
+  & th:not(.not-markdown th) {
+    @apply border px-4 py-2 text-left font-bold [[align=center]]:text-center [[align=right]]:text-right;
+  }
+
+  & td:not(.not-markdown td) {
+    @apply border px-4 py-2 text-left [[align=center]]:text-center [[align=right]]:text-right;
+  }
+
+  /* Lists */
+
+  & list:not(.not-markdown list) {
+    @apply my-6 ml-6 list-disc [&>li]:mt-2;
+  }
+
+  /* Inline Code */
+
+  & code:not(pre > code):not(.not-markdown code) {
+    @apply relative rounded bg-zinc-200/50 px-[0.3rem] py-[0.2rem] font-mono text-sm dark:bg-zinc-800/50;
+  }
+}

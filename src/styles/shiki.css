@@ -1,0 +1,46 @@
+/* Tailwind CSS */
+@import "./globals.css";
+
+/* Shiki */
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+  background-color: var(--shiki-dark-bg) !important;
+  font-family: var(--font-mono) !important;
+}
+
+/* Shiki Line Numbers */
+pre.shiki-line-numbers code {
+  counter-reset: step;
+  counter-increment: step 0;
+}
+
+pre.shiki-line-numbers code:has(.line:nth-child(2)) .line::before {
+  content: counter(step);
+  counter-increment: step;
+  width: 0.5rem;
+  margin-right: 1rem;
+  margin-left: 0.3rem;
+  display: inline-block;
+  text-align: right;
+  @apply font-mono text-xs text-zinc-400 dark:text-zinc-600;
+}
+
+/* Shiki Highlight */
+span.shiki-highlight {
+  position: relative;
+  z-index: 0;
+  width: fit-content;
+  &::after {
+    content: "";
+    position: absolute;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--shiki-highlight-bg);
+    border-radius: 0.25rem;
+    opacity: 0.4;
+  }
+}
