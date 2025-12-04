@@ -9,6 +9,14 @@ html.dark .shiki span {
   font-family: var(--font-mono) !important;
 }
 
+pre.shiki {
+  @apply py-3;
+}
+
+pre.shiki span.line {
+  @apply px-4 py-0.5;
+}
+
 /* Shiki Line Numbers */
 pre.shiki-line-numbers code {
   counter-reset: step;
@@ -27,20 +35,10 @@ pre.shiki-line-numbers code:has(.line:nth-child(2)) .line::before {
 }
 
 /* Shiki Highlight */
-span.shiki-highlight {
-  position: relative;
-  z-index: 0;
-  width: fit-content;
+pre span.shiki-line-highlight {
+  @apply relative z-0 inline-block w-full;
   &::after {
     content: "";
-    position: absolute;
-    z-index: -1;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background-color: var(--shiki-highlight-bg);
-    border-radius: 0.25rem;
-    opacity: 0.4;
+    @apply absolute top-0 left-0 -z-10 h-full w-full border-l-2 border-zinc-400 bg-zinc-600/20! opacity-40;
   }
 }
