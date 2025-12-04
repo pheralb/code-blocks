@@ -7,7 +7,10 @@ import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
 import { wordWrapContent } from "@/utils/shiki/transformers/word-wrap";
 
 // Shiki Core Transformers
-import { transformerMetaHighlight } from "@shikijs/transformers";
+import {
+  transformerMetaHighlight,
+  transformerNotationDiff,
+} from "@shikijs/transformers";
 
 const rehypeShikiOptions: RehypeShikiCoreOptions = {
   themes: {
@@ -19,6 +22,7 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
     wordWrapContent(),
     getCodeBlockTitle(),
     showLineNumbers(),
+    transformerNotationDiff(),
     transformerMetaHighlight({
       className: "shiki-line-highlight",
     }),

@@ -5,7 +5,6 @@
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark) !important;
-  background-color: var(--shiki-dark-bg) !important;
   font-family: var(--font-mono) !important;
 }
 
@@ -40,5 +39,26 @@ pre span.shiki-line-highlight {
   &::after {
     content: "";
     @apply absolute top-0 left-0 -z-10 h-full w-full border-l-2 border-zinc-400 bg-zinc-600/20! opacity-40;
+  }
+}
+
+/* Shiki Notation Diff */
+pre.has-diff span.line.diff {
+  @apply relative inline-block w-full;
+}
+
+pre.has-diff span.line.diff.add {
+  @apply bg-green-300/20 dark:bg-green-700/20;
+  &::before {
+    content: "+";
+    @apply absolute left-2 text-green-600 dark:text-green-400;
+  }
+}
+
+pre.has-diff span.line.diff.remove {
+  @apply bg-red-300/20 opacity-70 dark:bg-red-600/20;
+  &::before {
+    content: "-";
+    @apply absolute left-2 text-red-600 dark:text-red-400;
   }
 }
