@@ -16,3 +16,17 @@
     var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace, "Apple Color Emoji";
 }
+
+/* Prose */
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply decoration-zinc-600 underline-offset-[6px] dark:decoration-zinc-400;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply mb-5 scroll-mt-20 text-2xl font-semibold;
+}
+
+.prose
+  :where(h2 > a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply no-underline decoration-zinc-600 underline-offset-[6px] hover:underline hover:opacity-85 dark:decoration-zinc-400;
+}
