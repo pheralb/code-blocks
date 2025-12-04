@@ -9,12 +9,16 @@ import {
 
 // Plugins:
 import remarkGfm from "remark-gfm";
+import rehypeSlug from "rehype-slug";
 import rehypeShiki from "@shikijs/rehype/core";
 import { compileMDX } from "@content-collections/mdx";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+
 import { shikiHighlighter } from "./src/utils/shiki";
 import { rehypeShikiOptions } from "./src/mdx/plugins/rehypeShiki";
 import { getTableOfContents } from "./src/mdx/plugins/generateToC";
 import { rehypeComponent } from "./src/mdx/plugins/rehypeComponent";
+import { HEADING_LINK_ANCHOR } from "./src/components/ui/headings";
 
 // Schema:
 const docSchema = z.object({
@@ -39,6 +43,16 @@ const docTransform = async (
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
       rehypeComponent,
+      rehypeSlug,
+      [
+        rehypeAutolinkHeadings,
+        {
+          behavior: "wrap",
+          properties: {
+            className: [HEADING_LINK_ANCHOR],
+          },
+        },
+      ],
       [rehypeShiki, highlighter, rehypeShikiOptions],
     ],
   });
