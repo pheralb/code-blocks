@@ -1,4 +1,13 @@
-import { HighlighterIcon, HouseIcon, WrenchIcon, type LucideIcon } from "lucide-react";
+import {
+  ArrowDown01Icon,
+  HighlighterIcon,
+  HouseIcon,
+  ListPlusIcon,
+  TextQuoteIcon,
+  TextWrapIcon,
+  WrenchIcon,
+  type LucideIcon,
+} from "lucide-react";
 
 interface Item {
   title: string;
@@ -36,9 +45,24 @@ export const SidebarLinksData: SidebarLinks[] = [
         href: "/docs/shiki/highlighter",
       },
       {
-        title: "Prerequisites",
-        icon: HouseIcon,
-        href: "/prerequisites",
+        title: "Line Numbers",
+        icon: ArrowDown01Icon,
+        href: "/docs/shiki/line-numbers",
+      },
+      {
+        title: "Word Wrap",
+        icon: TextWrapIcon,
+        href: "/docs/shiki/word-wrap",
+      },
+      {
+        title: "Meta Highlight",
+        icon: TextQuoteIcon,
+        href: "/docs/shiki/meta-highlight",
+      },
+      {
+        title: "Notation Diff",
+        icon: ListPlusIcon,
+        href: "/docs/shiki/notation-diff",
       },
     ],
   },
