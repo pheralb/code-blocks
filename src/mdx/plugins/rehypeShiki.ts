@@ -1,12 +1,10 @@
 import type { RehypeShikiCoreOptions } from "@shikijs/rehype/core";
 
 // Shiki custom transformers
-import {
-  getCodeBlockTitle,
-  getShikiLanguage,
-  showLineNumbers,
-  wordWrapContent,
-} from "@/utils/shiki-transformers";
+import { getShikiLanguage } from "@/utils/shiki/transformers/get-language";
+import { getCodeBlockTitle } from "@/utils/shiki/transformers/get-title";
+import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
+import { wordWrapContent } from "@/utils/shiki/transformers/word-wrap";
 
 // Shiki Core Transformers
 import { transformerMetaHighlight } from "@shikijs/transformers";
@@ -22,7 +20,7 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
     getCodeBlockTitle(),
     showLineNumbers(),
     transformerMetaHighlight({
-      className: 'shiki-highlight'
+      className: "shiki-line-highlight",
     }),
   ],
 };
