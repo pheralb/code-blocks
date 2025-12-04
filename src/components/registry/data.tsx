@@ -21,16 +21,29 @@ const UtilsFiles: RegistryComponent[] = [
   {
     title: "shiki-highlighter",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki.ts`,
+    mainSourceFile: `${utilsFolder}/shiki/index.ts`,
     shadcnRegistry: {
       mainType: "registry:lib",
       dependencies: ["shiki", "@shikijs/themes", "@shikijs/langs"],
     },
   },
+];
+
+// Shiki Transformers:
+const ShikiTransformers: RegistryComponent[] = [
   {
-    title: "shiki-transformers",
+    title: "shiki-show-line-numbers",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki-transformers.ts`,
+    mainSourceFile: `${utilsFolder}/shiki/transformers/show-line-numbers.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
+      dependencies: ["shiki"],
+    },
+  },
+  {
+    title: "shiki-word-wrap",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/shiki/transformers/word-wrap.ts`,
     shadcnRegistry: {
       mainType: "registry:lib",
       dependencies: ["shiki"],
@@ -38,4 +51,8 @@ const UtilsFiles: RegistryComponent[] = [
   },
 ];
 
-export const RegistryData: RegistryComponent[] = [...UtilsFiles, ...CSSFiles];
+export const RegistryData: RegistryComponent[] = [
+  ...UtilsFiles,
+  ...ShikiTransformers,
+  ...CSSFiles,
+];
