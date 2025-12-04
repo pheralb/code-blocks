@@ -3,7 +3,7 @@
 import { useEffect, useState, type ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
-import { shikiHighlighter, type Languages, type Themes } from "@/utils/shiki";
+import { highlight, type Languages, type Themes } from "@/utils/shiki";
 
 interface CodeBlockClientProps extends ComponentProps<"div"> {
   code: string;
@@ -21,19 +21,19 @@ const CodeBlockClient = ({
   const [highlightedHtml, setHighlightedHtml] = useState<string | null>(null);
 
   useEffect(() => {
-    async function highlight() {
+    async function clientHighlight() {
       if (!code) {
         setHighlightedHtml("<pre><code></code></pre>");
         return;
       }
-      const highlighter = await shikiHighlighter();
+      const highlighter = await highlight();
       const html = await highlighter.codeToHtml(code, {
         lang: language,
         theme,
       });
       setHighlightedHtml(html);
     }
-    highlight();
+    clientHighlight();
   }, [code, language, theme]);
 
   const classNames = cn(

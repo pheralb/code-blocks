@@ -9,6 +9,7 @@ const CodeBlock = ({
   return (
     <div
       className={cn(
+        "not-prose",
         "flex w-full flex-col overflow-clip rounded-lg",
         "bg-zinc-200 dark:bg-zinc-900",
         "border border-zinc-300/60 dark:border-zinc-700/60",
