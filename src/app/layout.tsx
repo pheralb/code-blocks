@@ -3,7 +3,6 @@ import type { ReactNode } from "react";
 
 // Styles:
 import "@/styles/globals.css";
-import "@/styles/markdown.css";
 import "@/styles/shiki.css";
 
 import { cn } from "@/utils/cn";
