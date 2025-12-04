@@ -1,8 +1,9 @@
 import type { ReactNode } from "react";
 
-import SidebarHeader from "@/components/docs-layout/sidebarHeader";
-import SidebarAppContent from "@/components/docs-layout/sidebarAppContent";
-import { SidebarInset, SidebarProvider } from "@/components/ui/sidebar";
+import SidebarLinks from "@/components/docs/sidebar-links";
+import { Sidebar, SidebarPageContent } from "@/components/ui/sidebar";
+import Header from "@/components/header";
+import SidebarMobileMenu from "@/components/docs/sidebar-mobile-menu";
 
 interface DocsLayoutProps {
   children: ReactNode;
@@ -10,13 +11,16 @@ interface DocsLayoutProps {
 
 const DocsLayout = async ({ children }: DocsLayoutProps) => {
   return (
-    <SidebarProvider defaultOpen={true}>
-      <SidebarAppContent />
-      <SidebarInset>
-        <SidebarHeader />
-        <main>{children}</main>
-      </SidebarInset>
-    </SidebarProvider>
+    <>
+      <Header layout="docs" />
+      <Sidebar position="left">
+        <SidebarLinks />
+      </Sidebar>
+      <SidebarPageContent>
+        <SidebarMobileMenu />
+        {children}
+      </SidebarPageContent>
+    </>
   );
 };
 

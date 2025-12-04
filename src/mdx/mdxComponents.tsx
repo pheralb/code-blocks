@@ -1,8 +1,13 @@
 import type { MDXComponents } from "mdx/types";
 import type { ComponentProps } from "react";
 
+// Utils
 import { reactToText } from "@/utils/react-to-text";
 
+// MDX Components
+import ShowSource from "@/components/show-source";
+
+// Registry Components
 import { CodeBlock } from "@/components/code-block/code-block";
 import { CopyContent } from "@/components/code-block/copy-content";
 import { CodeBlockHeader } from "@/components/code-block/code-block-header";
@@ -30,6 +35,7 @@ const MDXCustomComponents: MDXComponents = {
       </CodeBlock>
     );
   },
+  ShowSource,
 };
 
 export { MDXCustomComponents };

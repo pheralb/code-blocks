@@ -1,11 +1,25 @@
-import MDX from "@/mdx/mdx";
 import { getDocument } from "@/utils/docs";
 import { notFound } from "next/navigation";
 
+import MDX from "@/mdx/mdx";
+import Article from "@/components/article";
+import Container from "@/components/container";
+import Header from "@/components/header";
+
 const Home = () => {
-  const document = getDocument("introduction");
+  const document = getDocument({
+    folder: "general",
+    document: "home",
+  });
   if (!document) return notFound();
-  return <MDX code={document.mdx} />;
+  return (
+    <Container>
+      <Header layout="app" />
+      <Article>
+        <MDX code={document.mdx} />
+      </Article>
+    </Container>
+  );
 };
 
 export default Home;

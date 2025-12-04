@@ -3,15 +3,14 @@ import type { ReactNode } from "react";
 
 // Styles:
 import "@/styles/globals.css";
-import { cn } from "@/utils/cn";
+import "@/styles/markdown.css";
+import "@/styles/shiki.css";
 
-// Fonts:
+import { cn } from "@/utils/cn";
 import { fontSans, fontMono, fontHeadings } from "@/styles/fonts";
 
-// Providers:
-import { ThemeProvider } from "@/providers/themeProvider";
-import SidebarAppContent from "@/components/layout/sidebarAppContent";
-import { SidebarProvider, SidebarTrigger } from "@/components/ui/sidebar";
+// Global:
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 // Metadata:
 export const metadata: Metadata = {
@@ -41,13 +40,7 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          <SidebarProvider>
-            <SidebarAppContent />
-            <div>
-              <SidebarTrigger />
-              <main className="p-4">{children}</main>
-            </div>
-          </SidebarProvider>
+          <main>{children}</main>
         </ThemeProvider>
       </body>
     </html>
