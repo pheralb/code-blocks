@@ -29,7 +29,15 @@ const CodeBlockHeader = ({
       )}
     >
       <div className="flex items-center space-x-2">
-        {icon ? icon : LanguageIcon && <LanguageIcon className="size-4" />}
+        {icon
+          ? icon
+          : LanguageIcon && (
+              <LanguageIcon
+                width={18}
+                height={18}
+                aria-label={LanguageData?.title}
+              />
+            )}
         <p>{title ? title : LanguageData?.title}</p>
       </div>
       {children}
