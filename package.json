@@ -13,6 +13,7 @@
   },
   "dependencies": {
     "@radix-ui/react-dropdown-menu": "2.1.16",
+    "@react-symbols/icons": "1.2.11",
     "@shikijs/langs": "3.19.0",
     "@shikijs/themes": "3.19.0",
     "class-variance-authority": "0.7.1",

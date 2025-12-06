@@ -11,6 +11,9 @@ importers:
       '@radix-ui/react-dropdown-menu':
         specifier: 2.1.16
         version: 2.1.16(@types/react-dom@19.2.3(@types/react@19.2.7))(@types/react@19.2.7)(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
+      '@react-symbols/icons':
+        specifier: 1.2.11
+        version: 1.2.11(react-dom@19.2.1(react@19.2.1))(react@19.2.1)
       '@shikijs/langs':
         specifier: 3.19.0
         version: 3.19.0
@@ -1408,6 +1411,12 @@ packages:
 
   '@radix-ui/rect@1.1.1':
     resolution: {integrity: sha512-HPwpGIzkl28mWyZqG52jiqDJ12waP11Pa1lGoiyUkIEuMLBP0oeK/C89esbXrxsky5we7dfd8U58nm0SgAWpVw==}
+
+  '@react-symbols/icons@1.2.11':
+    resolution: {integrity: sha512-VKQ7zUD5w4NRI+JqD8dkY1dOI+qaUy54vsHrnMJLI0IvccxEnaJv/n37MyUE9LSUmyJ1QrZdEe0GoXtsMKWJNA==}
+    peerDependencies:
+      react: '>= 16.8'
+      react-dom: '>= 16.8'
 
   '@rtsao/scc@1.1.0':
     resolution: {integrity: sha512-zt6OdqaDoOnJ1ZYsCYGt9YmWzDXl4vQdKTyJev62gFhRGKdx7mcT54V9KIjg+d2wi9EXsPvAPKe7i7WjfVWB8g==}
@@ -4962,6 +4971,11 @@ snapshots:
       '@types/react-dom': 19.2.3(@types/react@19.2.7)
 
   '@radix-ui/rect@1.1.1': {}
+
+  '@react-symbols/icons@1.2.11(react-dom@19.2.1(react@19.2.1))(react@19.2.1)':
+    dependencies:
+      react: 19.2.1
+      react-dom: 19.2.1(react@19.2.1)
 
   '@rtsao/scc@1.1.0': {}
 
