@@ -1,20 +1,11 @@
 import type { RegistryComponent } from "@/components/registry/types";
+import { lazy } from "react";
 
 // Settings:
-const cssFolder = "src/styles";
 const utilsFolder = "src/utils";
-
-// CSS Files:
-const CSSFiles: RegistryComponent[] = [
-  {
-    title: "shiki-css",
-    fileType: "ts",
-    mainSourceFile: `${cssFolder}/shiki.ts`,
-    shadcnRegistry: {
-      mainType: "registry:file",
-    },
-  },
-];
+const componentsFolder = "src/components";
+const mdxComponents = "src/components/mdx/components";
+const codeblockComponent = "src/components/code-block";
 
 // Utils:
 const UtilsFiles: RegistryComponent[] = [
@@ -25,6 +16,22 @@ const UtilsFiles: RegistryComponent[] = [
     shadcnRegistry: {
       mainType: "registry:lib",
       dependencies: ["shiki", "@shikijs/themes", "@shikijs/langs"],
+    },
+  },
+  {
+    title: "copy-to-clipboard",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/copy.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
+    },
+  },
+  {
+    title: "react-to-text",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/react-to-text.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
     },
   },
 ];
@@ -49,10 +56,76 @@ const ShikiTransformers: RegistryComponent[] = [
       dependencies: ["shiki"],
     },
   },
+  {
+    title: "shiki-get-title",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/shiki/transformers/get-title.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
+      dependencies: ["shiki"],
+    },
+  },
+  {
+    title: "shiki-get-language",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/shiki/transformers/get-language.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
+      dependencies: ["shiki"],
+    },
+  },
+];
+
+// UI Components:
+const UIComponents: RegistryComponent[] = [
+  {
+    title: "code-block-structure",
+    fileType: "tsx",
+    mainSourceFile: `${codeblockComponent}/code-block.tsx`,
+    shadcnRegistry: {
+      mainType: "registry:component",
+      dependencies: ["lucide-react"],
+    },
+    exampleSourceFile: `${componentsFolder}/previews/code-block-structure.tsx`,
+    reactComponent: lazy(
+      () => import("@/components/previews/code-block-structure"),
+    ),
+  },
+  {
+    title: "code-block-mdx",
+    fileType: "tsx",
+    mainSourceFile: `${mdxComponents}/pre-component.tsx`,
+    shadcnRegistry: {
+      mainType: "registry:component",
+      dependencies: ["lucide-react"],
+    },
+  },
+  {
+    title: "copy-button",
+    fileType: "tsx",
+    mainSourceFile: `${codeblockComponent}/copy-button.tsx`,
+    shadcnRegistry: {
+      mainType: "registry:component",
+      dependencies: ["lucide-react"],
+    },
+    exampleSourceFile: `${componentsFolder}/previews/copy-button-example.tsx`,
+    reactComponent: lazy(
+      () => import("@/components/previews/copy-button-example"),
+    ),
+  },
+  {
+    title: "language-svgs",
+    fileType: "tsx",
+    mainSourceFile: `${codeblockComponent}/language-svgs.tsx`,
+    shadcnRegistry: {
+      mainType: "registry:component",
+      dependencies: ["@react-symbols/icons"],
+    },
+  },
 ];
 
 export const RegistryData: RegistryComponent[] = [
   ...UtilsFiles,
   ...ShikiTransformers,
-  ...CSSFiles,
+  ...UIComponents,
 ];
