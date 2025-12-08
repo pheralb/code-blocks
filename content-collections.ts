@@ -11,6 +11,7 @@ import {
 import remarkGfm from "remark-gfm";
 import rehypeSlug from "rehype-slug";
 import rehypeShiki from "@shikijs/rehype/core";
+
 import { compileMDX } from "@content-collections/mdx";
 import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
@@ -18,6 +19,7 @@ import { highlight } from "./src/utils/shiki";
 import { rehypeShikiOptions } from "./src/mdx/plugins/rehypeShiki";
 import { getTableOfContents } from "./src/mdx/plugins/generateToC";
 import { rehypeComponent } from "./src/mdx/plugins/rehypeComponent";
+import { rehypeReactDoc } from "./src/mdx/plugins/rehypeReactDoc";
 import { HEADING_LINK_ANCHOR } from "./src/components/ui/headings";
 
 // Schema:
@@ -53,6 +55,7 @@ const docTransform = async (
           },
         },
       ],
+      rehypeReactDoc,
       [rehypeShiki, highlighter, rehypeShikiOptions],
     ],
   });
@@ -82,6 +85,15 @@ const gstartedDocs = defineCollection({
     docTransform("getting-started", document, context),
 });
 
+const componentsDocs = defineCollection({
+  name: "components",
+  directory: "src/docs/components",
+  include: "**/*.mdx",
+  schema: docSchema,
+  transform: (document, context) =>
+    docTransform("components", document, context),
+});
+
 const shikiDocs = defineCollection({
   name: "shiki",
   directory: "src/docs/shiki",
@@ -91,5 +103,5 @@ const shikiDocs = defineCollection({
 });
 
 export default defineConfig({
-  collections: [generalDocs, gstartedDocs, shikiDocs],
+  collections: [generalDocs, gstartedDocs, componentsDocs, shikiDocs],
 });

@@ -3,14 +3,21 @@ import {
   allGenerals,
   allGstarteds,
   allShikis,
+  allComponents,
   type General,
   type Gstarted,
   type Shiki,
+  type Component,
 } from "content-collections";
 
-const allDocs = [...allGenerals, ...allGstarteds, ...allShikis];
+const allDocs = [
+  ...allGenerals,
+  ...allGstarteds,
+  ...allShikis,
+  ...allComponents,
+];
 
-type Doc = Document & (General | Gstarted | Shiki);
+type Doc = Document & (General | Gstarted | Shiki | Component);
 
 interface GetDocument {
   folder: string;
