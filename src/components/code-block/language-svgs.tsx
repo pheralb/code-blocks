@@ -1,6 +1,6 @@
 import type { FC, SVGProps } from "react";
 import type { Languages } from "@/utils/shiki";
-import { BracketsSky, Exe, Markdown, Reactts, TypeScript } from "@react-symbols/icons";
+import { BracketsOrange, BracketsSky, Exe, Markdown, Reactts, TypeScript } from "@react-symbols/icons";
 
 interface LanguageSvgsType {
   title: string;
@@ -9,6 +9,11 @@ interface LanguageSvgsType {
 }
 
 export const LanguageSvgs: LanguageSvgsType[] = [
+  {
+    title: "HTML",
+    language: "html",
+    icon: BracketsOrange,
+  },
   {
     title: "React",
     language: "tsx",
