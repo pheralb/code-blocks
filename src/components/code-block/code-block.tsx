@@ -75,8 +75,9 @@ const CodeBlockContent = ({
   return (
     <div
       className={cn(
-        "rounded-lg font-mono text-sm leading-5 whitespace-pre",
+        "max-h-96 overflow-y-auto",
         "bg-neutral-50 dark:bg-neutral-900",
+        "rounded-lg font-mono text-sm leading-5 whitespace-pre",
         className,
       )}
       {...props}
