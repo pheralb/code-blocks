@@ -10,6 +10,7 @@ import lightTheme from "@shikijs/themes/one-light";
 import darkTheme from "@shikijs/themes/one-dark-pro";
 
 // Languages:
+import html from "@shikijs/langs/html";
 import js from "@shikijs/langs/js";
 import ts from "@shikijs/langs/ts";
 import tsx from "@shikijs/langs/tsx";
@@ -22,7 +23,7 @@ let highlighter: Promise<HighlighterCore> | null = null;
 
 // Set types for UI Components
 type Themes = "one-light" | "one-dark-pro";
-type Languages = "js" | "ts" | "tsx" | "css" | "bash" | "mdx";
+type Languages = "html" | "js" | "ts" | "tsx" | "css" | "bash" | "mdx";
 
 const getJsEngine = (): RegexEngine => {
   jsEngine ??= createJavaScriptRegexEngine();
@@ -32,7 +33,7 @@ const getJsEngine = (): RegexEngine => {
 const highlight = async (): Promise<HighlighterCore> => {
   highlighter ??= createHighlighterCore({
     themes: [lightTheme, darkTheme],
-    langs: [bash, js, ts, tsx, css, markdown],
+    langs: [bash, js, ts, tsx, css, markdown, html],
     engine: getJsEngine(),
   });
   return highlighter;
