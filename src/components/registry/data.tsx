@@ -34,6 +34,15 @@ const UtilsFiles: RegistryComponent[] = [
       mainType: "registry:lib",
     },
   },
+  {
+    title: "shiki-custom-properties",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
+      dependencies: ["shiki"],
+    },
+  },
 ];
 
 // Shiki Transformers:
