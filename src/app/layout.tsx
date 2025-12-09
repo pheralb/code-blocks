@@ -28,8 +28,8 @@ export default function RootLayout({
       <body
         className={cn(
           `${fontSans.variable} ${fontHeadings.variable} ${fontMono.variable}`,
-          "bg-zinc-50 dark:bg-zinc-900",
-          "text-zinc-950 dark:text-zinc-50",
+          "bg-neutral-50 dark:bg-neutral-900",
+          "text-neutral-950 dark:text-neutral-50",
           "font-sans antialiased",
           "overscroll-none",
         )}

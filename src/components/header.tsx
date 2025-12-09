@@ -14,10 +14,10 @@ const Header = ({ layout }: HeaderProps) => {
       className={cn(
         "z-50",
         "sticky top-0 flex w-full",
-        "bg-zinc-50 backdrop-blur-sm dark:bg-zinc-900/90",
+        "bg-neutral-50 backdrop-blur-sm dark:bg-neutral-900/90",
         layout === "app" && "px-0 py-4 h-16",
         layout === "docs" &&
-          "h-14 border-b border-zinc-200 px-3.5 py-3 dark:border-zinc-800",
+          "h-14 border-b border-neutral-200 px-3.5 py-3 dark:border-neutral-800",
       )}
     >
       <nav className="flex w-full items-center justify-between">
@@ -25,7 +25,7 @@ const Header = ({ layout }: HeaderProps) => {
           href="/"
           className={cn(
             "text-xl font-semibold tracking-tight transition-colors",
-            "hover:text-zinc-700 dark:hover:text-zinc-300",
+            "hover:text-neutral-700 dark:hover:text-neutral-300",
           )}
         >
           Code Blocks

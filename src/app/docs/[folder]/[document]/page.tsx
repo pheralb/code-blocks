@@ -3,11 +3,11 @@ import type { Metadata } from "next";
 import { globals } from "@/globals";
 import { notFound } from "next/navigation";
 
-import MDX from "@/mdx/mdx";
+import MDX from "@/components/mdx";
 import { cn } from "@/utils/cn";
 import { getDocument } from "@/utils/docs";
 
-import Article from "@/components/article";
+import Article from "@/components/docs/doc-article";
 import Container from "@/components/container";
 import DocHeader from "@/components/docs/doc-header";
 import TableOfContents from "@/components/docs/toc-menu";
