@@ -8,6 +8,7 @@ import {
   ListPlusIcon,
   SquareCodeIcon,
   SquareDashedIcon,
+  TagsIcon,
   TextQuoteIcon,
   TextWrapIcon,
   WrenchIcon,
@@ -73,6 +74,11 @@ export const SidebarLinksData: SidebarLinks[] = [
         title: "Highlighter",
         icon: HighlighterIcon,
         href: "/docs/shiki/highlighter",
+      },
+      {
+        title: "Add Properties",
+        icon: TagsIcon,
+        href: "/docs/shiki/add-properties",
       },
       {
         title: "Line Numbers",
