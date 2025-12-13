@@ -30,6 +30,7 @@ export default function RootLayout({
           `${fontSans.variable} ${fontHeadings.variable} ${fontMono.variable}`,
           "bg-neutral-50 dark:bg-neutral-900",
           "text-neutral-950 dark:text-neutral-50",
+          "selection:bg-neutral-300 dark:selection:bg-neutral-700",
           "font-sans antialiased",
           "overscroll-none",
         )}
