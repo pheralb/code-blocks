@@ -13,12 +13,13 @@
     "build:registry": "tsx ./src/components/registry/build-registry.ts"
   },
   "dependencies": {
-    "@react-symbols/icons": "1.2.11",
+    "@react-symbols/icons": "1.2.12",
     "@shikijs/langs": "3.19.0",
     "@shikijs/themes": "3.19.0",
     "class-variance-authority": "0.7.1",
     "clsx": "2.1.1",
     "lucide-react": "0.555.0",
+    "motion": "12.23.26",
     "next": "16.0.7",
     "next-themes": "0.4.6",
     "radix-ui": "1.4.3",
