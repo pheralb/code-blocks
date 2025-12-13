@@ -23,7 +23,7 @@ const Hero = ({ children }: HeroProps) => {
       )}
     >
       <div className="flex flex-col items-center justify-center space-y-2">
-        <h1 className="font-headings text-3xl font-semibold tracking-tight text-white lg:text-5xl">
+        <h1 className="font-headings text-3xl font-semibold tracking-tight text-dark dark:text-white lg:text-5xl">
           Build beautiful code blocks
         </h1>
         <p className="font-medium text-neutral-500 dark:text-neutral-400">
@@ -36,11 +36,14 @@ const Hero = ({ children }: HeroProps) => {
           href="/docs/getting-started/prerequisites"
           className={buttonVariants({
             size: "lg",
-            className: "w-full md:w-auto",
+            className: "group w-full md:w-auto",
           })}
         >
           <span>Get Started</span>
-          <ChevronRightIcon size={16} />
+          <ChevronRightIcon
+            size={16}
+            className="transition-transform group-hover:translate-x-0.5"
+          />
         </Link>
         <ExternalLink
           title="View on GitHub"
