@@ -5,6 +5,7 @@
   "scripts": {
     "dev": "next dev",
     "build": "eslint ./src && next build",
+    "build:prod": "pnpm build:registry && pnpm build",
     "start": "next start",
     "check:lint": "eslint ./src",
     "fix:lint": "eslint ./src --fix",
