@@ -7,7 +7,7 @@ const Footer = () => {
   return (
     <footer
       className={cn(
-        "fixed bottom-0",
+        "md:fixed md:bottom-0",
         "flex w-full items-center py-4.5",
         "text-sm text-neutral-600 dark:text-neutral-400",
       )}

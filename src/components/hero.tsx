@@ -1,41 +1,38 @@
-import type { ReactNode } from "react";
-
 import Link from "next/link";
 import { ArrowUpRightIcon, ChevronRightIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
+import { globals } from "@/globals";
+
 import { GitHub } from "@/components/ui/svgs/github";
 import { buttonVariants } from "@/components/ui/button";
 import { ExternalLink } from "@/components/ui/external-link";
-import { globals } from "@/globals";
 
-interface HeroProps {
-  children: ReactNode;
-}
-
-const Hero = ({ children }: HeroProps) => {
+const Hero = () => {
   return (
     <div
       className={cn(
         "not-prose",
-        "flex flex-col space-y-4 pt-12",
-        "border-b border-dashed border-neutral-200 pb-6 dark:border-neutral-800",
+        "flex flex-col space-y-4 pt-10 pb-6 md:pt-12 md:pb-10",
       )}
     >
       <div className="flex flex-col items-center justify-center space-y-2">
-        <h1 className="font-headings text-3xl font-semibold tracking-tight text-dark dark:text-white lg:text-5xl">
+        <h1 className="font-headings text-dark text-4xl font-semibold tracking-tight lg:text-5xl dark:text-white">
           Build beautiful code blocks
         </h1>
         <p className="font-medium text-neutral-500 dark:text-neutral-400">
-          Display code snippets with syntax highlighting in your React project.
+          Show code snippets with syntax highlighting in your React project.
         </p>
       </div>
-      <div>{children}</div>
-      <div className={cn("flex items-center justify-center space-x-2")}>
+      <div
+        className={cn(
+          "flex flex-col items-center justify-center space-y-2 md:flex-row md:space-y-0 md:space-x-2",
+        )}
+      >
         <Link
           href="/docs/getting-started/prerequisites"
           className={buttonVariants({
-            size: "lg",
+            size: "default",
             className: "group w-full md:w-auto",
           })}
         >
@@ -49,7 +46,7 @@ const Hero = ({ children }: HeroProps) => {
           title="View on GitHub"
           href={globals.githubUrl}
           className={buttonVariants({
-            size: "lg",
+            size: "default",
             variant: "outline",
             className: "w-full no-underline md:w-44",
           })}

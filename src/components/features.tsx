@@ -47,10 +47,10 @@ const FeatureCard = ({ children, className }: FeatureCardProps) => (
 
 const CardDecorator = () => (
   <>
-    <span className="absolute -top-px -left-px block size-2 border-t-2 border-l-2 border-neutral-900 dark:border-neutral-100"></span>
-    <span className="absolute -top-px -right-px block size-2 border-t-2 border-r-2 border-neutral-900 dark:border-neutral-100"></span>
-    <span className="absolute -bottom-px -left-px block size-2 border-b-2 border-l-2 border-neutral-900 dark:border-neutral-100"></span>
-    <span className="absolute -right-px -bottom-px block size-2 border-r-2 border-b-2 border-neutral-900 dark:border-neutral-100"></span>
+    <span className="absolute -top-px -left-px block size-2 border-t-2 border-l-2 border-neutral-900 dark:border-neutral-600"></span>
+    <span className="absolute -top-px -right-px block size-2 border-t-2 border-r-2 border-neutral-900 dark:border-neutral-600"></span>
+    <span className="absolute -bottom-px -left-px block size-2 border-b-2 border-l-2 border-neutral-900 dark:border-neutral-600"></span>
+    <span className="absolute -right-px -bottom-px block size-2 border-r-2 border-b-2 border-neutral-900 dark:border-neutral-600"></span>
   </>
 );
 
@@ -61,11 +61,11 @@ interface CardHeadingProps {
 }
 
 const CardHeading = ({ icon: Icon, title, description }: CardHeadingProps) => (
-  <div className="p-6">
+  <div className="p-3">
     <span className="flex items-center gap-2 text-neutral-500 dark:text-neutral-400">
       {Icon}
       {title}
     </span>
-    <p className="mt-8 text-2xl font-semibold">{description}</p>
+    <p className="mt-4 text-2xl font-semibold">{description}</p>
   </div>
 );

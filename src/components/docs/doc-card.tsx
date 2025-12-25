@@ -14,7 +14,7 @@ const DocCard = ({ document, folder }: DocCardProps) => {
       href={`/docs/${folder}/${document}`}
       className="not-prose relative"
     >
-      <div className="rounded-lg border border-neutral-200 bg-neutral-200/40 p-3 transition-colors duration-200 ease-in-out hover:bg-neutral-200 dark:border-neutral-800 dark:bg-neutral-800/30 hover:dark:bg-neutral-800">
+      <div className="rounded-lg border border-neutral-200 bg-neutral-200/40 p-3 transition-colors duration-200 ease-in-out hover:border-neutral-300 hover:bg-neutral-200 dark:border-neutral-800 dark:bg-neutral-800/30 dark:hover:border-neutral-700 hover:dark:bg-neutral-800">
         <div className="flex items-center space-x-2">
           <FileIcon size={16} />
           <h3 className="font-medium text-white">{documentData?.title}</h3>
