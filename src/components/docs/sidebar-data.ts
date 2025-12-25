@@ -17,8 +17,9 @@ import {
 
 interface Item {
   title: string;
-  icon: LucideIcon;
-  href: string;
+  icon?: LucideIcon;
+  href?: string;
+  subItems?: Item[];
 }
 
 interface SidebarLinks {
@@ -63,7 +64,16 @@ export const SidebarLinksData: SidebarLinks[] = [
       {
         title: "Code Block Client",
         icon: SquareCodeIcon,
-        href: "/docs/components/code-block-client",
+        subItems: [
+          {
+            title: "with Shiki",
+            href: "/docs/components/code-block-client-shiki",
+          },
+          {
+            title: "with Sugar High",
+            href: "/docs/components/code-block-client-sugar-high",
+          },
+        ],
       },
     ],
   },
