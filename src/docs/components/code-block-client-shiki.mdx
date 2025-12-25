@@ -1,0 +1,47 @@
+---
+title: Code Block Client with Shiki
+description: How to create a custom code block client component with Shiki for syntax highlighting.
+category: UI
+---
+
+<ComponentPreview component="code-block-client" />
+
+## Installation
+
+Before creating the component, make sure you have the basic structure:
+
+<DocCard folder="components" document="code-block" />
+
+1. Create your Shiki highlighter utility:
+
+<DocCard folder="shiki" document="highlighter" />
+
+2. Create the Code Block Client component:
+
+<ShowSource component="code-block-client" />
+
+## Usage
+
+Now you can use the `CodeBlockClient` into your ``CodeBlockContent`` component:
+
+```tsx {6,11}
+import {
+  CodeBlock,
+  CodeBlockContent,
+  CodeBlockHeader,
+} from "@/components/code-block";
+import { CodeBlockClient } from "@/components/code-block/code-block-client";
+
+<CodeBlock>
+  <CodeBlockHeader language="ts" title="Code block rendered on client side" />
+  <CodeBlockContent>
+    <CodeBlockClient language="ts" code="console.log('Hello, world!');" />
+  </CodeBlockContent>
+</CodeBlock>;
+```
+
+## Props
+
+<ShowProps component="code-block-client" />
+
+> `Languages` type is from the [`shiki` utility](/docs/shiki/highlighter#languages).

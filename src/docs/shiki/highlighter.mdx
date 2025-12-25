@@ -46,6 +46,12 @@ This utility exports:
 To active light/dark mode styles for Shiki code blocks, add the following CSS to your global styles:
 
 ```css
+html.light .shiki,
+html.light .shiki span {
+  font-family: var(--font-mono) !important;
+  background-color: transparent !important;
+}
+
 html.dark .shiki,
 html.dark .shiki span {
   color: var(--shiki-dark) !important;
