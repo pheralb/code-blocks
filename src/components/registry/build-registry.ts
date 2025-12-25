@@ -2,8 +2,9 @@ import type { ShadcnType } from "./types";
 
 import chalk from "chalk";
 import { RegistryData } from "./data";
+
+import { writeFileSync } from "fs";
 import { execSync } from "child_process";
-import { writeFileSync, unlinkSync, existsSync } from "fs";
 
 const log = console.log;
 
@@ -62,28 +63,17 @@ const buildRegistry = () => {
 
 const main = () => {
   try {
-    log(chalk.bgGray("📦 Generating registry..."));
+    log(chalk.bgGray("|- 📦 Generating registry..."));
 
     const result = buildRegistry();
     writeFileSync("./registry.json", JSON.stringify(result, null, 2), "utf-8");
-    log(chalk.green("✅ registry.json generated successfully"));
+    log(chalk.green("|- ✅ registry.json generated successfully"));
 
-    log(chalk.bgGray("📦 Running shadcn CLI..."));
+    log(chalk.bgGray("|- 📦 Running shadcn CLI..."));
     execSync("shadcn build", { stdio: "inherit" });
-    log(chalk.green("✅ shadcn build completed successfully"));
-
-    log(chalk.bgGray("🧹 Cleaning files..."));
-    if (existsSync("./registry.json")) {
-      try {
-        unlinkSync("./registry.json");
-        log(chalk.green("🧹 registry.json deleted"));
-      } catch (err) {
-        log(chalk.red("❌ Error deleting registry.json:"), err);
-      }
-    }
-    
+    log(chalk.green("|- ✅ shadcn build completed successfully"));
   } catch (error) {
-    log(chalk.red("❌ Error deleting registry.json:"), error);
+    log(chalk.red("|- ❌ Error deleting registry.json:"), error);
     process.exit(1);
   }
 };
