@@ -15,7 +15,7 @@ const RegistrySchema = {
   items: [],
 };
 
-type RegistryItem = {
+interface RegistryItem {
   name: string;
   type: ShadcnType;
   dependencies?: string[];
@@ -26,7 +26,7 @@ type RegistryItem = {
       type: ShadcnType;
     },
   ];
-};
+}
 
 const buildRegistry = () => {
   const registryItems: RegistryItem[] = [];
