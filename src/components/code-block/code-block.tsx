@@ -3,11 +3,10 @@ import type { ComponentProps, ReactNode } from "react";
 import { cn } from "@/utils/cn";
 import { LanguageSvgs } from "@/components/code-block/language-svgs";
 
-interface CodeBlockHeaderProps {
+interface CodeBlockHeaderProps extends ComponentProps<"div"> {
   language?: string;
   title?: string;
   icon?: ReactNode;
-  children?: ReactNode;
 }
 
 const CodeBlock = ({
@@ -37,6 +36,7 @@ const CodeBlockHeader = ({
   icon,
   language,
   children,
+  ...props
 }: CodeBlockHeaderProps) => {
   const LanguageData = LanguageSvgs.find((lang) => lang.language === language);
   const LanguageIcon = LanguageData?.icon;
@@ -46,6 +46,7 @@ const CodeBlockHeader = ({
         "not-prose", // Disable Markdown Styles
         "flex items-center justify-between px-2 py-1.5",
         "text-sm text-neutral-600 dark:text-neutral-400",
+        props.className,
       )}
     >
       <div className="flex items-center space-x-2">
