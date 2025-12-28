@@ -6,13 +6,13 @@
     "dev": "next dev",
     "build": "eslint ./src && next build",
     "build:prod": "pnpm build:registry && pnpm build",
+    "build:registry": "tsx ./src/components/registry/check-registry.ts && tsx ./src/components/registry/build-registry.ts",
     "start": "next start",
     "check:lint": "eslint ./src",
     "fix:lint": "eslint ./src --fix",
     "check:format": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "fix:format": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
-    "check:registry": "tsx ./src/components/registry/check-registry.ts",
-    "build:registry": "tsx ./src/components/registry/check-registry.ts && tsx ./src/components/registry/build-registry.ts"
+    "check:registry": "tsx ./src/components/registry/check-registry.ts"
   },
   "dependencies": {
     "@react-symbols/icons": "1.3.0",
@@ -27,7 +27,8 @@
     "react-dom": "19.2.3",
     "shadcn": "3.6.2",
     "tailwind-merge": "3.4.0",
-    "zod": "4.2.1"
+    "zod": "4.2.1",
+    "zustand": "5.0.9"
   },
   "devDependencies": {
     "@content-collections/core": "0.13.0",
