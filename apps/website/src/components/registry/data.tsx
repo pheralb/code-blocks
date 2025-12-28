@@ -3,8 +3,21 @@ import { lazy } from "react";
 
 // Settings:
 const utilsFolder = "src/utils";
+const stylesFolder = "src/styles";
 const componentsFolder = "src/components";
 const codeblockComponent = "src/components/code-block";
+
+// UI Components:
+const CSSFiles: RegistryComponent[] = [
+  {
+    title: "sugar-high-css",
+    fileType: "css",
+    mainSourceFile: `${stylesFolder}/sugar-high.css`,
+    shadcnRegistry: {
+      mainType: "registry:file",
+    },
+  },
+];
 
 // Utils:
 const UtilsFiles: RegistryComponent[] = [
@@ -15,6 +28,15 @@ const UtilsFiles: RegistryComponent[] = [
     shadcnRegistry: {
       mainType: "registry:lib",
       dependencies: ["shiki", "@shikijs/themes", "@shikijs/langs"],
+    },
+  },
+  {
+    title: "sugar-high-highlighter",
+    fileType: "ts",
+    mainSourceFile: `${utilsFolder}/sugar-high/index.ts`,
+    shadcnRegistry: {
+      mainType: "registry:lib",
+      dependencies: ["sugar-high"],
     },
   },
   {
@@ -158,6 +180,7 @@ const UIComponents: RegistryComponent[] = [
 
 export const RegistryData: RegistryComponent[] = [
   ...UtilsFiles,
+  ...CSSFiles,
   ...ShikiTransformers,
   ...UIComponents,
 ];
