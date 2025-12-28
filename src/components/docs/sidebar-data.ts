@@ -1,4 +1,5 @@
 import {
+  CandyIcon,
   ClipboardIcon,
   FileCodeCornerIcon,
   HighlighterIcon,
@@ -114,6 +115,16 @@ export const SidebarLinksData: SidebarLinks[] = [
         title: "Notation Focus",
         icon: ListIndentIncreaseIcon,
         href: "/docs/shiki/notation-focus",
+      },
+    ],
+  },
+  {
+    groupTitle: "Sugar High",
+    items: [
+      {
+        title: "Highlighter",
+        icon: CandyIcon,
+        href: "/docs/sugar-high/highlighter",
       },
     ],
   },
