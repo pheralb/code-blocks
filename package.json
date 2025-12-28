@@ -11,7 +11,8 @@
     "fix:lint": "eslint ./src --fix",
     "check:format": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "fix:format": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
-    "build:registry": "tsx ./src/components/registry/build-registry.ts"
+    "check:registry": "tsx ./src/components/registry/check-registry.ts",
+    "build:registry": "tsx ./src/components/registry/check-registry.ts && tsx ./src/components/registry/build-registry.ts"
   },
   "dependencies": {
     "@react-symbols/icons": "1.3.0",
