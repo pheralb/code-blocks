@@ -65,18 +65,9 @@ const ShikiTransformers: RegistryComponent[] = [
     },
   },
   {
-    title: "shiki-get-title",
+    title: "shiki-add-to-pre-element",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/transformers/get-title.ts`,
-    shadcnRegistry: {
-      mainType: "registry:lib",
-      dependencies: ["shiki"],
-    },
-  },
-  {
-    title: "shiki-get-language",
-    fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/transformers/get-language.ts`,
+    mainSourceFile: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
     shadcnRegistry: {
       mainType: "registry:lib",
       dependencies: ["shiki"],
