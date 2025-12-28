@@ -17,7 +17,6 @@ import rehypeAutolinkHeadings from "rehype-autolink-headings";
 
 import { highlight } from "./src/utils/shiki";
 import { rehypeShikiOptions } from "./src/mdx/plugins/rehypeShiki";
-import { getTableOfContents } from "./src/mdx/plugins/generateToC";
 import { rehypeComponent } from "./src/mdx/plugins/rehypeComponent";
 import { rehypeReactDoc } from "./src/mdx/plugins/rehypeReactDoc";
 import { HEADING_LINK_ANCHOR } from "./src/components/ui/headings";
@@ -40,7 +39,6 @@ const docTransform = async (
   context: Context,
 ) => {
   const highlighter = await highlight();
-  const tableOfContents = getTableOfContents(document.content);
   const code = await compileMDX(context, document, {
     remarkPlugins: [remarkGfm],
     rehypePlugins: [
@@ -62,7 +60,6 @@ const docTransform = async (
   return {
     ...document,
     folder,
-    tableOfContents,
     mdx: code,
   };
 };
@@ -102,7 +99,21 @@ const shikiDocs = defineCollection({
   transform: (document, context) => docTransform("shiki", document, context),
 });
 
+const sugarHighDocs = defineCollection({
+  name: "shigh",
+  directory: "src/docs/sugar-high",
+  include: "**/*.mdx",
+  schema: docSchema,
+  transform: (document, context) =>
+    docTransform("sugar-high", document, context),
+});
+
 export default defineConfig({
-  //@ts-expect-error Content Collections types issue
-  collections: [generalDocs, gstartedDocs, componentsDocs, shikiDocs],
+  collections: [
+    generalDocs,
+    gstartedDocs,
+    componentsDocs,
+    shikiDocs,
+    sugarHighDocs,
+  ],
 });

@@ -1,12 +1,16 @@
 import type { Document } from "@content-collections/core";
+import { getTableOfContents, type ToCItem } from "@/mdx/plugins/generateToC";
+
 import {
   allGenerals,
   allGstarteds,
   allShikis,
   allComponents,
+  allShighs,
   type General,
   type Gstarted,
   type Shiki,
+  type Shigh,
   type Component,
 } from "content-collections";
 
@@ -14,10 +18,14 @@ const allDocs = [
   ...allGenerals,
   ...allGstarteds,
   ...allShikis,
+  ...allShighs,
   ...allComponents,
 ];
 
-type Doc = Document & (General | Gstarted | Shiki | Component);
+type Doc = Document &
+  (General | Gstarted | Shiki | Shigh | Component) & {
+    tableOfContents: ToCItem[];
+  };
 
 interface GetDocument {
   folder: string;
@@ -31,7 +39,8 @@ const getDocument = ({ folder, document }: GetDocument): Doc | undefined => {
   if (!doc) {
     return undefined;
   }
-  return doc;
+  const tableOfContents = getTableOfContents(doc.content);
+  return { ...doc, tableOfContents };
 };
 
 export { getDocument };
