@@ -11,7 +11,7 @@ import { cn } from "@/utils/cn";
 
 interface SidebarSubItemProps {
   title: string;
-  icon: LucideIcon;
+  icon?: LucideIcon;
   children: ReactNode;
 }
 
@@ -33,7 +33,7 @@ const SidebarSubItem = ({
         )}
       >
         <div className="flex items-center space-x-2.5">
-          <Icon size={16} className="shrink-0" />
+          {Icon && <Icon size={16} className="shrink-0" />}
           <span className="truncate">{title}</span>
         </div>
         <ChevronRight
