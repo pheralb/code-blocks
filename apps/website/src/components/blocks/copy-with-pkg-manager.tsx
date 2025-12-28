@@ -72,7 +72,7 @@ const CopyWithPkgManager = ({
   const { packageManager, setPackageManager } = usePkgManager();
 
   const selectedPkg =
-    packages.find((pkg) => pkg.name === packageManager) || packages[0];
+    packages.find((pkg) => pkg.name === packageManager) ?? packages[0];
   const Icon = selectedPkg.icon;
   const fullCommand = `${selectedPkg[type]} ${command}`;
 
@@ -104,9 +104,7 @@ const CopyWithPkgManager = ({
                   <DropdownMenuItem
                     key={pkg.name}
                     title={`Using ${pkg.name}`}
-                    onClick={() =>
-                      setPackageManager(pkg.name as PackageManager)
-                    }
+                    onClick={() => setPackageManager(pkg.name)}
                     className="flex w-full items-center justify-between"
                   >
                     <div className="flex items-center space-x-2">
