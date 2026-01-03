@@ -68,7 +68,7 @@ const docTransform = async (
 const generalDocs = defineCollection({
   name: "general",
   directory: "src/docs",
-  include: "**/*.mdx",
+  include: "*.mdx",
   schema: docSchema,
   transform: (document, context) => docTransform("general", document, context),
 });
