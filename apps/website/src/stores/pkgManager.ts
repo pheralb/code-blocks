@@ -11,7 +11,7 @@ interface PkgManagerState {
 const usePkgManager = create<PkgManagerState>()(
   persist(
     (set) => ({
-      packageManager: "npm",
+      packageManager: "pnpm",
       setPackageManager: (pkgManager: PackageManager) =>
         set(() => ({ packageManager: pkgManager })),
     }),
