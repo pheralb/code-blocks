@@ -10,7 +10,7 @@ import { parse } from "react-docgen-typescript";
 import { RegistryData } from "@/components/registry/data";
 
 const getComponent = (title: string): RegistryComponent | undefined => {
-  return RegistryData.find((group) => group.title === title);
+  return RegistryData.find((group) => group.shadcnRegistry.name === title);
 };
 
 export function rehypeReactDoc() {
@@ -23,13 +23,13 @@ export function rehypeReactDoc() {
         try {
           const component = getComponent(title);
 
-          if (!component?.mainSourceFile) {
+          if (!component?.fileSource) {
             console.warn(
-              `⚠️ mdx/rehypeReactDoc/plugin - Component "${title}" not found or missing sourceFile.`,
+              `|- ⚠️ mdx/rehypeReactDoc/plugin - Component "${title}" not found or missing sourceFile.`,
             );
             return;
           }
-          const src = path.resolve(process.cwd(), component.mainSourceFile);
+          const src = path.resolve(process.cwd(), component.fileSource);
           const docs = parse(src, { savePropValueAsString: true });
           if (!docs.length) {
             node.children?.push(
@@ -186,7 +186,7 @@ export function rehypeReactDoc() {
           });
         } catch (error) {
           console.error(
-            `❌ mdx/rehypeReactDoc/plugin - Error: ${String(error)}`,
+            `|- ❌ mdx/rehypeReactDoc/plugin - Error: ${String(error)}`,
           );
         }
       }

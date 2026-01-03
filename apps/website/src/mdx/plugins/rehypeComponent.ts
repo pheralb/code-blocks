@@ -10,7 +10,7 @@ import { visit } from "unist-util-visit";
 import { RegistryData } from "@/components/registry/data";
 
 const getComponent = (title: string): RegistryComponent | undefined => {
-  return RegistryData.find((group) => group.title === title);
+  return RegistryData.find((group) => group.shadcnRegistry.name === title);
 };
 
 export function rehypeComponent() {
@@ -29,24 +29,24 @@ export function rehypeComponent() {
 
           if (!component) {
             console.warn(
-              `⚠️ mdx/rehypeComponent/plugin - Component "${title}" not found in registry.`,
+              `|- ⚠️ mdx/rehypeComponent/plugin - Component "${title}" not found in registry.`,
             );
             return;
           }
 
-          if (!component.exampleSourceFile) {
+          if (!component.exampleFileSource) {
             console.warn(
-              `⚠️ mdx/rehypeComponent/plugin - Component "${title}" does not have an example source file. Add "exampleSourceFile" to the component registry.`,
+              `|- ⚠️ mdx/rehypeComponent/plugin - Component "${title}" does not have an example source file. Add "exampleFileSource" to the component registry.`,
             );
             return;
           }
 
-          const src = path.resolve(process.cwd(), component.exampleSourceFile);
+          const src = path.resolve(process.cwd(), component.exampleFileSource);
           const source = fs.readFileSync(src, "utf8");
 
           if (!source) {
             throw new Error(
-              `Source code for component "${title}" is empty or not found.`,
+              `|- ❌ mdx/rehypeComponent/plugin - Source code for component "${title}" is empty or not found.`,
             );
           }
 
@@ -74,7 +74,7 @@ export function rehypeComponent() {
           );
         } catch (error) {
           console.error(
-            `❌ mdx/rehypeComponent/plugin - Error: ${error as string}`,
+            `|- ❌ mdx/rehypeComponent/plugin - Error: ${error as string}`,
           );
         }
       }
@@ -92,17 +92,17 @@ export function rehypeComponent() {
 
           if (!component) {
             console.warn(
-              `⚠️ mdx/rehypeComponent/plugin - Component "${title}" not found in registry.`,
+              `|- ⚠️ mdx/rehypeComponent/plugin - Component "${title}" not found in registry.`,
             );
             return;
           }
 
-          const src = path.resolve(process.cwd(), component.mainSourceFile);
+          const src = path.resolve(process.cwd(), component.fileSource);
           const source = fs.readFileSync(src, "utf8");
 
           if (!source) {
             throw new Error(
-              `Source code for component "${title}" is empty or not found.`,
+              `|- ❌ mdx/rehypeComponent/plugin - Source code for component "${title}" is empty or not found.`,
             );
           }
 
@@ -130,7 +130,7 @@ export function rehypeComponent() {
           );
         } catch (error) {
           console.error(
-            `❌ mdx/rehypeComponent/plugin - Error: ${error as string}`,
+            `|- ❌ mdx/rehypeComponent/plugin - Error: ${error as string}`,
           );
         }
       }
