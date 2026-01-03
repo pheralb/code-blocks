@@ -1,4 +1,7 @@
-import type { RegistryComponent } from "@/components/registry/types";
+import type {
+  RegistryComponent,
+  ShadcnRegistry,
+} from "@/components/registry/types";
 import { lazy } from "react";
 
 // Settings:
@@ -6,16 +9,42 @@ const utilsFolder = "src/utils";
 const stylesFolder = "src/styles";
 const componentsFolder = "src/components";
 const codeblockComponent = "src/components/code-block";
+const registryUrl = "https://code-blocks.pheralb.dev/r/";
+
+// Blocks:
+const BlocksData: ShadcnRegistry[] = [
+  {
+    name: "code-block-client-shiki",
+    type: "registry:block",
+    registryDependencies: [
+      `${registryUrl}code-block-structure.json`,
+      `${registryUrl}shiki-highlighter.json`,
+      `${registryUrl}code-block-client-shiki.json`,
+      `${registryUrl}copy-button.json`,
+    ],
+  },
+  {
+    name: "code-block-client-sugar-high",
+    type: "registry:block",
+    registryDependencies: [
+      `${registryUrl}code-block-structure.json`,
+      `${registryUrl}sugar-high-highlighter.json`,
+      `${registryUrl}code-block-client-sugar-high.json`,
+      `${registryUrl}copy-button.json`,
+    ],
+  },
+];
 
 // UI Components:
 const CSSFiles: RegistryComponent[] = [
   {
-    title: "sugar-high-css",
+    title: "Sugar High CSS",
     fileType: "css",
-    mainSourceFile: `${stylesFolder}/sugar-high.css`,
+    fileSource: `${stylesFolder}/sugar-high.css`,
     shadcnRegistry: {
+      name: "sugar-high-css",
+      type: "registry:file",
       target: "src/styles/sugar-high.css",
-      mainType: "registry:file",
     },
   },
 ];
@@ -23,46 +52,41 @@ const CSSFiles: RegistryComponent[] = [
 // Utils:
 const UtilsFiles: RegistryComponent[] = [
   {
-    title: "shiki-highlighter",
+    title: "Shiki Highlighter",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/index.ts`,
+    fileSource: `${utilsFolder}/shiki/index.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
+      name: "shiki-highlighter",
+      type: "registry:lib",
       dependencies: ["shiki", "@shikijs/themes", "@shikijs/langs"],
     },
   },
   {
-    title: "sugar-high-highlighter",
+    title: "Sugar High Highlighter",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/sugar-high/index.ts`,
+    fileSource: `${utilsFolder}/sugar-high/index.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
+      name: "sugar-high-highlighter",
+      type: "registry:lib",
       dependencies: ["sugar-high"],
     },
   },
   {
-    title: "copy-to-clipboard",
+    title: "Copy to Clipboard",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/copy.ts`,
+    fileSource: `${utilsFolder}/copy.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
+      name: "copy-to-clipboard",
+      type: "registry:lib",
     },
   },
   {
-    title: "react-to-text",
+    title: "React to Text Converter",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/react-to-text.ts`,
+    fileSource: `${utilsFolder}/react-to-text.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
-    },
-  },
-  {
-    title: "shiki-custom-properties",
-    fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
-    shadcnRegistry: {
-      mainType: "registry:lib",
-      dependencies: ["shiki"],
+      name: "react-to-text",
+      type: "registry:lib",
     },
   },
 ];
@@ -70,29 +94,42 @@ const UtilsFiles: RegistryComponent[] = [
 // Shiki Transformers:
 const ShikiTransformers: RegistryComponent[] = [
   {
-    title: "shiki-show-line-numbers",
+    title: "Shiki Transformer - Show Line Numbers",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/transformers/show-line-numbers.ts`,
+    fileSource: `${utilsFolder}/shiki/transformers/show-line-numbers.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
+      name: "shiki-show-line-numbers",
+      type: "registry:lib",
       dependencies: ["shiki"],
     },
   },
   {
-    title: "shiki-word-wrap",
+    title: "Shiki Transformer - Word Wrap",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/transformers/word-wrap.ts`,
+    fileSource: `${utilsFolder}/shiki/transformers/word-wrap.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
+      name: "shiki-word-wrap",
+      type: "registry:lib",
       dependencies: ["shiki"],
     },
   },
   {
-    title: "shiki-add-to-pre-element",
+    title: "Shiki Transformer - Add to Pre Element",
     fileType: "ts",
-    mainSourceFile: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
+    fileSource: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
     shadcnRegistry: {
-      mainType: "registry:lib",
+      name: "shiki-add-to-pre-element",
+      type: "registry:lib",
+      dependencies: ["shiki"],
+    },
+  },
+  {
+    title: "Shiki Transformer - Meta Highlight",
+    fileType: "ts",
+    fileSource: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
+    shadcnRegistry: {
+      name: "shiki-add-to-pre-element",
+      type: "registry:lib",
       dependencies: ["shiki"],
     },
   },
@@ -101,87 +138,96 @@ const ShikiTransformers: RegistryComponent[] = [
 // UI Components:
 const UIComponents: RegistryComponent[] = [
   {
-    title: "code-block-structure",
+    title: "Code Block - Structure",
     fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/code-block.tsx`,
-    shadcnRegistry: {
-      mainType: "registry:component",
-      dependencies: ["lucide-react"],
-    },
-    exampleSourceFile: `${componentsFolder}/previews/code-block-structure.tsx`,
+    fileSource: `${codeblockComponent}/code-block.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/code-block-structure.tsx`,
     reactComponent: lazy(
       () => import("@/components/previews/code-block-structure"),
     ),
-  },
-  {
-    title: "code-block-mdx-shiki",
-    fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/mdx/pre-shiki.tsx`,
     shadcnRegistry: {
-      mainType: "registry:component",
+      name: "code-block-structure",
+      type: "registry:component",
+      dependencies: ["lucide-react"],
     },
   },
   {
-    title: "code-block-mdx-sugar-high",
+    title: "Code Block - MDX Shiki",
     fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/mdx/pre-sugar-high.tsx`,
+    fileSource: `${codeblockComponent}/mdx/pre-shiki.tsx`,
     shadcnRegistry: {
-      mainType: "registry:component",
+      name: "code-block-mdx-shiki",
+      type: "registry:component",
     },
   },
   {
-    title: "code-block-client-shiki",
+    title: "Code Block - MDX Sugar High",
     fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/client/shiki.tsx`,
+    fileSource: `${codeblockComponent}/mdx/pre-sugar-high.tsx`,
     shadcnRegistry: {
-      mainType: "registry:component",
-      dependencies: ["shiki"],
+      name: "code-block-mdx-sugar-high",
+      type: "registry:component",
     },
-    exampleSourceFile: `${componentsFolder}/previews/code-block-shiki-example.tsx`,
+  },
+  {
+    title: "Code Block - Client Shiki",
+    fileType: "tsx",
+    fileSource: `${codeblockComponent}/client/shiki.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/code-block-shiki-example.tsx`,
     reactComponent: lazy(
       () => import("@/components/previews/code-block-shiki-example"),
     ),
+    shadcnRegistry: {
+      name: "code-block-client-shiki",
+      type: "registry:component",
+      dependencies: ["shiki"],
+    },
   },
   {
-    title: "code-block-client-sugar-high",
+    title: "Code Block - Client Sugar High",
     fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/client/sugar-high.tsx`,
-    shadcnRegistry: {
-      mainType: "registry:component",
-      dependencies: ["sugar-high"],
-    },
-    exampleSourceFile: `${componentsFolder}/previews/code-block-sugar-high-example.tsx`,
+    fileSource: `${codeblockComponent}/client/sugar-high.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/code-block-sugar-high-example.tsx`,
     reactComponent: lazy(
       () => import("@/components/previews/code-block-sugar-high-example"),
     ),
+    shadcnRegistry: {
+      name: "code-block-client-sugar-high",
+      type: "registry:component",
+      dependencies: ["sugar-high"],
+    },
   },
   {
-    title: "copy-button",
+    title: "Copy Button",
     fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/copy-button.tsx`,
-    shadcnRegistry: {
-      mainType: "registry:component",
-      dependencies: ["lucide-react"],
-    },
-    exampleSourceFile: `${componentsFolder}/previews/copy-button-example.tsx`,
+    fileSource: `${codeblockComponent}/copy-button.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/copy-button-example.tsx`,
     reactComponent: lazy(
       () => import("@/components/previews/copy-button-example"),
     ),
+    shadcnRegistry: {
+      name: "copy-button",
+      type: "registry:component",
+      dependencies: ["lucide-react"],
+    },
   },
   {
-    title: "language-svgs",
+    title: "Language SVGs",
     fileType: "tsx",
-    mainSourceFile: `${codeblockComponent}/language-svgs.tsx`,
+    fileSource: `${codeblockComponent}/language-svgs.tsx`,
     shadcnRegistry: {
-      mainType: "registry:component",
+      name: "language-svgs",
+      type: "registry:component",
       dependencies: ["@react-symbols/icons"],
     },
   },
 ];
 
-export const RegistryData: RegistryComponent[] = [
+const RegistryData: RegistryComponent[] = [
   ...UtilsFiles,
   ...CSSFiles,
   ...ShikiTransformers,
   ...UIComponents,
 ];
+
+export { RegistryData, BlocksData };

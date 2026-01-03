@@ -1,7 +1,7 @@
-import type { ShadcnType } from "./types";
+import type { ShadcnRegistry } from "./types";
 
 import chalk from "chalk";
-import { RegistryData } from "./data";
+import { RegistryData, BlocksData } from "./data";
 
 import { writeFileSync } from "fs";
 import { execSync } from "child_process";
@@ -15,40 +15,27 @@ const RegistrySchema = {
   items: [],
 };
 
-interface RegistryItem {
-  name: string;
-  type: ShadcnType;
-
-  dependencies?: string[];
-  registryDependencies?: string[];
-  files: [
-    {
-      path: string;
-      target?: string;
-      type: ShadcnType;
-    },
-  ];
-}
-
 const buildRegistry = () => {
-  const registryItems: RegistryItem[] = [];
+  const registryItems: ShadcnRegistry[] = [];
 
+  // Build from RegistryData
   for (const component of RegistryData) {
     if (!component.shadcnRegistry) continue;
 
-    const item: RegistryItem = {
-      name: component.title,
-      type: component.shadcnRegistry.mainType,
+    const item: ShadcnRegistry = {
+      title: component.title,
+      name: component.shadcnRegistry.name,
+      type: component.shadcnRegistry.type,
       files: [
         {
-          path: component.mainSourceFile,
-          type: component.shadcnRegistry.mainType,
+          path: component.fileSource,
+          type: component.shadcnRegistry.type,
         },
       ],
     };
 
     if (component.shadcnRegistry.target) {
-      item.files[0].target = component.shadcnRegistry.target;
+      item.files![0].target = component.shadcnRegistry.target;
     }
 
     if (component.shadcnRegistry.dependencies) {
@@ -60,6 +47,9 @@ const buildRegistry = () => {
 
     registryItems.push(item);
   }
+
+  // Add BlocksData
+  registryItems.push(...BlocksData);
 
   return {
     ...RegistrySchema,
