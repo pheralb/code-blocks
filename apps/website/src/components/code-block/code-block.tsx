@@ -20,7 +20,7 @@ const CodeBlock = ({
         "not-prose",
         "flex w-full flex-col overflow-clip rounded-lg shadow-xs",
         "bg-neutral-200/40 dark:bg-neutral-800/70",
-        "border border-neutral-300/60 dark:border-neutral-700/60",
+        "border border-neutral-200 dark:border-neutral-800",
         "text-neutral-950 dark:text-neutral-50",
         className,
       )}
