@@ -7,7 +7,7 @@ interface MDXCodeBlockSourceProps {
   children: ReactNode;
 }
 
-const MDXCodeBlockSource = ({ children }: MDXCodeBlockSourceProps) => {
+const MDXHighlightTabs = ({ children }: MDXCodeBlockSourceProps) => {
   return (
     <Tabs defaultValue="shiki">
       <TabsList className="w-full">
@@ -19,4 +19,4 @@ const MDXCodeBlockSource = ({ children }: MDXCodeBlockSourceProps) => {
   );
 };
 
-export default MDXCodeBlockSource;
+export default MDXHighlightTabs;

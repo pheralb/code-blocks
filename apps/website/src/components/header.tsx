@@ -3,6 +3,7 @@ import { cn } from "@/utils/cn";
 import Link from "next/link";
 import GithubLink from "@/components/github-link";
 import ThemeToggle from "@/components/theme-toggle";
+import SearchDocs from "@/components/docs/search-docs";
 
 interface HeaderProps {
   layout: "docs" | "app";
@@ -15,7 +16,7 @@ const Header = ({ layout }: HeaderProps) => {
         "z-50",
         "sticky top-0 flex w-full",
         "bg-neutral-50 backdrop-blur-sm dark:bg-neutral-900/90",
-        layout === "app" && "px-0 py-4 h-16",
+        layout === "app" && "h-16 px-0 py-4",
         layout === "docs" &&
           "h-14 border-b border-neutral-200 px-3.5 py-3 dark:border-neutral-800",
       )}
@@ -30,9 +31,12 @@ const Header = ({ layout }: HeaderProps) => {
         >
           Code Blocks
         </Link>
-        <div className="flex items-center space-x-0.5">
-          <GithubLink />
-          <ThemeToggle />
+        <div className="flex items-center gap-4">
+          <SearchDocs />
+          <div className="flex items-center space-x-1 border-l border-neutral-200 pl-3 dark:border-neutral-800">
+            <GithubLink />
+            <ThemeToggle />
+          </div>
         </div>
       </nav>
     </header>

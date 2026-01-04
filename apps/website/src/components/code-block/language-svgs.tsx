@@ -1,6 +1,14 @@
 import type { FC, SVGProps } from "react";
 import type { Languages } from "@/utils/shiki";
-import { BracketsOrange, BracketsSky, Exe, Markdown, Reactts, TypeScript } from "@react-symbols/icons";
+import {
+  BracketsOrange,
+  BracketsSky,
+  Exe,
+  Markdown,
+  Reactts,
+  Shadcn,
+  TypeScript,
+} from "@react-symbols/icons";
 
 interface LanguageSvgsType {
   title: string;
@@ -38,5 +46,10 @@ export const LanguageSvgs: LanguageSvgsType[] = [
     title: "Markdown",
     language: "mdx",
     icon: Markdown,
+  },
+  {
+    title: "shadcn",
+    language: "bash",
+    icon: Shadcn,
   },
 ];

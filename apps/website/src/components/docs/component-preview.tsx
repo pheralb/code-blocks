@@ -16,7 +16,7 @@ interface ComponentPreviewProps extends ComponentProps<"div"> {
 
 const ComponentPreview = ({ component, children }: ComponentPreviewProps) => {
   const componentEntry = useMemo(() => {
-    return RegistryData.find((entry) => entry.title === component);
+    return RegistryData.find((entry) => entry.shadcnRegistry.name === component);
   }, [component]);
 
   const Preview = useMemo(() => {
