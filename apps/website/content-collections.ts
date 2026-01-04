@@ -71,6 +71,11 @@ const generalDocs = defineCollection({
   include: "*.mdx",
   schema: docSchema,
   transform: (document, context) => docTransform("general", document, context),
+  onSuccess: (docs) => {
+    console.log(
+      `|- (content-collections) ✅ generalDocs Collection - Successfully processed ${docs.length} documents.`,
+    );
+  },
 });
 
 const gstartedDocs = defineCollection({
@@ -80,6 +85,11 @@ const gstartedDocs = defineCollection({
   schema: docSchema,
   transform: (document, context) =>
     docTransform("getting-started", document, context),
+  onSuccess: (docs) => {
+    console.log(
+      `|- (content-collections) ✅ getting-started Collection - Successfully processed ${docs.length} documents.`,
+    );
+  },
 });
 
 const componentsDocs = defineCollection({
@@ -89,6 +99,11 @@ const componentsDocs = defineCollection({
   schema: docSchema,
   transform: (document, context) =>
     docTransform("components", document, context),
+  onSuccess: (docs) => {
+    console.log(
+      `|- (content-collections) ✅ components Collection - Successfully processed ${docs.length} documents.`,
+    );
+  },
 });
 
 const shikiDocs = defineCollection({
@@ -97,6 +112,11 @@ const shikiDocs = defineCollection({
   include: "**/*.mdx",
   schema: docSchema,
   transform: (document, context) => docTransform("shiki", document, context),
+  onSuccess: (docs) => {
+    console.log(
+      `|- (content-collections) ✅ shiki Collection - Successfully processed ${docs.length} documents.`,
+    );
+  },
 });
 
 const sugarHighDocs = defineCollection({
@@ -106,6 +126,11 @@ const sugarHighDocs = defineCollection({
   schema: docSchema,
   transform: (document, context) =>
     docTransform("sugar-high", document, context),
+  onSuccess: (docs) => {
+    console.log(
+      `|- (content-collections) ✅ sugar-high Collection - Successfully processed ${docs.length} documents.`,
+    );
+  },
 });
 
 export default defineConfig({
