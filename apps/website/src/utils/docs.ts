@@ -34,7 +34,10 @@ interface GetDocument {
 
 const allDocs = allDocsArray.filter(
   (doc, index, self) =>
-    index === self.findIndex((d) => d.folder === doc.folder && d._meta.path === doc._meta.path),
+    index ===
+    self.findIndex(
+      (d) => d.folder === doc.folder && d._meta.path === doc._meta.path,
+    ),
 );
 
 const getDocument = ({ folder, document }: GetDocument): Doc | undefined => {
@@ -48,23 +51,30 @@ const getDocument = ({ folder, document }: GetDocument): Doc | undefined => {
   return { ...doc, tableOfContents };
 };
 
-const getDocsByCategory = () => {
-  const grouped = allDocs.reduce(
+const getDocsByFolder = () => {
+  return allDocs.reduce(
     (acc, doc) => {
-      const category = doc.category || "Other";
-      if (!acc[category]) {
-        acc[category] = [];
+      const folderName =
+        doc.folder.charAt(0).toUpperCase() + doc.folder.slice(1);
+      if (!acc[folderName]) {
+        acc[folderName] = [];
       }
-      acc[category].push(doc);
+      const tableOfContents = getTableOfContents(doc.content);
+      acc[folderName].push({ ...doc, tableOfContents });
       return acc;
     },
-    {} as Record<string, typeof allDocs>,
+    {} as Record<string, Doc[]>,
   );
-
-  return Object.entries(grouped).map(([category, docs]) => ({
-    category,
-    docs,
-  }));
 };
 
-export { getDocument, getDocsByCategory };
+const getDocumentContent = ({
+  folder,
+  document,
+}: GetDocument): string | undefined => {
+  const doc = allDocs.find(
+    (doc) => doc.folder === folder && doc._meta.path === document,
+  );
+  return doc ? doc.mdx : undefined;
+};
+
+export { getDocument, getDocsByFolder, getDocumentContent };
