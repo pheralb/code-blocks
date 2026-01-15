@@ -40,7 +40,7 @@ const DocsPage = async ({ params }: DocsPageProps) => {
   return (
     <>
       <Container className="flex flex-col space-y-8 py-6 md:py-8">
-        <DocHeader title={data.title} description={data.description} />
+        <DocHeader title={data.title} description={data.description} category={data.category} />
         <Article>
           <MDX code={data.mdx} />
         </Article>
