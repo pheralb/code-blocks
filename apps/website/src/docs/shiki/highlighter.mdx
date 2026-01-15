@@ -10,9 +10,7 @@ category: [Markdown, MDX, Client, Shiki]
 
 ### shadcn/ui
 
-<CopyShadcnCommand
-  name="shiki-highlighter"
-/>
+<CopyShadcnCommand name="shiki-highlighter" />
 
 ### Manual
 
@@ -36,13 +34,23 @@ As optional, you can also install separate packages for themes and languages to 
 
 <ShowSource component="shiki-highlighter" />
 
-For better performance, this utility only imports the languages and themes that you will use in the application. If you don't need to limit the imports, you can import themes and languages from `shiki` directly:
+For better performance, **this utility only imports the languages and themes that you will use**. If you don't prefer importing specific items, you can use [`shiki/bundle/web`](https://shiki.style/guide/bundles#shiki-bundle-web) directly:
 
-```ts {3,4}
-const highlight = async (): Promise<HighlighterCore> => {
-  highlighter ??= createHighlighterCore({
+```ts
+import {
+  type Highlighter,
+  type RegexEngine,
+  createHighlighter,
+} from "shiki/bundle/web";
+
+let highlighter: Promise<Highlighter> | null = null;
+
+// ...
+
+const highlight = async (): Promise<Highlighter> => {
+  highlighter ??= createHighlighter({
+    langs: ["html", "js", "ts", "tsx", "css", "bash", "mdx"],
     themes: ["one-light", "one-dark-pro"],
-    langs: ["javascript"],
     engine: getJsEngine(),
   });
   return highlighter;
