@@ -1,5 +1,4 @@
 import type { UnistNode, UnistTree } from "@/mdx/types/unist";
-import type { RegistryComponent } from "@/components/registry/types";
 
 import fs from "fs";
 import path from "path";
@@ -7,11 +6,7 @@ import { u } from "unist-builder";
 import { visit } from "unist-util-visit";
 
 // Components Registry:
-import { RegistryData } from "@/components/registry/data";
-
-const getComponent = (title: string): RegistryComponent | undefined => {
-  return RegistryData.find((group) => group.shadcnRegistry.name === title);
-};
+import { getComponent } from "@/components/registry/get-component";
 
 export function rehypeComponent() {
   return (tree: UnistTree) => {

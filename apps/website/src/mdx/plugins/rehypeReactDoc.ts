@@ -1,5 +1,4 @@
 import type { UnistNode, UnistTree } from "@/mdx/types/unist";
-import type { RegistryComponent } from "@/components/registry/types";
 
 import path from "path";
 import { u } from "unist-builder";
@@ -7,11 +6,7 @@ import { visit } from "unist-util-visit";
 import { parse } from "react-docgen-typescript";
 
 // Components Registry:
-import { RegistryData } from "@/components/registry/data";
-
-const getComponent = (title: string): RegistryComponent | undefined => {
-  return RegistryData.find((group) => group.shadcnRegistry.name === title);
-};
+import { getComponent } from "@/components/registry/get-component";
 
 export function rehypeReactDoc() {
   return (tree: UnistTree) => {
@@ -107,6 +102,7 @@ export function rehypeReactDoc() {
                     let filteredProps: [string, unknown][] = propEntries;
                     let reactParentName: string | null = null;
                     if (!fullProp) {
+                      // eslint-disable-next-line @typescript-eslint/no-unused-vars
                       filteredProps = propEntries.filter(([_, prop]) => {
                         const parent = (
                           prop as {
@@ -127,6 +123,7 @@ export function rehypeReactDoc() {
                     }
 
                     return [
+                      // eslint-disable-next-line @typescript-eslint/no-unused-vars
                       ...filteredProps.map(([_, prop]) => {
                         const p = prop as PropType;
                         return u("element", {
