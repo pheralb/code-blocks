@@ -32,12 +32,20 @@ const docSchema = z.object({
 type DocSchema = z.infer<typeof docSchema>;
 type DocsDocument = Document & DocSchema;
 
+interface DocTransformParams {
+  folder: string;
+  subFolder?: string;
+  document: DocsDocument;
+  context: Context;
+}
+
 // Transform:
-const docTransform = async (
-  folder: string,
-  document: DocsDocument,
-  context: Context,
-) => {
+const docTransform = async ({
+  folder,
+  subFolder,
+  document,
+  context,
+}: DocTransformParams) => {
   const highlighter = await highlight();
   const code = await compileMDX(context, document, {
     remarkPlugins: [remarkGfm],
@@ -60,6 +68,7 @@ const docTransform = async (
   return {
     ...document,
     folder,
+    subFolder,
     mdx: code,
   };
 };
@@ -70,7 +79,8 @@ const generalDocs = defineCollection({
   directory: "src/docs",
   include: "*.mdx",
   schema: docSchema,
-  transform: (document, context) => docTransform("general", document, context),
+  transform: (document, context) =>
+    docTransform({ folder: "general", document, context }),
   onSuccess: (docs) => {
     console.log(
       `|- (content-collections) ✅ generalDocs Collection - Successfully processed ${docs.length} documents.`,
@@ -84,7 +94,7 @@ const gstartedDocs = defineCollection({
   include: "**/*.mdx",
   schema: docSchema,
   transform: (document, context) =>
-    docTransform("getting-started", document, context),
+    docTransform({ folder: "getting-started", document, context }),
   onSuccess: (docs) => {
     console.log(
       `|- (content-collections) ✅ getting-started Collection - Successfully processed ${docs.length} documents.`,
@@ -98,7 +108,7 @@ const reactDocs = defineCollection({
   include: "**/*.mdx",
   schema: docSchema,
   transform: (document, context) =>
-    docTransform("react", document, context),
+    docTransform({ folder: "react", document, context }),
   onSuccess: (docs) => {
     console.log(
       `|- (content-collections) ✅ react Collection - Successfully processed ${docs.length} documents.`,
@@ -111,7 +121,8 @@ const shikiDocs = defineCollection({
   directory: "src/docs/shiki",
   include: "**/*.mdx",
   schema: docSchema,
-  transform: (document, context) => docTransform("shiki", document, context),
+  transform: (document, context) =>
+    docTransform({ folder: "shiki", document, context }),
   onSuccess: (docs) => {
     console.log(
       `|- (content-collections) ✅ shiki Collection - Successfully processed ${docs.length} documents.`,
@@ -125,7 +136,7 @@ const sugarHighDocs = defineCollection({
   include: "**/*.mdx",
   schema: docSchema,
   transform: (document, context) =>
-    docTransform("sugar-high", document, context),
+    docTransform({ folder: "sugar-high", document, context }),
   onSuccess: (docs) => {
     console.log(
       `|- (content-collections) ✅ sugar-high Collection - Successfully processed ${docs.length} documents.`,
