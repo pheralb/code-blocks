@@ -4,11 +4,22 @@ import { lazy } from "react";
 // Settings:
 const utilsFolder = "src/utils";
 const stylesFolder = "src/styles";
+const storesFolder = "src/stores";
 const componentsFolder = "src/components";
 const codeblockComponent = "src/components/code-block";
 
 // CSS Files:
 const CSSFiles: RegistryComponent[] = [
+  {
+    title: "Shiki CSS",
+    fileType: "css",
+    fileSource: `${stylesFolder}/shiki.css`,
+    shadcnRegistry: {
+      name: "shiki-css",
+      type: "registry:file",
+      target: "src/styles/shiki.css",
+    },
+  },
   {
     title: "Sugar High CSS",
     fileType: "css",
@@ -59,6 +70,21 @@ const UtilsFiles: RegistryComponent[] = [
     shadcnRegistry: {
       name: "react-to-text",
       type: "registry:lib",
+    },
+  },
+];
+
+// Stores:
+const StoresFiles: RegistryComponent[] = [
+  {
+    title: "Package Manager Store",
+    fileType: "ts",
+    fileSource: `${storesFolder}/packageManager.ts`,
+    shadcnRegistry: {
+      name: "package-manager-store",
+      type: "registry:file",
+      target: "src/stores/packageManager.ts",
+      dependencies: ["zustand" ],
     },
   },
 ];
@@ -212,36 +238,44 @@ const Blocks: RegistryComponent[] = [
     },
   },
   {
-    title: "Blocks - Copy with Package Manager",
+    title: "Blocks - Select Package Manager",
     fileType: "tsx",
-    fileSource: `${codeblockComponent}/blocks/copy-with-pkg-manager.tsx`,
-    exampleFileSource: `${componentsFolder}/previews/copy-with-pkg-manager-example.tsx`,
+    fileSource: `${codeblockComponent}/blocks/copy-with-select-package-manager.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/select-package-manager-example.tsx`,
     reactComponent: lazy(
-      () => import("@/components/previews/copy-with-pkg-manager-example"),
+      () => import("@/components/previews/select-package-manager-example"),
     ),
     shadcnRegistry: {
-      name: "block-copy-with-pkg-manager",
+      name: "block-select-package-manager",
       type: "registry:block",
-      registryDependencies: ["code-block-client-shiki"],
+      registryDependencies: [
+        "code-block-client-shiki",
+        "package-manager-store",
+      ],
     },
   },
   {
-    title: "Blocks - Select Package Manager",
+    title: "Blocks - Tabs Package Manager",
     fileType: "tsx",
-    fileSource: `${codeblockComponent}/blocks/select-pkg-manager.tsx`,
+    fileSource: `${codeblockComponent}/blocks/copy-with-tabs-package-manager.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/tabs-package-manager-example.tsx`,
     reactComponent: lazy(
-      () => import("@/components/code-block/blocks/select-pkg-manager"),
+      () => import("@/components/previews/tabs-package-manager-example"),
     ),
     shadcnRegistry: {
-      name: "block-select-pkg-manager",
+      name: "block-tabs-package-manager",
       type: "registry:block",
-      registryDependencies: ["code-block-client-shiki"],
+      registryDependencies: [
+        "code-block-client-shiki",
+        "package-manager-store",
+      ],
     },
   },
 ];
 
 const RegistryData: RegistryComponent[] = [
   ...UtilsFiles,
+  ...StoresFiles,
   ...CSSFiles,
   ...ShikiTransformers,
   ...UIComponents,
