@@ -68,11 +68,11 @@ export const SidebarLinksData: SidebarLinks[] = [
         icon: SquareCodeIcon,
         subItems: [
           {
-            title: "with Shiki",
+            title: "Using Shiki",
             href: "/docs/react/code-block-client-shiki",
           },
           {
-            title: "with Sugar High",
+            title: "Using Sugar High",
             href: "/docs/react/code-block-client-sugar-high",
           },
         ],
@@ -80,7 +80,24 @@ export const SidebarLinksData: SidebarLinks[] = [
       {
         title: "Blocks",
         icon: PackageIcon,
-        href: "/docs/react/blocks",
+        subItems: [
+          {
+            title: "Inline Code",
+            href: "/docs/react/blocks/inline-code",
+          },
+          {
+            title: "Persist Package Manager",
+            href: "/docs/react/blocks/persist-package-manager",
+          },
+          {
+            title: "Select Package Manager",
+            href: "/docs/react/blocks/select-package-manager",
+          },
+          {
+            title: "Tabs Package Manager",
+            href: "/docs/react/blocks/tabs-package-manager",
+          },
+        ],
       },
     ],
   },
