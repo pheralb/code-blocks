@@ -6,9 +6,45 @@ category: [React, Radix, Shiki, Blocks]
 
 <ComponentPreview component="block-tabs-package-manager" />
 
+## Installation
+
 ### shadcn/ui
 
 <CopyShadcnCommand name="block-tabs-package-manager" />
-### Source
+
+### Manual
+
+1. Create `packageManager.ts` store:
+
+<DocCard folder="react" document="blocks/persist-package-manager" />
+
+2. Create the basic Code Block structure:
+
+<DocCard folder="react" document="code-block" />
+
+3. Create the following client components:
+
+<Grid>
+  <DocCard folder="react" document="copy-button" />
+  <DocCard folder="react" document="code-block-client-shiki" />
+</Grid>
+
+4. Add [Tabs UI component from shadcn/ui](https://ui.shadcn.com/docs/components/base/tabs):
+
+<CodeBlockSelectPkg
+  type="dlx"
+  title="shadcn/ui Tabs"
+  command="shadcn@latest add tabs"
+/>
+
+5. Install the following dependencies (optional):
+
+<CodeBlockSelectPkg
+  type="install"
+  title="Optional Dependencies"
+  command="@react-symbols/icons lucide-react -E"
+/>
+
+6. Finally, create the Tabs Package Manager Block component:
 
 <ShowSource component="block-tabs-package-manager" />

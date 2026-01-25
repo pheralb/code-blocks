@@ -16,15 +16,15 @@ category: [Markdown, MDX, Client, Shiki]
 
 1. Install the following dependencies:
 
-<CopyWithPkgManager
+<CodeBlockSelectPkg
   title="Shiki Dependencies"
   type="install"
   command="shiki -D"
 />
 
-As optional, you can also install separate packages for themes and languages to reduce the bundle size:
+As optional, you can also install separate packages for themes and languages:
 
-<CopyWithPkgManager
+<CodeBlockSelectPkg
   title="Shiki Themes and Languages"
   type="install"
   command="@shikijs/themes @shikijs/langs -D"
@@ -63,30 +63,16 @@ This utility exports:
 - `Themes`: A type with the available themes. You can use it in your UI components to type the `theme` prop.
 - `Languages`: A type with the available languages. You can use it in your UI components to type the `language` prop.
 
-## Light/Dark Mode
+3. Create a `src/styles/shiki.css` file and add the following code:
 
-To active light/dark mode styles for Shiki code blocks, add the following CSS to your global styles:
-
-```css
-html.light .shiki,
-html.light .shiki span {
-  font-family: var(--font-mono) !important;
-  background-color: transparent !important;
-}
-
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-  font-family: var(--font-mono) !important;
-}
-```
+<ShowSource component="shiki-css" />
 
 ## Usage
 
 You can use the `highlight` function to get syntax highlighted code. For example:
 
 ```ts title="Shiki Highlighter Usage"
-import { highlight } from "@/utils/shiki-highlighter";
+import { highlight } from "@/utils/shiki";
 
 const code = `console.log('hello')`;
 const highlighter = await highlight();
@@ -94,6 +80,22 @@ const html = highlighter.codeToHtml(code, {
   lang: "javascript",
   theme: "one-light",
 });
+```
+
+## Light/Dark Mode
+
+To active light/dark mode styles for Shiki code blocks, add the following CSS to your global styles:
+
+```css
+html.light .shiki,
+html.light .shiki span {
+  background-color: transparent !important;
+}
+
+html.dark .shiki,
+html.dark .shiki span {
+  color: var(--shiki-dark) !important;
+}
 ```
 
 ## Themes
@@ -142,7 +144,7 @@ type Languages = "js" | "ts" | "tsx" | ... ;
 
 1. Install the [`@shikijs/rehype`](https://shiki.style/packages/rehype) package:
 
-<CopyWithPkgManager
+<CodeBlockSelectPkg
   title="Shiki Rehype Dependency"
   type="install"
   command="@shikijs/rehype -D"

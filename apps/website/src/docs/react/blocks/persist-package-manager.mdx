@@ -1,0 +1,27 @@
+---
+title: Persist Package Manager
+description: Custom store to persist the selected package manager using Zustand.
+category: [React, Zustand, Blocks]
+---
+
+## Introduction
+
+[Zustand](https://zustand-demo.pmnd.rs/) is a small library for state management in React applications. It provides a simple and efficient way to manage global state without the boilerplate of more complex libraries.
+
+Using Zustand, we can create a custom store to manage the selected package manager across different components in our application. This allows users to select their preferred package manager (e.g., npm, yarn, pnpm) and have the command snippets update accordingly.
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="package-manager-store" />
+
+### Manual
+
+1. Install [Zustand](https://zustand-demo.pmnd.rs/):
+
+<CodeBlockSelectPkg title="Zustand" type="install" command="zustand" />
+
+2. Create a custom store ``stores/packageManager.ts``:
+
+<ShowSource component="package-manager-store" />
