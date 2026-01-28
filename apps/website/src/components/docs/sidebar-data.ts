@@ -68,11 +68,11 @@ export const SidebarLinksData: SidebarLinks[] = [
         icon: SquareCodeIcon,
         subItems: [
           {
-            title: "Using Shiki",
+            title: "Shiki",
             href: "/docs/react/code-block-client-shiki",
           },
           {
-            title: "Using Sugar High",
+            title: "Sugar High",
             href: "/docs/react/code-block-client-sugar-high",
           },
         ],
