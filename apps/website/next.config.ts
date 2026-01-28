@@ -2,6 +2,14 @@ import type { NextConfig } from "next";
 import { withContentCollections } from "@content-collections/next";
 
 const nextConfig: NextConfig = {
+  async rewrites() {
+    return [
+      {
+        source: "/docs/:folder/:slug*.md",
+        destination: "/api/docs/:folder/:slug*",
+      },
+    ];
+  },
   async redirects() {
     return [
       {
