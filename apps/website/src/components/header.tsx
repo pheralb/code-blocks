@@ -2,6 +2,7 @@ import { cn } from "@/utils/cn";
 
 import Link from "next/link";
 import GithubLink from "@/components/github-link";
+import SponsorLink from "@/components/sponsor-link";
 import ThemeToggle from "@/components/theme-toggle";
 import SearchDocs from "@/components/docs/search-docs";
 
@@ -35,6 +36,7 @@ const Header = ({ layout }: HeaderProps) => {
           <SearchDocs />
           <div className="flex items-center space-x-1 border-l border-neutral-200 pl-3 dark:border-neutral-800">
             <GithubLink />
+            <SponsorLink />
             <ThemeToggle />
           </div>
         </div>

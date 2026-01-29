@@ -52,15 +52,14 @@ const SidebarMobile = ({ children }: ComponentProps<"div">) => {
         <MenuIcon size={16} />
         <span>Menu</span>
       </SheetTrigger>
-      <SheetContent>
-        <SheetHeader>
-          <SheetTitle>Are you absolutely sure?</SheetTitle>
+      <SheetContent side="left">
+        <SheetHeader className="border-b border-neutral-200 dark:border-neutral-800">
+          <SheetTitle>Code Blocks</SheetTitle>
           <SheetDescription>
-            This action cannot be undone. This will permanently delete your
-            account and remove your data from our servers.
+            Components and utilities for building code block components.
           </SheetDescription>
         </SheetHeader>
-        {children}
+        <div className="overflow-y-auto pb-10">{children}</div>
       </SheetContent>
     </Sheet>
   );

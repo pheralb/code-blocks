@@ -9,8 +9,9 @@ import { getDocument } from "@/utils/docs";
 
 import Article from "@/components/docs/doc-article";
 import Container from "@/components/container";
-import DocHeader from "@/components/docs/doc-header";
 import TableOfContents from "@/components/docs/toc-menu";
+import ShowCategories from "@/components/docs/show-categories";
+import DocOptions from "@/components/docs/doc-options";
 
 interface DocsPageProps {
   params: Promise<{ folder: string; slug: string[] }>;
@@ -20,7 +21,7 @@ export async function generateMetadata({
   params,
 }: DocsPageProps): Promise<Metadata> {
   const { folder, slug } = await params;
-  const document = slug.join('/');
+  const document = slug.join("/");
   const data = getDocument({
     folder,
     document,
@@ -33,7 +34,7 @@ export async function generateMetadata({
 
 const DocsPage = async ({ params }: DocsPageProps) => {
   const { folder, slug } = await params;
-  const document = slug.join('/');
+  const document = slug.join("/");
   const data = getDocument({
     folder,
     document,
@@ -42,7 +43,22 @@ const DocsPage = async ({ params }: DocsPageProps) => {
   return (
     <>
       <Container className="flex flex-col space-y-8 py-6 md:py-8">
-        <DocHeader title={data.title} description={data.description} category={data.category} />
+        <div className="flex flex-col space-y-1 pt-2">
+          <div className="flex w-full items-center justify-between">
+            <h4 className="font-headings text-4xl font-semibold tracking-tight">
+              {data.title}
+            </h4>
+            <DocOptions
+              content={data.content}
+              folder={data.folder}
+              file={data._meta.fileName}
+            />
+          </div>
+          <p className="text-lg text-neutral-600 dark:text-neutral-400">
+            {data.description}
+          </p>
+          <ShowCategories className="mt-2" categories={data.category} />
+        </div>
         <Article>
           <MDX code={data.mdx} />
         </Article>

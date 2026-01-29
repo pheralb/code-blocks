@@ -13,7 +13,7 @@ const SidebarGroup = ({ title, children }: SidebarGroupProps) => {
       <div
         className={cn(
           "group flex w-full items-center justify-between px-5 pb-2",
-          "text-xs font-medium text-neutral-600 dark:text-neutral-400",
+          "text-xs font-medium",
         )}
       >
         <span>{title}</span>
