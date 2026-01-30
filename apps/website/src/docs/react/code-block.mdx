@@ -1,6 +1,6 @@
 ---
 title: Code Block
-description: The main UI components to create a custom code block.
+description: The main structure of the Code Block component with header and content areas.
 category: [React, MDX, Client, Components]
 ---
 
@@ -10,7 +10,11 @@ This is the main structure of the `CodeBlock` component, which includes a global
 
 ```tsx
 <CodeBlock>
-  <CodeBlockHeader />
+  <CodeBlockHeader>
+    <CodeBlockGroup>
+      <CodeBlockIcon language="bash" />
+    </CodeBlockGroup>
+  </CodeBlockHeader>
   <CodeBlockContent>
     {/* Your syntax highlighted code goes here. */}
   </CodeBlockContent>
@@ -21,41 +25,79 @@ This is the main structure of the `CodeBlock` component, which includes a global
 
 ### shadcn/ui
 
-<CopyShadcnCommand
-  name="code-block-structure"
-/>
+<CopyShadcnCommand name="code-block-structure" />
 
 ### Manual
 
-1. Create a custom `languageSvgs` utility to map language names to SVG icons:
-
-Install the optional [`@react-symbols/icons`](https://react-symbols.vercel.app/) package for SVG icons:
-
-<CodeBlockSelectPkg
-  title="React-Symbols Icons"
-  type="install"
-  command="@react-symbols/icons"
-/>
-
-Then, create the utility:
-
-<ShowSource component="language-svgs" />
-
-2. Create the `code-block.tsx` component:
+Create the `code-block.tsx` component:
 
 <ShowSource component="code-block-structure" />
 
 ## Usage
 
 ```tsx
-import { CodeBlock, CodeBlockHeader, CodeBlockContent } from "@/components/code-block/code-block";
+import {
+  CodeBlock,
+  CodeBlockHeader,
+  CodeBlockIcon,
+  CodeBlockGroup,
+  CodeBlockContent,
+} from "@/components/code-block/code-block";
 
 <CodeBlock>
-  <CodeBlockHeader title="Hello" language="bash" />
+  <CodeBlockHeader>
+    <CodeBlockGroup>
+      <CodeBlockIcon language="bash" />
+    </CodeBlockGroup>
+  </CodeBlockHeader>
   <CodeBlockContent>
     {/* Your syntax highlighted code goes here. */}
   </CodeBlockContent>
-</CodeBlock>
+</CodeBlock>;
+```
+
+## Components
+
+### CodeBlock
+
+The main wrapper for the code block.
+
+```tsx
+<CodeBlock>{/* ... */}</CodeBlock>
+```
+
+### CodeBlockHeader
+
+The header section of the code block, typically used for displaying the language icon, title, and action buttons.
+
+```tsx
+<CodeBlockHeader>{/* ... */}</CodeBlockHeader>
+```
+
+### CodeBlockGroup
+
+A container for grouping elements in the header, such as the language icon and title.
+
+```tsx
+<CodeBlockHeader>
+  <CodeBlockGroup>{/* ... */}</CodeBlockGroup>
+</CodeBlockHeader>
+```
+
+### CodeBlockIcon
+
+Displays the icon for the specified programming language. Internal icons are provided by [`@react-symbols/icons`](https://react-symbols.pheralb.dev/) using [`<FileIcon />` component](https://github.com/pheralb/react-symbols?tab=readme-ov-file#fileicon).
+
+```tsx
+<CodeBlockIcon language="js" />
+```
+
+### CodeBlockContent
+
+The content area of the code block where the syntax-highlighted code is displayed.
+
+```tsx
+<CodeBlockContent>{/* ... */}</CodeBlockContent>
 ```
 
 ## Props

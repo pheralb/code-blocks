@@ -1,7 +1,7 @@
 ---
 title: Line Numbers
 description: How to enable line numbers in code blocks using Shiki.
-category: [Markdown, MDX, Shiki]
+category: [Shiki, Markdown, MDX]
 ---
 
 <Showcase>
@@ -31,27 +31,7 @@ const html = highlighter.codeToHtml(code, {
 
 <ShowSource component="shiki-show-line-numbers" />
 
-2. Add the following styles to your global CSS file to style the line numbers:
-
-```css title="src/styles/globals.css"
-pre.shiki-line-numbers code {
-  counter-reset: step;
-  counter-increment: step 0;
-}
-
-pre.shiki-line-numbers code:has(.line:nth-child(2)) .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 0.5rem;
-  margin-right: 1rem;
-  margin-left: 0.3rem;
-  display: inline-block;
-  text-align: right;
-  @apply font-mono text-xs text-neutral-400 dark:text-neutral-600;
-}
-```
-
-3. Import the transformer in your `rehypeShiki` plugin:
+2. Import the transformer in your `rehypeShiki` plugin:
 
 ```ts title="Rehype Shiki Options"
 import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
@@ -63,6 +43,10 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 
 export { rehypeShikiOptions };
 ```
+
+3. Customize the styles in your CSS file if needed:
+
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
 
 ## Usage
 

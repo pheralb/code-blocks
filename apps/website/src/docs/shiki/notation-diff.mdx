@@ -1,7 +1,7 @@
 ---
 title: Notation Diff
 description: How to add diff notation to show added and removed lines in code blocks.
-category: [Markdown, MDX, Shiki]
+category: [Shiki, Markdown, MDX]
 ---
 
 <Showcase>
@@ -41,35 +41,15 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-3. Add the following styles to your global CSS file:
+3. Customize the styles in your CSS file if needed:
 
-```css title="src/styles/globals.css"
-pre.has-diff span.line.diff {
-  @apply relative inline-block w-full;
-}
-
-pre.has-diff span.line.diff.add {
-  @apply bg-green-300/20 dark:bg-green-700/20;
-  &::before {
-    content: "+";
-    @apply absolute left-2 text-green-600 dark:text-green-400;
-  }
-}
-
-pre.has-diff span.line.diff.remove {
-  @apply bg-red-300/20 opacity-70 dark:bg-red-600/20;
-  &::before {
-    content: "-";
-    @apply absolute left-2 text-red-600 dark:text-red-400;
-  }
-}
-```
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
 
 ## Usage
 
 To add diff notation to your code blocks, use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
 
-````mdx
+````mdx {5,6}
 ```
 const code = `type Languages = "javascript" | "typescript";`;
 const highlighter = await highlight();

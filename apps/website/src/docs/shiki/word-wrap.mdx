@@ -1,7 +1,7 @@
 ---
 title: Word Wrap
 description: How to enable word wrap in code blocks using Shiki.
-category: [Markdown, MDX, Shiki]
+category: [Shiki, Markdown, MDX]
 ---
 
 ## Installation
@@ -19,7 +19,7 @@ category: [Markdown, MDX, Shiki]
 2. Import the transformer in your `rehypeShiki` plugin:
 
 ```ts title="Rehype Shiki Options"
-import { wordWrapContent } from "@/utils/shiki/transformers/show-line-numbers";
+import { wordWrapContent } from "@/utils/shiki/transformers/word-wrap";
 
 const rehypeShikiOptions: RehypeShikiCoreOptions = {
   //...

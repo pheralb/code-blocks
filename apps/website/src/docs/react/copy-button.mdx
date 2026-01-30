@@ -1,6 +1,6 @@
 ---
 title: Copy Button
-description: A UI component to copy content to the clipboard.
+description: A button component to copy content to the clipboard.
 category: [React, Client, Components]
 ---
 
@@ -10,9 +10,7 @@ category: [React, Client, Components]
 
 ### shadcn/ui
 
-<CopyShadcnCommand
-  name="copy-button"
-/>
+<CopyShadcnCommand name="copy-button" />
 
 ### Manual
 
@@ -36,16 +34,20 @@ const Example = () => {
 export default Example;
 ```
 
-Or with ``<CodeBlock>`` component:
+Or with [`<CodeBlock>`](/docs/react/code-block) component:
 
-```tsx {1,8}
+```tsx {6,12}
+import {
+  CodeBlock,
+  CodeBlockHeader,
+  CodeBlockContent,
+} from "@/components/code-block/code-block";
 import { CopyButton } from "@/components/code-block/copy-button";
-import { CodeBlock, CodeBlockHeader, CodeBlockContent } from "@/components/code-block/code-block";
 
 const Example = () => {
   return (
     <CodeBlock>
-      <CodeBlockHeader title="Example" language="javascript">
+      <CodeBlockHeader>
         <CopyButton content={`console.log('Hello, World!');`} />
       </CodeBlockHeader>
       <CodeBlockContent>

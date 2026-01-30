@@ -1,7 +1,7 @@
 ---
 title: Notation Focus
 description: How to use Notation Focus transformer to highlight specific lines in code blocks.
-category: [Markdown, MDX, Shiki]
+category: [Shiki, Markdown, MDX]
 ---
 
 <Showcase>
@@ -44,23 +44,15 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-3. Add the following styles to your global CSS file:
+3. Customize the styles in your CSS file if needed:
 
-```css title="src/styles/globals.css"
-pre.shiki-has-focused .line:not(.focused) {
-  @apply opacity-50 blur-[0.8px] transition-opacity duration-200 ease-in-out;
-}
-
-pre.shiki-has-focused:hover .line:not(.focused) {
-  @apply opacity-100 blur-none;
-}
-```
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
 
 ## Usage
 
 To add diff notation to your code blocks, use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
 
-````mdx
+````mdx {3}
 ```
 const code = `type Languages = "javascript" | "typescript";`;
 const highlighter = await highlight(); // [!code focus]

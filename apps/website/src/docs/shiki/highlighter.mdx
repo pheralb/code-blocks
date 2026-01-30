@@ -1,7 +1,7 @@
 ---
 title: Shiki Highlighter
 description: The main highlighter utility to render syntax highlighted code.
-category: [Markdown, MDX, Client, Shiki]
+category: [Shiki, Markdown, MDX, Client]
 ---
 
 [Shiki](https://shiki.style/) is a syntax highlighting library based on TextMate grammars. It transforms source code into accurate, theme-aware HTML, matching the highlighting used in VS Code.
@@ -63,7 +63,9 @@ This utility exports:
 - `Themes`: A type with the available themes. You can use it in your UI components to type the `theme` prop.
 - `Languages`: A type with the available languages. You can use it in your UI components to type the `language` prop.
 
-3. Create a `src/styles/shiki.css` file and add the following code:
+## Styles
+
+This CSS file includes light/dark mode and transformers styles. You can customize it as needed:
 
 <ShowSource component="shiki-css" />
 
@@ -80,22 +82,6 @@ const html = highlighter.codeToHtml(code, {
   lang: "javascript",
   theme: "one-light",
 });
-```
-
-## Light/Dark Mode
-
-To active light/dark mode styles for Shiki code blocks, add the following CSS to your global styles:
-
-```css
-html.light .shiki,
-html.light .shiki span {
-  background-color: transparent !important;
-}
-
-html.dark .shiki,
-html.dark .shiki span {
-  color: var(--shiki-dark) !important;
-}
 ```
 
 ## Themes
