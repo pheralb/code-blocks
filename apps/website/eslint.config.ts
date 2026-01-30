@@ -1,7 +1,7 @@
 import { defineConfig } from "eslint/config";
 
 // Plugins:
-import { nextConfig } from "@pheralb/cb-eslint/nextjs";
+import { nextConfig } from "@code-blocks/eslint/nextjs";
 
 const eslintConfig = defineConfig(nextConfig);
 
