@@ -7,11 +7,13 @@ import { highlight } from "@/utils/sugar-high";
 
 interface CodeBlockSugarHighProps extends ComponentProps<"pre"> {
   code: string;
+  lineNumbers?: boolean;
 }
 
 const CodeBlockSugarHigh = ({
   code,
   className,
+  lineNumbers = false,
   ...props
 }: CodeBlockSugarHighProps) => {
   const highlightedHtml = highlight({
@@ -20,10 +22,16 @@ const CodeBlockSugarHigh = ({
 
   return (
     <pre
-      className={cn("w-full overflow-x-auto font-mono", "p-3", className)}
-      dangerouslySetInnerHTML={{ __html: highlightedHtml }}
+      className={cn(
+        "w-full overflow-x-auto font-mono",
+        "p-3",
+        lineNumbers && "sh-line-numbers",
+        className,
+      )}
       {...props}
-    />
+    >
+      <code dangerouslySetInnerHTML={{ __html: highlightedHtml }} />
+    </pre>
   );
 };
 

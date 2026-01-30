@@ -1,0 +1,29 @@
+---
+title: Line Numbers
+description: How to enable line numbers in code blocks using Sugar-High.
+category: [Sugar-High, React, Markdown, MDX]
+---
+
+<ComponentPreview component="code-block-client-sugar-high-line-numbers" />
+
+## Usage
+
+### Component
+
+Add the `lineNumbers` prop to the [`CodeBlockSugarHigh`](/docs/react/code-block-client-sugar-high#usage) component:
+
+```tsx title="Code Block with Line Numbers"
+<CodeBlockSugarHigh lineNumbers={true} code={code} />
+```
+
+### Markdown/MDX
+
+Add `sh-line-numbers` class to the [`PreSugarHighComponent`](/docs/react/code-block-mdx#highlighter-setup):
+
+```tsx {2}
+<CodeBlockContent>
+  <pre className="sh-line-numbers">
+    <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
+  </pre>
+</CodeBlockContent>
+```
