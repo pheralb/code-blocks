@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
-import { SparklesIcon } from "@/components/ui/lucide-animated/sparkles";
+import { SparklesIcon } from "lucide-react";
 
 type Position = "top-left" | "top-right" | "bottom-left" | "bottom-right";
 
