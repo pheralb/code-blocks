@@ -1,7 +1,7 @@
 /* Tailwind CSS */
 @import "./globals.css";
 
-/* Shiki */
+/* Shiki Light/Dark Mode */
 html.light .shiki,
 html.light .shiki span {
   font-family: var(--font-mono);
@@ -15,6 +15,7 @@ html.dark .shiki span {
   background-color: transparent !important;
 }
 
+/* Base Shiki Pre & Span Styles */
 pre.shiki {
   @apply py-3;
 }
