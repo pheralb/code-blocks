@@ -26,6 +26,7 @@ export function checkMainSourceFiles(): CheckResult[] {
 }
 
 export function getMissingMainSourceFiles(): CheckResult[] {
+  console.log(chalk.gray("|- Checking source files..."));
   return checkMainSourceFiles().filter((result) => !result.exists);
 }
 
@@ -34,6 +35,7 @@ export function allMainSourceFilesExist(): boolean {
 }
 
 function checkMDXFiles(): Array<{ file: string; name: string; line: number }> {
+  console.log(chalk.gray("|- Checking <CopyShadcnCommand /> Commands..."));
   const projectRoot = process.cwd();
   const docsFolder = join(projectRoot, "src", "docs");
   const missing: Array<{ file: string; name: string; line: number }> = [];
@@ -80,12 +82,43 @@ function checkMDXFiles(): Array<{ file: string; name: string; line: number }> {
   return missing;
 }
 
+function checkRegistryDependencies(): Array<{
+  title: string;
+  missingDependency: string;
+}> {
+  console.log(chalk.gray("|- Checking registryDependencies..."));
+  const missing: Array<{ title: string; missingDependency: string }> = [];
+
+  const availableNames = new Set<string>(
+    RegistryData.map((item) => item.shadcnRegistry?.name).filter(
+      (name): name is string => !!name,
+    ),
+  );
+
+  RegistryData.forEach((component) => {
+    const registryDeps = component.shadcnRegistry?.registryDependencies;
+    if (registryDeps && Array.isArray(registryDeps)) {
+      registryDeps.forEach((dep) => {
+        if (!availableNames.has(dep)) {
+          missing.push({
+            title: component.title,
+            missingDependency: dep,
+          });
+        }
+      });
+    }
+  });
+
+  return missing;
+}
+
 function checkRegistry() {
   console.log(chalk.bold.blue("|- 🔍 Checking registry...\n"));
 
   const results = checkMainSourceFiles();
   const missing = getMissingMainSourceFiles();
   const mdxMissing = checkMDXFiles();
+  const registryDepsMissing = checkRegistryDependencies();
 
   if (missing.length > 0) {
     console.log(
@@ -118,7 +151,23 @@ function checkRegistry() {
     });
   }
 
-  if (missing.length === 0 && mdxMissing.length === 0) {
+  if (registryDepsMissing.length > 0) {
+    console.log(
+      chalk.red.bold(
+        `|- ❌ Missing ${registryDepsMissing.length} registryDependencies references:`,
+      ),
+    );
+    registryDepsMissing.forEach((item) => {
+      console.log(chalk.red("-"), chalk.white(item.missingDependency));
+      console.log(chalk.gray(`-> Used in: ${item.title}\n`));
+    });
+  }
+
+  if (
+    missing.length === 0 &&
+    mdxMissing.length === 0 &&
+    registryDepsMissing.length === 0
+  ) {
     console.log(chalk.green.bold("|- ✅ Registry checked successfully."));
     process.exit(0);
   }
