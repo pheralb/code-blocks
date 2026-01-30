@@ -43,6 +43,11 @@ const buildRegistry = () => {
     if (component.shadcnRegistry.dependencies) {
       item.dependencies = component.shadcnRegistry.dependencies;
     }
+
+    if (component.shadcnRegistry.devDependencies) {
+      item.devDependencies = component.shadcnRegistry.devDependencies;
+    }
+
     if (component.shadcnRegistry.registryDependencies) {
       item.registryDependencies =
         component.shadcnRegistry.registryDependencies.map(

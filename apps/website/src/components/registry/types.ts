@@ -16,6 +16,7 @@ export interface ShadcnRegistry {
   type: RegistryType;
   target?: string;
   dependencies?: string[];
+  devDependencies?: string[];
   registryDependencies?: string[];
   files?: {
     path: string;

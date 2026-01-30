@@ -42,6 +42,8 @@ const UtilsFiles: RegistryComponent[] = [
       name: "shiki-highlighter",
       type: "registry:lib",
       dependencies: ["shiki", "@shikijs/themes", "@shikijs/langs"],
+      registryDependencies: ["shiki-css"],
+      target: "src/utils/shiki/index.ts",
     },
   },
   {
@@ -52,6 +54,8 @@ const UtilsFiles: RegistryComponent[] = [
       name: "sugar-high-highlighter",
       type: "registry:lib",
       dependencies: ["sugar-high"],
+      registryDependencies: ["sugar-high-css"],
+      target: "src/utils/sugar-high/index.ts",
     },
   },
   {
@@ -61,6 +65,7 @@ const UtilsFiles: RegistryComponent[] = [
     shadcnRegistry: {
       name: "copy-to-clipboard",
       type: "registry:lib",
+      target: "src/utils/copy.ts",
     },
   },
   {
@@ -70,6 +75,7 @@ const UtilsFiles: RegistryComponent[] = [
     shadcnRegistry: {
       name: "react-to-text",
       type: "registry:lib",
+      target: "src/utils/react-to-text.ts",
     },
   },
 ];
@@ -99,6 +105,7 @@ const ShikiTransformers: RegistryComponent[] = [
       name: "shiki-show-line-numbers",
       type: "registry:lib",
       dependencies: ["shiki"],
+      target: "src/utils/shiki/transformers/show-line-numbers.ts",
     },
   },
   {
@@ -109,6 +116,7 @@ const ShikiTransformers: RegistryComponent[] = [
       name: "shiki-word-wrap",
       type: "registry:lib",
       dependencies: ["shiki"],
+      target: "src/utils/shiki/transformers/word-wrap.ts",
     },
   },
   {
@@ -119,16 +127,7 @@ const ShikiTransformers: RegistryComponent[] = [
       name: "shiki-add-to-pre-element",
       type: "registry:lib",
       dependencies: ["shiki"],
-    },
-  },
-  {
-    title: "Shiki Transformer - Meta Highlight",
-    fileType: "ts",
-    fileSource: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
-    shadcnRegistry: {
-      name: "shiki-add-to-pre-element",
-      type: "registry:lib",
-      dependencies: ["shiki"],
+      target: "src/utils/shiki/transformers/add-to-pre-element.ts",
     },
   },
 ];
@@ -146,7 +145,8 @@ const UIComponents: RegistryComponent[] = [
     shadcnRegistry: {
       name: "code-block-structure",
       type: "registry:component",
-      dependencies: ["lucide-react"],
+      dependencies: ["lucide-react", "@react-symbols/icons"],
+      target: "src/components/code-block/code-block.tsx",
     },
   },
   {
@@ -156,6 +156,13 @@ const UIComponents: RegistryComponent[] = [
     shadcnRegistry: {
       name: "code-block-mdx-shiki",
       type: "registry:component",
+      devDependencies: ["@types/mdx"],
+      registryDependencies: [
+        "react-to-text",
+        "copy-to-clipboard",
+        "code-block-structure",
+      ],
+      target: "src/components/code-block/mdx/pre-shiki.tsx",
     },
   },
   {
@@ -165,6 +172,14 @@ const UIComponents: RegistryComponent[] = [
     shadcnRegistry: {
       name: "code-block-mdx-sugar-high",
       type: "registry:component",
+      devDependencies: ["@types/mdx"],
+      registryDependencies: [
+        "react-to-text",
+        "sugar-high-highlighter",
+        "copy-to-clipboard",
+        "code-block-structure",
+      ],
+      target: "src/components/code-block/mdx/pre-sugar-high.tsx",
     },
   },
   {
@@ -179,6 +194,8 @@ const UIComponents: RegistryComponent[] = [
       name: "code-block-client-shiki",
       type: "registry:component",
       dependencies: ["shiki"],
+      registryDependencies: ["shiki-highlighter"],
+      target: "src/components/code-block/client/shiki.tsx",
     },
   },
   {
@@ -192,7 +209,8 @@ const UIComponents: RegistryComponent[] = [
     shadcnRegistry: {
       name: "code-block-client-sugar-high",
       type: "registry:component",
-      dependencies: ["sugar-high"],
+      registryDependencies: ["sugar-high-highlighter"],
+      target: "src/components/code-block/client/sugar-high.tsx",
     },
   },
   {
@@ -207,7 +225,8 @@ const UIComponents: RegistryComponent[] = [
     shadcnRegistry: {
       name: "code-block-client-sugar-high-line-numbers",
       type: "registry:component",
-      dependencies: ["sugar-high"],
+      registryDependencies: ["sugar-high-highlighter"],
+      target: "src/components/code-block/client/sugar-high.tsx",
     },
   },
   {
@@ -222,6 +241,8 @@ const UIComponents: RegistryComponent[] = [
       name: "copy-button",
       type: "registry:component",
       dependencies: ["lucide-react"],
+      registryDependencies: ["copy-to-clipboard"],
+      target: "src/components/code-block/copy-button.tsx",
     },
   },
   {
@@ -232,6 +253,7 @@ const UIComponents: RegistryComponent[] = [
       name: "language-svgs",
       type: "registry:component",
       dependencies: ["@react-symbols/icons"],
+      target: "src/components/code-block/language-svgs.tsx",
     },
   },
 ];
@@ -250,6 +272,7 @@ const Blocks: RegistryComponent[] = [
       name: "block-inline-code",
       type: "registry:block",
       registryDependencies: ["code-block-client-shiki"],
+      target: "src/components/code-block/blocks/inline-code.tsx",
     },
   },
   {
@@ -263,10 +286,15 @@ const Blocks: RegistryComponent[] = [
     shadcnRegistry: {
       name: "block-select-package-manager",
       type: "registry:block",
+      dependencies: ["@react-symbols/icons"],
       registryDependencies: [
+        "copy-button",
+        "code-block-structure",
         "code-block-client-shiki",
         "package-manager-store",
       ],
+      target:
+        "src/components/code-block/blocks/copy-with-select-package-manager.tsx",
     },
   },
   {
@@ -280,10 +308,15 @@ const Blocks: RegistryComponent[] = [
     shadcnRegistry: {
       name: "block-tabs-package-manager",
       type: "registry:block",
+      dependencies: ["@react-symbols/icons"],
       registryDependencies: [
+        "copy-button",
+        "code-block-structure",
         "code-block-client-shiki",
         "package-manager-store",
       ],
+      target:
+        "src/components/code-block/blocks/copy-with-tabs-package-manager.tsx",
     },
   },
 ];
