@@ -1,0 +1,48 @@
+/* Tailwind CSS */
+@import "./globals.css";
+
+/* Sugar High - Light Mode */
+:root {
+  --sh-class: theme("colors.blue.600");
+  --sh-identifier: theme("colors.gray.500");
+  --sh-sign: theme("colors.gray.500");
+  --sh-property: theme("colors.blue.700");
+  --sh-entity: theme("colors.teal.600");
+  --sh-jsxliterals: theme("colors.gray.600");
+  --sh-string: theme("colors.teal.600");
+  --sh-keyword: theme("colors.red.500");
+  --sh-comment: theme("colors.gray.400");
+}
+
+/* Sugar High - Dark Mode */
+.dark {
+  --sh-class: theme("colors.blue.400");
+  --sh-identifier: theme("colors.gray.400");
+  --sh-sign: theme("colors.gray.400");
+  --sh-property: theme("colors.blue.400");
+  --sh-entity: theme("colors.teal.400");
+  --sh-jsxliterals: theme("colors.gray.400");
+  --sh-string: theme("colors.teal.400");
+  --sh-keyword: theme("colors.red.400");
+  --sh-comment: theme("colors.gray.500");
+}
+
+/* Font for <code> element */
+code {
+  @apply font-mono;
+}
+
+/* Line Numbers */
+pre.sh-line-numbers code {
+  counter-reset: sh-line-number;
+}
+
+pre.sh-line-numbers .sh__line::before {
+  counter-increment: sh-line-number 1;
+  content: counter(sh-line-number);
+  width: 0.5rem;
+  margin-right: 1rem;
+  margin-left: 0.3rem;
+  display: inline-block;
+  @apply text-right font-mono text-xs text-neutral-400 dark:text-neutral-600;
+}

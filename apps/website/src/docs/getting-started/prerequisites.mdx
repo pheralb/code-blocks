@@ -1,0 +1,48 @@
+---
+title: Prerequisites
+description: Libraries required to create custom Code Block component.
+category: [Getting-Started]
+---
+
+> [**Code-Blocks**](https://code-blocks.pheralb.dev) separates components and utilities. You can use them independently.
+
+## Styling
+
+All components uses [Tailwind CSS v4](https://tailwindcss.com/docs/installation) for styling. Make sure to have it installed and configured in your project.
+
+For some colors, we use [**neutral** theme](https://tailwindcss.com/docs/colors) from Tailwind CSS:
+
+<DocNeutralColors />
+
+## Components
+
+> If you're using [shadcn/ui](https://ui.shadcn.com), you can skip this section as the required dependencies are already included.
+
+1. Create a new React app:
+
+<CreateReactApp />
+
+2. Install the following dependencies:
+
+<CodeBlockSelectPkg
+  type="install"
+  title="Required Dependencies"
+  command="clsx tailwind-merge lucide-react @react-symbols/icons"
+/>
+
+3. Create the `cn` utility:
+
+```ts title="src/utils/cn.ts"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+
+export function cn(...inputs: ClassValue[]) {
+  return twMerge(clsx(inputs));
+}
+```
+
+## Utilities
+
+All the utilities are built using TypeScript. You'll only need install the highlighter library you choose to use:
+
+<HighlightsAvailable />

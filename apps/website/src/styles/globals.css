@@ -1,0 +1,74 @@
+@import "tailwindcss";
+
+/* Plugins */
+@import "tw-animate-css";
+@plugin "@tailwindcss/typography";
+
+/* Light/Dark */
+@custom-variant dark (&:is(.dark *));
+
+/* Fonts */
+@theme {
+  --font-sans:
+    var(--font-sans), ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
+    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  --font-mono:
+    var(--font-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
+    "Liberation Mono", "Courier New", monospace, "Apple Color Emoji";
+  --font-headings:
+    var(--font-headings), ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+}
+
+/* Prose */
+.prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply decoration-neutral-600 underline-offset-[6px] dark:decoration-neutral-400;
+}
+
+.prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply mb-5 scroll-mt-20 text-2xl font-semibold;
+}
+
+.prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply mb-4 scroll-mt-20 text-xl font-semibold;
+}
+
+.prose :where(h2 > a):not(:where([class~="not-prose"], [class~="not-prose"] *)),
+.prose
+  :where(h3 > a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply no-underline hover:opacity-85;
+}
+
+.prose
+  :where(blockquote):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
+  @apply bg-neutral-200/40 not-italic dark:bg-neutral-800/40;
+}
+
+.prose
+  :where(blockquote p):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before,
+.prose
+  :where(blockquote p):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: none;
+}
+
+.prose
+  :where(:not(pre) > code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  ) {
+  @apply bg-neutral-200 px-1.5 py-0.5 font-mono text-sm text-neutral-800 dark:bg-neutral-800 dark:text-neutral-200;
+}
+
+.prose
+  :where(:not(pre) > code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::before,
+.prose
+  :where(:not(pre) > code):not(
+    :where([class~="not-prose"], [class~="not-prose"] *)
+  )::after {
+  content: none;
+}

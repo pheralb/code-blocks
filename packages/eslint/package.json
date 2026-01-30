@@ -1,0 +1,30 @@
+{
+  "name": "@pheralb/cb-eslint",
+  "private": true,
+  "type": "module",
+  "exports": {
+    "./base": "./configs/base.ts",
+    "./react": "./configs/react.ts",
+    "./nextjs": "./configs/nextjs.ts"
+  },
+  "scripts": {
+    "typecheck": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@eslint/compat": "2.0.0",
+    "@eslint/js": "9.39.2",
+    "eslint-config-next": "16.1.1",
+    "eslint-config-prettier": "10.1.8",
+    "eslint-plugin-react": "7.37.5",
+    "eslint-plugin-react-hooks": "7.0.1",
+    "eslint-plugin-react-refresh": "0.4.26",
+    "eslint-plugin-turbo": "2.7.2",
+    "globals": "17.0.0",
+    "typescript-eslint": "8.50.1"
+  },
+  "devDependencies": {
+    "@types/node": "22.19.3",
+    "eslint": "9.39.2",
+    "typescript": "5.9.3"
+  }
+}

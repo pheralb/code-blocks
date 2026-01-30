@@ -1,0 +1,123 @@
+---
+title: Code Block MDX
+description: Create a MDX Code Block component with syntax highlighting and copy button.
+category: [React, MDX, Components]
+---
+
+<Showcase subtitle="Code Block MDX + Copy Button + Shiki Highlighter">
+
+```tsx
+import type { ComponentProps } from "react";
+
+const MyComponent = (props: ComponentProps<"div">) => {
+  return <div {...props}>Hello, World!</div>;
+};
+
+export default MyComponent;
+```
+
+</Showcase>
+
+## Installation
+
+### shadcn/ui
+
+<MDXHighlightTabs>
+  <TabsContent value="shiki">
+
+<CopyShadcnCommand name="code-block-mdx-shiki" />
+
+  </TabsContent>
+  <TabsContent value="sugar-high">
+    
+<CopyShadcnCommand name="code-block-mdx-sugar-high" />
+
+  </TabsContent>
+</MDXHighlightTabs>
+
+### Manual
+
+Before creating the MDX component, make sure you have the basic component structure:
+
+<DocCard folder="react" document="code-block" />
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg title="MDX Types" type="install" command="@types/mdx -D" />
+
+2. Create the Copy Button component:
+
+<DocCard folder="react" document="copy-button" />
+
+3. Create a `react-to-text` utility to get plain text from `pre` elements:
+
+<ShowSource component="react-to-text" />
+
+## Highlighter Setup
+
+Setup your MDX highlighter:
+
+<MDXHighlightTabs>
+  <TabsContent value="shiki">
+
+1. Setup `data-title` & `data-language` properties:
+
+<DocCard folder="shiki" document="add-properties" />
+
+2. Setup Shiki Markdown/MDX integration:
+
+<DocCard
+  folder="shiki"
+  document="highlighter"
+  anchor="markdownmdx-integration"
+/>
+
+3. Add light/dark themes to your Shiki setup:
+
+<DocCard folder="shiki" document="highlighter" anchor="lightdark-mode" />
+
+4. Create your `PreShikiComponent` component:
+
+<ShowSource component="code-block-mdx-shiki" />
+
+5. Usage:
+
+In your MDX Components object, add the new `PreShikiComponent` component:
+
+```ts {3,6}
+import type { MDXComponents as MDXComponentsType } from "mdx/types";
+
+import { PreShikiComponent } from "@/components/code-block/pre-shiki";
+
+const MDXComponents: MDXComponentsType = {
+  ...PreShikiComponent,
+};
+```
+
+  </TabsContent>
+  <TabsContent value="sugar-high">
+
+1. Setup Sugar-High highlighter:
+
+<DocCard folder="sugar-high" document="highlighter" />
+
+2. Create your `PreSugarHighComponent` component:
+
+<ShowSource component="code-block-mdx-sugar-high" />
+
+3. Usage:
+
+In your MDX Components object, add the new `PreSugarHighComponent` component:
+
+```ts {3,6}
+import type { MDXComponents as MDXComponentsType } from "mdx/types";
+
+import { PreShikiComponent } from "@/components/code-block/pre-shiki";
+
+const MDXComponents: MDXComponentsType = {
+  ...PreShikiComponent,
+};
+```
+
+  </TabsContent>
+</MDXHighlightTabs>

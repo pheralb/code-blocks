@@ -1,0 +1,32 @@
+---
+title: Word Wrap
+description: How to enable word wrap in code blocks using Shiki.
+category: [Shiki, Markdown, MDX]
+---
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="shiki-word-wrap" />
+
+### Manual
+
+1. Copy the `wordWrapContent` transformer into your project:
+
+<ShowSource component="shiki-word-wrap" />
+
+2. Import the transformer in your `rehypeShiki` plugin:
+
+```ts title="Rehype Shiki Options"
+import { wordWrapContent } from "@/utils/shiki/transformers/word-wrap";
+
+const rehypeShikiOptions: RehypeShikiCoreOptions = {
+  //...
+  transformers: [wordWrapContent()],
+};
+
+export { rehypeShikiOptions };
+```
+
+Then, automatically long lines in your code blocks will wrap based on the width of the container.

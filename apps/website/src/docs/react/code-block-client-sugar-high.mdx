@@ -1,0 +1,53 @@
+---
+title: Code Block Client with Sugar High
+description: Create a client-side Code Block component using Sugar High for syntax highlighting.
+category: [React, Client, Sugar-High, Components]
+---
+
+<ComponentPreview component="code-block-client-sugar-high" />
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand
+  name="code-block-client-sugar-high"
+/>
+
+### Manual
+
+Before creating the component, make sure you have the basic structure:
+
+<DocCard folder="react" document="code-block" />
+
+1. Create your Sugar High highlighter utility:
+
+<DocCard folder="sugar-high" document="highlighter" />
+
+2. Create the Code Block Client component:
+
+<ShowSource component="code-block-client-sugar-high" />
+
+## Usage
+
+Now you can use the `CodeBlockSugarHigh` into your `CodeBlockContent` component:
+
+```tsx {6,11}
+import {
+  CodeBlock,
+  CodeBlockContent,
+  CodeBlockHeader,
+} from "@/components/code-block";
+import { CodeBlockSugarHigh } from "@/components/code-block/client/sugar-high";
+
+<CodeBlock>
+  <CodeBlockHeader language="ts" title="Code block rendered on client side" />
+  <CodeBlockContent>
+    <CodeBlockSugarHigh code="console.log('Hello, world!');" />
+  </CodeBlockContent>
+</CodeBlock>;
+```
+
+## Props
+
+<ShowProps component="code-block-client-sugar-high" />

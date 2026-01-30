@@ -1,0 +1,70 @@
+---
+title: Sugar-High Highlighter
+description: The main highlighter utility to render syntax highlighted code.
+category: [Sugar-High, React, Markdown, MDX]
+---
+
+[Sugar-High](https://sugar-high.vercel.app/) is a lightweight JSX syntax highlighter built by [Jiachi Liu](https://github.com/huozhi). You can use it to render simple syntax highlighted code blocks with minimal bundle size and configuration.
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand
+  name="sugar-high-highlighter"
+/>
+
+### Manual
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg
+  title="Sugar High Dependencies"
+  type="install"
+  command="sugar-high -D"
+/>
+
+2. Create a your sugar-high utility file:
+
+<ShowSource component="sugar-high-highlighter" />
+
+## Styles
+
+This CSS file includes light/dark mode styles. You can customize it as needed:
+
+<ShowSource component="sugar-high-css" />
+
+> Customize the color theme with CSS variables: [Docs](https://github.com/huozhi/sugar-high?tab=readme-ov-file#highlight-with-css).
+
+## Usage
+
+You can use the `highlight` function to get syntax highlighted code. For example:
+
+```ts title="Sugar High Highlighter Usage"
+import { highlight } from "@/utils/sugar-high";
+
+const code = `console.log('hello')`;
+const highlighter = await highlight({
+  code,
+});
+```
+
+## Markdown/MDX Integration
+
+1. Install the [`remark-sugar-high`](https://github.com/huozhi/sugar-high/tree/main/packages/remark-sugar-high) package:
+
+<CodeBlockSelectPkg
+  title="Remark Sugar High Dependency"
+  type="install"
+  command="remark-sugar-high -D"
+/>
+
+2. Add the `remark-sugar-high` plugin to your MDX compilation process. For example:
+
+```ts {1}
+import { remarkSugarHigh } from "remark-sugar-high";
+
+const mdx = await compileMDX(context, document, {
+  remarkPlugins: [remarkSugarHigh],
+});
+```

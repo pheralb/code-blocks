@@ -1,0 +1,62 @@
+---
+title: Notation Diff
+description: How to add diff notation to show added and removed lines in code blocks.
+category: [Shiki, Markdown, MDX]
+---
+
+<Showcase>
+
+```ts
+const code = `type Languages = "javascript" | "typescript";`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  lang: "javascript", // [!code --]
+  lang: "typescript", // [!code ++]
+  theme: "one-light",
+});
+```
+
+</Showcase>
+
+## Installation
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg
+  title="Shiki Transformers"
+  type="install"
+  command="@shikijs/transformers -D"
+/>
+
+2. Set up `transformerNotationDiff`:
+
+```ts title="Shiki Notation Highlight Transformer"
+import { transformerNotationDiff } from "@shikijs/transformers";
+
+const rehypeShikiOptions: RehypeShikiCoreOptions = {
+  //...
+  transformers: [transformerNotationDiff()],
+};
+
+export { rehypeShikiOptions };
+```
+
+3. Customize the styles in your CSS file if needed:
+
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
+
+## Usage
+
+To add diff notation to your code blocks, use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
+
+````mdx {5,6}
+```
+const code = `type Languages = "javascript" | "typescript";`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  lang: "javascript", // [!code --]
+  lang: "typescript", // [!code ++]
+  theme: "one-light",
+});
+```
+````

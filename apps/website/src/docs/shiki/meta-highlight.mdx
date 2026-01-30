@@ -1,0 +1,64 @@
+---
+title: Meta Highlight
+description: How to highlight specific lines with meta tags in code blocks.
+category: [Shiki, Markdown, MDX]
+---
+
+<Showcase>
+
+```ts {4,5}
+const code = `console.log('hello')`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  lang: "javascript",
+  theme: "one-light",
+});
+```
+
+</Showcase>
+
+## Installation
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg
+  title="Shiki Transformers"
+  type="install"
+  command="@shikijs/transformers -D"
+/>
+
+2. Set up `transformerMetaHighlight`:
+
+```ts title="Shiki Notation Highlight Transformer"
+import { transformerMetaHighlight } from "@shikijs/transformers";
+
+const rehypeShikiOptions: RehypeShikiCoreOptions = {
+  //...
+  transformers: [
+    transformerMetaHighlight({
+      className: "shiki-line-highlight",
+    }),
+  ],
+};
+
+export { rehypeShikiOptions };
+```
+
+3. Customize the styles in your CSS file if needed:
+
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
+
+## Usage
+
+To highlight specific lines in your code blocks, use the `meta` prop with the line numbers you want to highlight. For example, to highlight lines 2 and 3, use the following syntax:
+
+````mdx {1}
+``` {4,5}
+const code = `console.log('hello')`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  lang: "javascript",
+  theme: "one-light",
+});
+```
+````

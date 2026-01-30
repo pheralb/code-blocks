@@ -1,0 +1,64 @@
+---
+title: Copy Button
+description: A button component to copy content to the clipboard.
+category: [React, Client, Components]
+---
+
+<ComponentPreview component="copy-button" />
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="copy-button" />
+
+### Manual
+
+1. Create a utility function to handle clipboard copying:
+
+<ShowSource component="copy-to-clipboard" />
+
+2. Create a `src/components/code-block/copy-button.tsx` file and add the following code:
+
+<ShowSource component="copy-button" />
+
+## Usage
+
+```tsx {1,4}
+import { CopyButton } from "@/components/code-block/copy-button";
+
+const Example = () => {
+  return <CopyButton content="Text to be copied" />;
+};
+
+export default Example;
+```
+
+Or with [`<CodeBlock>`](/docs/react/code-block) component:
+
+```tsx {6,12}
+import {
+  CodeBlock,
+  CodeBlockHeader,
+  CodeBlockContent,
+} from "@/components/code-block/code-block";
+import { CopyButton } from "@/components/code-block/copy-button";
+
+const Example = () => {
+  return (
+    <CodeBlock>
+      <CodeBlockHeader>
+        <CopyButton content={`console.log('Hello, World!');`} />
+      </CodeBlockHeader>
+      <CodeBlockContent>
+        {/* Your syntax highlighted code goes here. */}
+      </CodeBlockContent>
+    </CodeBlock>
+  );
+};
+export default Example;
+```
+
+## Props
+
+<ShowProps component="copy-button" />
