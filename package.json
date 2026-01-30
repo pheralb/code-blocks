@@ -13,6 +13,7 @@
     "website:build": "pnpm --filter @code-blocks/website run build",
     "website:build-cc": "pnpm --filter @code-blocks/website run build:cc",
     "website:registry": "pnpm --filter @code-blocks/website run check:registry",
+    "website:build-registry": "pnpm --filter @code-blocks/website run build:registry",
     "typecheck": "turbo run typecheck",
     "check:format": "prettier --check \"**/*.{ts,tsx,js,jsx,mdx}\" --cache",
     "fix:format": "prettier --write \"**/*.{ts,tsx,js,jsx,mdx}\" --cache"
