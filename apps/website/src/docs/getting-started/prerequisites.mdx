@@ -27,10 +27,23 @@ For some colors, we use [**neutral** theme](https://tailwindcss.com/docs/colors)
 <CodeBlockSelectPkg
   type="install"
   title="Required Dependencies"
-  command="clsx tailwind-merge lucide-react @react-symbols/icons"
+  command="@base-ui/react clsx tailwind-merge lucide-react @react-symbols/icons"
 />
 
-3. Create the `cn` utility:
+3. Add `@` alias to your `tsconfig.json`:
+
+```json {5} title="tsconfig.json"
+{
+  "compilerOptions": {
+    "baseUrl": ".",
+    "paths": {
+      "@/*": ["./src/*"]
+    }
+  }
+}
+```
+
+4. Create the `cn` utility:
 
 ```ts title="src/utils/cn.ts"
 import { clsx, type ClassValue } from "clsx";
