@@ -1,5 +1,6 @@
 "use client";
 
+import { usePathname } from "next/navigation";
 import { useState, type ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
@@ -30,6 +31,7 @@ interface DocOptionsProps extends ComponentProps<"div"> {
 const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
+  const pathname = usePathname();
 
   const handleCopyMarkdown = () => {
     copyToClipboard(content);
@@ -66,7 +68,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
       </div>
       <DropdownMenuContent align="end">
         <DropdownMenuItem asChild>
-          <ExternalLink href={`${window.location.href}.mdx`}>
+          <ExternalLink href={`${pathname}.mdx`}>
             <span>View as Markdown</span>
             <ArrowUpRightIcon size={14} />
           </ExternalLink>
