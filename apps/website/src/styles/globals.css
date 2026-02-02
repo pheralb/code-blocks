@@ -22,7 +22,7 @@
 
 /* Prose */
 .prose :where(a):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  @apply decoration-neutral-600 underline-offset-[6px] dark:decoration-neutral-400;
+  @apply decoration-neutral-400 underline-offset-[6px] transition-colors hover:decoration-neutral-600 dark:decoration-neutral-500 dark:hover:decoration-neutral-200;
 }
 
 .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
