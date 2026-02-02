@@ -3,4 +3,5 @@ export const globals = {
   subTitle: 'A code-block UI component and utilities',
   githubUrl: "https://github.com/pheralb/code-blocks",
   twitterUrl: "https://twitter.com/pheralb_",
+  websiteUrl: "https://code-blocks.pheralb.dev",
 };

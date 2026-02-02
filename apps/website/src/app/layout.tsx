@@ -15,9 +15,18 @@ import { globals } from "@/globals";
 
 // Metadata:
 export const metadata: Metadata = {
+  metadataBase: new URL(globals.websiteUrl),
   title: `${globals.subTitle} - ${globals.title}`,
   description: "A code-block UI component. Copy-Paste. Customizable.",
   authors: [{ name: "pheralb", url: "https://pheralb.dev" }],
+  robots: "follow, index",
+  alternates: {
+    canonical: "/",
+  },
+  icons: [
+    { rel: "icon", type: "ico", url: "/images/code-blocks-ico.ico" },
+    { rel: "icon", type: "image/svg+xml", url: "/images/code-blocks-svg.svg" },
+  ],
 };
 
 export default function RootLayout({
