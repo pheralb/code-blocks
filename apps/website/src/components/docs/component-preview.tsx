@@ -16,7 +16,9 @@ interface ComponentPreviewProps extends ComponentProps<"div"> {
 
 const ComponentPreview = ({ component, children }: ComponentPreviewProps) => {
   const componentEntry = useMemo(() => {
-    return RegistryData.find((entry) => entry.shadcnRegistry.name === component);
+    return RegistryData.find(
+      (entry) => entry.shadcnRegistry.name === component,
+    );
   }, [component]);
 
   const Preview = useMemo(() => {
@@ -35,7 +37,7 @@ const ComponentPreview = ({ component, children }: ComponentPreviewProps) => {
 
   return (
     <Tabs defaultValue="preview" className="my-4 flex w-full flex-col gap-0">
-      <TabsList>
+      <TabsList className="gap-1 border border-neutral-200 bg-transparent dark:border-neutral-800 dark:bg-transparent">
         <TabsTrigger value="preview">Preview</TabsTrigger>
         <TabsTrigger value="code">Code</TabsTrigger>
       </TabsList>

@@ -74,7 +74,7 @@ const CodeBlockTabsPkg = ({ command, type }: CodeBlockTabsPkgProps) => {
         <CodeBlockHeader>
           <div className="flex items-center space-x-1">
             <CodeBlockIcon language="bash" />
-            <TabsList className="border-0 bg-transparent dark:bg-transparent">
+            <TabsList className="gap-1 border-0 bg-transparent dark:bg-transparent">
               {Commands.map((cmd) => {
                 const Icon = cmd.icon;
                 return (

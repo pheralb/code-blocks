@@ -67,14 +67,18 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
         </DropdownMenuTrigger>
       </div>
       <DropdownMenuContent align="end">
-        <DropdownMenuItem asChild>
-          <ExternalLink href={`${pathname}.mdx`}>
+        <DropdownMenuItem>
+          <ExternalLink
+            href={`${pathname}.mdx`}
+            className="flex items-center space-x-2"
+          >
             <span>View as Markdown</span>
             <ArrowUpRightIcon size={14} />
           </ExternalLink>
         </DropdownMenuItem>
-        <DropdownMenuItem asChild>
+        <DropdownMenuItem>
           <ExternalLink
+            className="flex items-center space-x-2"
             href={`${globals.githubUrl}/blob/main/apps/website/src/docs/${folder}/${file}`}
           >
             <span>Edit on GitHub</span>
