@@ -4,7 +4,6 @@ import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
 import { XIcon } from "lucide-react";
-import { Button } from "@/components/ui/button";
 import { Dialog as DialogPrimitive } from "@base-ui/react/dialog";
 
 const DialogOverlayClasses = cn(
@@ -64,14 +63,10 @@ function DialogContent({
           <DialogPrimitive.Close
             data-slot="dialog-close"
             render={
-              <Button
-                variant="ghost"
-                className="absolute top-4 right-4"
-                size="icon-sm"
-              />
+              <button className="absolute top-4 right-4 cursor-pointer text-neutral-600 hover:text-neutral-900 dark:text-neutral-400 dark:hover:text-neutral-50" />
             }
           >
-            <XIcon />
+            <XIcon size={18} />
             <span className="sr-only">Close</span>
           </DialogPrimitive.Close>
         )}
