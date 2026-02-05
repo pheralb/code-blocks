@@ -30,6 +30,7 @@ export interface RegistryComponent {
   fileType: Languages;
   shadcnRegistry: ShadcnRegistry;
   fileSource: string;
+  group?: string;
   reactComponent?: LazyExoticComponent<ComponentType>;
   exampleFileSource?: string;
 }

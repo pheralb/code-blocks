@@ -13,6 +13,7 @@ const CSSFiles: RegistryComponent[] = [
   {
     title: "Shiki CSS",
     fileType: "css",
+    group: "shiki",
     fileSource: `${stylesFolder}/shiki.css`,
     shadcnRegistry: {
       name: "shiki-css",
@@ -23,6 +24,7 @@ const CSSFiles: RegistryComponent[] = [
   {
     title: "Sugar High CSS",
     fileType: "css",
+    group: "sugar-high",
     fileSource: `${stylesFolder}/sugar-high.css`,
     shadcnRegistry: {
       name: "sugar-high-css",
@@ -38,6 +40,7 @@ const UtilsFiles: RegistryComponent[] = [
     title: "Shiki Highlighter",
     fileType: "ts",
     fileSource: `${utilsFolder}/shiki/index.ts`,
+    group: "shiki",
     shadcnRegistry: {
       name: "shiki-highlighter",
       type: "registry:lib",
@@ -50,6 +53,7 @@ const UtilsFiles: RegistryComponent[] = [
     title: "Sugar High Highlighter",
     fileType: "ts",
     fileSource: `${utilsFolder}/sugar-high/index.ts`,
+    group: "sugar-high",
     shadcnRegistry: {
       name: "sugar-high-highlighter",
       type: "registry:lib",
@@ -100,6 +104,7 @@ const ShikiTransformers: RegistryComponent[] = [
   {
     title: "Shiki Transformer - Show Line Numbers",
     fileType: "ts",
+    group: "shiki",
     fileSource: `${utilsFolder}/shiki/transformers/show-line-numbers.ts`,
     shadcnRegistry: {
       name: "shiki-show-line-numbers",
@@ -111,6 +116,7 @@ const ShikiTransformers: RegistryComponent[] = [
   {
     title: "Shiki Transformer - Word Wrap",
     fileType: "ts",
+    group: "shiki",
     fileSource: `${utilsFolder}/shiki/transformers/word-wrap.ts`,
     shadcnRegistry: {
       name: "shiki-word-wrap",
@@ -122,6 +128,7 @@ const ShikiTransformers: RegistryComponent[] = [
   {
     title: "Shiki Transformer - Add to Pre Element",
     fileType: "ts",
+    group: "shiki",
     fileSource: `${utilsFolder}/shiki/transformers/add-to-pre-element.ts`,
     shadcnRegistry: {
       name: "shiki-add-to-pre-element",
@@ -153,6 +160,7 @@ const UIComponents: RegistryComponent[] = [
     title: "Code Block - MDX Shiki",
     fileType: "tsx",
     fileSource: `${codeblockComponent}/mdx/pre-shiki.tsx`,
+    group: "shiki",
     shadcnRegistry: {
       name: "code-block-mdx-shiki",
       type: "registry:component",
@@ -169,6 +177,7 @@ const UIComponents: RegistryComponent[] = [
     title: "Code Block - MDX Sugar High",
     fileType: "tsx",
     fileSource: `${codeblockComponent}/mdx/pre-sugar-high.tsx`,
+    group: "sugar-high",
     shadcnRegistry: {
       name: "code-block-mdx-sugar-high",
       type: "registry:component",
@@ -187,6 +196,7 @@ const UIComponents: RegistryComponent[] = [
     fileType: "tsx",
     fileSource: `${codeblockComponent}/client/shiki.tsx`,
     exampleFileSource: `${componentsFolder}/previews/code-block-shiki-example.tsx`,
+    group: "shiki",
     reactComponent: lazy(
       () => import("@/components/previews/code-block-shiki-example"),
     ),
@@ -203,6 +213,7 @@ const UIComponents: RegistryComponent[] = [
     fileType: "tsx",
     fileSource: `${codeblockComponent}/client/sugar-high.tsx`,
     exampleFileSource: `${componentsFolder}/previews/code-block-sugar-high-example.tsx`,
+    group: "sugar-high",
     reactComponent: lazy(
       () => import("@/components/previews/code-block-sugar-high-example"),
     ),
@@ -217,6 +228,7 @@ const UIComponents: RegistryComponent[] = [
     title: "Code Block - Client Sugar High + Line Numbers",
     fileType: "tsx",
     fileSource: `${codeblockComponent}/client/sugar-high.tsx`,
+    group: "sugar-high",
     exampleFileSource: `${componentsFolder}/previews/code-block-sugar-high-line-numbers-example.tsx`,
     reactComponent: lazy(
       () =>
@@ -245,17 +257,6 @@ const UIComponents: RegistryComponent[] = [
       target: "src/components/code-block/copy-button.tsx",
     },
   },
-  {
-    title: "Language SVGs",
-    fileType: "tsx",
-    fileSource: `${codeblockComponent}/language-svgs.tsx`,
-    shadcnRegistry: {
-      name: "language-svgs",
-      type: "registry:component",
-      dependencies: ["@react-symbols/icons"],
-      target: "src/components/code-block/language-svgs.tsx",
-    },
-  },
 ];
 
 // Blocks:
@@ -263,6 +264,7 @@ const Blocks: RegistryComponent[] = [
   {
     title: "Blocks - Inline Code",
     fileType: "tsx",
+    group: "blocks",
     fileSource: `${codeblockComponent}/blocks/inline-code.tsx`,
     exampleFileSource: `${componentsFolder}/previews/inline-code-example.tsx`,
     reactComponent: lazy(
@@ -279,6 +281,7 @@ const Blocks: RegistryComponent[] = [
     title: "Blocks - Select Package Manager",
     fileType: "tsx",
     fileSource: `${codeblockComponent}/blocks/copy-with-select-package-manager.tsx`,
+    group: "blocks",
     exampleFileSource: `${componentsFolder}/previews/select-package-manager-example.tsx`,
     reactComponent: lazy(
       () => import("@/components/previews/select-package-manager-example"),
@@ -300,6 +303,7 @@ const Blocks: RegistryComponent[] = [
   {
     title: "Blocks - Tabs Package Manager",
     fileType: "tsx",
+    group: "blocks",
     fileSource: `${codeblockComponent}/blocks/copy-with-tabs-package-manager.tsx`,
     exampleFileSource: `${componentsFolder}/previews/tabs-package-manager-example.tsx`,
     reactComponent: lazy(
