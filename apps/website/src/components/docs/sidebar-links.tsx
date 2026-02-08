@@ -10,7 +10,7 @@ import { SidebarLinkItem } from "@/components/docs/sidebar-link-item";
 const SidebarLinks = () => {
   const pathname = usePathname();
   return (
-    <nav className="flex flex-col space-y-6">
+    <nav className="flex flex-1 flex-col space-y-6 pb-6">
       {SidebarLinksData.map((data) => (
         <SidebarGroup title={data.groupTitle} key={data.groupTitle}>
           {data.items.map((link) => {

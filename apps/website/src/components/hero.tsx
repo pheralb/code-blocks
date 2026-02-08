@@ -18,17 +18,18 @@ const Hero = () => {
       )}
     >
       <div className="flex flex-col items-center justify-center space-y-2">
-        <h1 className="font-headings text-dark text-4xl font-semibold tracking-tight lg:text-5xl dark:text-white">
+        <h1 className="font-headings text-4xl font-semibold tracking-tight text-neutral-950 lg:text-5xl dark:text-neutral-50">
           Build beautiful code blocks
         </h1>
         <p className="font-medium text-neutral-500 dark:text-neutral-400">
-          Show code snippets with syntax highlighting in your React project.
+          Ready to use UI components and utilities to show your snippets
+          beautifully.
         </p>
       </div>
       <div
         className={cn(
           "flex flex-col items-center justify-center space-y-2 md:flex-row md:space-y-0 md:space-x-2",
-          "animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 duration-500 delay-100",
+          "animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 delay-100 duration-500",
         )}
       >
         <Link

@@ -31,11 +31,13 @@ const Sidebar = ({ children, position }: SidebarProps) => {
         "hidden md:block",
         "overflow-x-hidden overflow-y-auto",
         "border-neutral-200 dark:border-neutral-800",
-        "bg-neutral-100 dark:bg-neutral-900",
+        "bg-neutral-50 dark:bg-neutral-900",
         position === "left" ? "left-0 border-r" : "right-0 border-l",
       )}
     >
-      <div className="overscroll-none py-6">{children}</div>
+      <div className="flex h-full flex-col space-y-6 overscroll-none py-6">
+        {children}
+      </div>
     </aside>
   );
 };
