@@ -17,6 +17,16 @@ const nextConfig: NextConfig = {
         destination: "/docs/getting-started/prerequisites",
         permanent: true,
       },
+      {
+        source: "/components",
+        destination: "/docs/react/copy-button",
+        permanent: true,
+      },
+      {
+        source: "/blocks",
+        destination: "/docs/react/blocks/inline-code",
+        permanent: true,
+      },
     ];
   },
 };
