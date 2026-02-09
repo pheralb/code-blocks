@@ -273,7 +273,7 @@ const Blocks: RegistryComponent[] = [
     shadcnRegistry: {
       name: "block-inline-code",
       type: "registry:block",
-      registryDependencies: ["client-shiki"],
+      registryDependencies: ["client-shiki", "shiki-highlighter"],
       target: "src/components/code-block/blocks/inline-code.tsx",
     },
   },
@@ -295,6 +295,7 @@ const Blocks: RegistryComponent[] = [
         "code-block",
         "client-shiki",
         "package-manager-store",
+        "shiki-highlighter",
       ],
       target:
         "src/components/code-block/blocks/copy-with-select-package-manager.tsx",
@@ -318,6 +319,7 @@ const Blocks: RegistryComponent[] = [
         "code-block",
         "client-shiki",
         "package-manager-store",
+        "shiki-highlighter",
       ],
       target:
         "src/components/code-block/blocks/copy-with-tabs-package-manager.tsx",
@@ -336,7 +338,12 @@ const Blocks: RegistryComponent[] = [
       name: "block-multi-tabs",
       type: "registry:block",
       dependencies: ["@react-symbols/icons"],
-      registryDependencies: ["copy-button", "code-block", "client-shiki"],
+      registryDependencies: [
+        "copy-button",
+        "code-block",
+        "client-shiki",
+        "shiki-highlighter",
+      ],
       target: "src/components/code-block/blocks/multi-tabs.tsx",
     },
   },
