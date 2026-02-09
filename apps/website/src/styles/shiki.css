@@ -24,6 +24,20 @@ pre.shiki span.line {
   @apply px-4 py-0.5;
 }
 
+/* Shiki Word Wrap */
+pre.shiki-word-wrap {
+  white-space: pre-wrap;
+  word-break: break-word;
+}
+
+pre.shiki-word-wrap span.line {
+  display: inline-block;
+  width: 100%;
+  box-sizing: border-box;
+  padding-top: 0.2px;
+  padding-bottom: 0.2px;
+}
+
 /* Shiki Line Numbers */
 pre.shiki-line-numbers code {
   counter-reset: step;

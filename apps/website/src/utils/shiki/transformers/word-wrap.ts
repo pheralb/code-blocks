@@ -4,7 +4,8 @@ const wordWrapContent = (): ShikiTransformer => {
   return {
     name: "WordWrap",
     pre(node) {
-      node.properties.style = "white-space: pre-wrap;";
+      const shikiStyles = node.properties.class;
+      node.properties.class = `${shikiStyles} shiki-word-wrap`;
     },
   };
 };
