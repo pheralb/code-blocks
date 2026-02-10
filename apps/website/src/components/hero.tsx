@@ -1,11 +1,11 @@
-import Link from "next/link";
-import { ArrowUpRightIcon, ChevronRightIcon } from "lucide-react";
+import { ArrowUpRightIcon } from "lucide-react";
 
 import { cn } from "@/utils/cn";
 import { globals } from "@/globals";
 
 import { GitHub } from "@/components/ui/svgs/github";
 import { buttonVariants } from "@/components/ui/button";
+import GetStartedLink from "@/components/get-started-link";
 import { ExternalLink } from "@/components/ui/external-link";
 
 const Hero = () => {
@@ -32,19 +32,7 @@ const Hero = () => {
           "animate-in fill-mode-backwards fade-in slide-in-from-bottom-4 delay-100 duration-500",
         )}
       >
-        <Link
-          href="/docs/getting-started/prerequisites"
-          className={buttonVariants({
-            size: "default",
-            className: "group w-full md:w-auto",
-          })}
-        >
-          <span>Get Started</span>
-          <ChevronRightIcon
-            size={16}
-            className="transition-transform group-hover:translate-x-0.5"
-          />
-        </Link>
+        <GetStartedLink />
         <ExternalLink
           title="View on GitHub"
           href={globals.githubUrl}
