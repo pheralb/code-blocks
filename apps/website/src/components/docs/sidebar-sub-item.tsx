@@ -13,14 +13,16 @@ interface SidebarSubItemProps {
   title: string;
   icon?: LucideIcon;
   children: ReactNode;
+  defaultOpen?: boolean;
 }
 
 const SidebarSubItem = ({
   title,
   icon: Icon,
   children,
+  defaultOpen = false,
 }: SidebarSubItemProps) => {
-  const [isOpen, setIsOpen] = useState<boolean>(false);
+  const [isOpen, setIsOpen] = useState<boolean>(defaultOpen);
   return (
     <Collapsible open={isOpen} onOpenChange={setIsOpen}>
       <CollapsibleTrigger

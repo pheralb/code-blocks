@@ -15,11 +15,15 @@ const SidebarLinks = () => {
         <SidebarGroup title={data.groupTitle} key={data.groupTitle}>
           {data.items.map((link) => {
             if (link.subItems) {
+              const shouldOpenByDefault = link.subItems.some(
+                (subItem) => subItem.href === pathname,
+              );
               return (
                 <SidebarSubItem
                   key={link.title}
                   title={link.title}
                   icon={link.icon}
+                  defaultOpen={shouldOpenByDefault}
                 >
                   {link.subItems.map((subItem) => (
                     <SidebarLinkItem
