@@ -9,19 +9,31 @@ import {
 import { CodeBlockSugarHigh } from "@/components/code-block/client/sugar-high";
 import { CopyButton } from "@/components/code-block/copy-button";
 
-const CodeBlockSugarHighExample = () => {
-  const code = `console.log('Hello, world!');`;
+interface CodeBlockSugarHighExampleProps {
+  title?: string;
+  code?: string;
+  lineNumbers?: boolean;
+}
+
+const CodeBlockSugarHighExample = ({
+  title,
+  code,
+  lineNumbers,
+}: CodeBlockSugarHighExampleProps) => {
   return (
     <CodeBlock>
       <CodeBlockHeader>
         <CodeBlockGroup>
           <CodeBlockIcon language="ts" />
-          <span>Code Block + Sugar High</span>
+          <span>{title ?? "Code Block + Sugar High"}</span>
         </CodeBlockGroup>
-        <CopyButton content={code} />
+        <CopyButton content={code ?? `console.log('Hello, world!');`} />
       </CodeBlockHeader>
       <CodeBlockContent>
-        <CodeBlockSugarHigh code={code} />
+        <CodeBlockSugarHigh
+          lineNumbers={lineNumbers}
+          code={code ?? `console.log('Hello, world!');`}
+        />
       </CodeBlockContent>
     </CodeBlock>
   );

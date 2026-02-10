@@ -8,6 +8,7 @@ import ComponentPreview from "@/components/docs/component-preview";
 import MDXHighlightTabs from "@/components/docs/mdx-highlight-tabs";
 import CopyShadcnCommand from "@/components/docs/copy-shadcn-command";
 import DocNeutralColors from "@/components/docs/doc-neutral-colors";
+import CodeBlockSugarHighExample from "@/components/previews/code-block-sugar-high-example";
 import { CodeBlockSelectPkg } from "@/components/code-block/blocks/copy-with-select-package-manager";
 import { CodeBlockTabsPkg } from "@/components/code-block/blocks/copy-with-tabs-package-manager";
 
@@ -42,6 +43,7 @@ const MDXCustomComponents: MDXComponents = {
   CodeBlockSelectPkg,
   CodeBlockTabsPkg,
   CopyShadcnCommand,
+  CodeBlockSugarHighExample,
   DocCard,
   ShowProps,
   ShowSource,
