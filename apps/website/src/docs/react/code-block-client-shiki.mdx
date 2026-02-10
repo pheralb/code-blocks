@@ -30,16 +30,25 @@ Before creating the component, make sure you have the basic structure:
 
 Now you can use the `CodeblockShiki` into your `CodeBlockContent` component:
 
-```tsx {6,11}
+```tsx {9,20}
 import {
   CodeBlock,
   CodeBlockContent,
   CodeBlockHeader,
+  CodeBlockGroup,
+  CodeBlockIcon,
 } from "@/components/code-block";
+import { CopyButton } from "@/components/code-block/copy-button";
 import { CodeblockShiki } from "@/components/code-block/client/shiki";
 
 <CodeBlock>
-  <CodeBlockHeader language="ts" title="Code block rendered on client side" />
+  <CodeBlockHeader>
+    <CodeBlockGroup>
+      <CodeBlockIcon language="ts" />
+      <span>Code Block + Shiki</span>
+    </CodeBlockGroup>
+    <CopyButton content={code} />
+  </CodeBlockHeader>
   <CodeBlockContent>
     <CodeblockShiki language="ts" code="console.log('Hello, world!');" />
   </CodeBlockContent>

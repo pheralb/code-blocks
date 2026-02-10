@@ -30,18 +30,27 @@ Before creating the component, make sure you have the basic structure:
 
 Now you can use the `CodeBlockSugarHigh` into your `CodeBlockContent` component:
 
-```tsx {6,11}
+```tsx {9,20}
 import {
   CodeBlock,
   CodeBlockContent,
   CodeBlockHeader,
+  CodeBlockGroup,
+  CodeBlockIcon,
 } from "@/components/code-block";
-import { CodeBlockSugarHigh } from "@/components/code-block/client/sugar-high";
+import { CopyButton } from "@/components/code-block/copy-button";
+import { CodeblockSugarHigh } from "@/components/code-block/client/sugar-high";
 
 <CodeBlock>
-  <CodeBlockHeader language="ts" title="Code block rendered on client side" />
+  <CodeBlockHeader>
+    <CodeBlockGroup>
+      <CodeBlockIcon language="ts" />
+      <span>Code Block + Sugar High</span>
+    </CodeBlockGroup>
+    <CopyButton content={code} />
+  </CodeBlockHeader>
   <CodeBlockContent>
-    <CodeBlockSugarHigh code="console.log('Hello, world!');" />
+    <CodeblockSugarHigh code="console.log('Hello, world!');" />
   </CodeBlockContent>
 </CodeBlock>;
 ```
