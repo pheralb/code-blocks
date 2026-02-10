@@ -51,10 +51,9 @@ const GithubLink = () => {
       <div className="flex items-center gap-2">
         <GitHub width={18} height={18} />
         {data && stars !== undefined && (
-          <div className="flex items-center gap-1 font-mono text-xs text-neutral-600 dark:text-neutral-400">
-            <span>{formatStars(stars)}</span>
-            <StarIcon size={12} />
-          </div>
+          <span className="font-mono text-xs text-neutral-600 dark:text-neutral-400">
+            {formatStars(stars)}
+          </span>
         )}
       </div>
     </ExternalLink>
