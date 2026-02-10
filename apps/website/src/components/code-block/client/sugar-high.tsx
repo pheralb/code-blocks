@@ -3,7 +3,7 @@
 import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
-import { highlight } from "@/utils/sugar-high";
+import { highlight } from "@/utils/sugar-high/highlight";
 
 interface CodeBlockSugarHighProps extends ComponentProps<"pre"> {
   code: string;

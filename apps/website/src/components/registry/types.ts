@@ -1,4 +1,4 @@
-import type { Languages } from "@/utils/shiki";
+import type { Languages } from "@/utils/shiki/highlight";
 import type { ComponentType, LazyExoticComponent } from "react";
 
 // https://ui.shadcn.com/docs/registry/registry-item-json#type

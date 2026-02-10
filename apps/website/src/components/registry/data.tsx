@@ -39,27 +39,27 @@ const UtilsFiles: RegistryComponent[] = [
   {
     title: "Shiki Highlighter",
     fileType: "ts",
-    fileSource: `${utilsFolder}/shiki/index.ts`,
+    fileSource: `${utilsFolder}/shiki/highlight.ts`,
     group: "shiki",
     shadcnRegistry: {
       name: "shiki-highlighter",
       type: "registry:lib",
       dependencies: ["shiki", "@shikijs/themes", "@shikijs/langs"],
       registryDependencies: ["shiki-css"],
-      target: "src/utils/shiki/index.ts",
+      target: "src/utils/shiki/highlight.ts",
     },
   },
   {
     title: "Sugar High Highlighter",
     fileType: "ts",
-    fileSource: `${utilsFolder}/sugar-high/index.ts`,
+    fileSource: `${utilsFolder}/sugar-high/highlight.ts`,
     group: "sugar-high",
     shadcnRegistry: {
       name: "sugar-high-highlighter",
       type: "registry:lib",
       dependencies: ["sugar-high"],
       registryDependencies: ["sugar-high-css"],
-      target: "src/utils/sugar-high/index.ts",
+      target: "src/utils/sugar-high/highlight.ts",
     },
   },
   {

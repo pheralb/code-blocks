@@ -1,6 +1,6 @@
 "use client";
 
-import type { Languages } from "@/utils/shiki";
+import type { Languages } from "@/utils/shiki/highlight";
 
 import {
   CodeBlock,

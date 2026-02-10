@@ -3,7 +3,7 @@
 import { useEffect, useState, type ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
-import { highlight, Themes, type Languages } from "@/utils/shiki";
+import { highlight, Themes, type Languages } from "@/utils/shiki/highlight";
 
 interface CodeblockClientShikiProps extends ComponentProps<"div"> {
   code: string;

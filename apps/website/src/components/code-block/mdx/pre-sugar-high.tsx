@@ -1,7 +1,7 @@
 import type { ComponentProps } from "react";
 import type { MDXComponents } from "mdx/types";
 
-import { highlight } from "@/utils/sugar-high";
+import { highlight } from "@/utils/sugar-high/highlight";
 import { reactToText } from "@/utils/react-to-text";
 
 import {
