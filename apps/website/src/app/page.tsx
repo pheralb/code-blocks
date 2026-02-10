@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 
 import { globals } from "@/globals";
-import { getDocument } from "@/utils/docs";
 import { notFound } from "next/navigation";
+import { getGeneralDocument } from "@/utils/docs";
 
 import MDX from "@/components/mdx";
 import Article from "@/components/docs/doc-article";
@@ -13,10 +13,7 @@ import Footer from "@/components/footer";
 
 export async function generateMetadata(): Promise<Metadata> {
   const websiteUrl = "https://code-blocks.pheralb.dev";
-  const data = getDocument({
-    folder: "general",
-    document: "home",
-  });
+  const data = getGeneralDocument("home");
   return {
     openGraph: {
       type: "website",
@@ -34,10 +31,7 @@ export async function generateMetadata(): Promise<Metadata> {
 }
 
 const Home = () => {
-  const document = getDocument({
-    folder: "general",
-    document: "home",
-  });
+  const document = getGeneralDocument("home");
   if (!document) return notFound();
   return (
     <main className="pb-4">
