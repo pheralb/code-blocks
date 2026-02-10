@@ -41,8 +41,8 @@ pre.sh-line-numbers .sh__line::before {
   counter-increment: sh-line-number 1;
   content: counter(sh-line-number);
   width: 0.5rem;
-  margin-right: 1rem;
-  margin-left: 0.3rem;
+  margin-right: 1.3rem;
+  margin-left: 0.2rem;
   display: inline-block;
   @apply text-right font-mono text-xs text-neutral-500;
 }
