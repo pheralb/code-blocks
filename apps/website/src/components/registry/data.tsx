@@ -137,6 +137,19 @@ const ShikiTransformers: RegistryComponent[] = [
       target: "src/utils/shiki/transformers/add-to-pre-element.ts",
     },
   },
+  {
+    title: "Shiki Transformer - Highlight Lines",
+    fileType: "ts",
+    group: "shiki",
+    fileSource: `${utilsFolder}/shiki/transformers/highlight-lines.ts`,
+    shadcnRegistry: {
+      name: "shiki-highlight-lines",
+      type: "registry:lib",
+      dependencies: ["shiki"],
+      registryDependencies: ["shiki-css"],
+      target: "src/utils/shiki/transformers/highlight-lines.ts",
+    },
+  },
 ];
 
 // UI Components:

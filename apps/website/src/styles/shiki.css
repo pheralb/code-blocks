@@ -63,6 +63,15 @@ pre span.shiki-line-highlight {
   }
 }
 
+/* Shiki Highlight Lines (Range) */
+pre.shiki span.line.highlighted {
+  @apply relative inline-block w-full bg-yellow-300/10 dark:bg-yellow-500/10;
+  &::before {
+    content: "";
+    @apply absolute left-0 top-0 h-full w-1 bg-yellow-500 dark:bg-yellow-400;
+  }
+}
+
 /* Shiki Notation Diff */
 pre.has-diff span.line.diff {
   @apply relative inline-block w-full;
