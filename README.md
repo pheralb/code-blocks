@@ -52,7 +52,7 @@
 
 ## Contributing
 
-We welcome contributions to enhance the functionality, design, and documentation of this project. To contribute, please read our [Contributing Guide](https://github.com/pheralb/code-blocks/blob/main/CONTRIBUTING.md).
+We welcome contributions to enhance the functionality, design, and documentation of this project. To contribute, please read our [Contributing Guide](https://github.com/pheralb/code-blocks/blob/main/CONTRIBUTING.md) and [Code of Conduct](https://github.com/pheralb/code-blocks/blob/main/CODE_OF_CONDUCT.md).
 
 ### Development Setup
 
