@@ -30,6 +30,10 @@ interface GetDocument {
   document: string;
 }
 
+const normalizePath = (path: string): string => {
+  return path.replace(/\\/g, "/");
+};
+
 const allDocs = allDocsArray.filter(
   (doc, index, self) =>
     index ===
@@ -39,9 +43,9 @@ const allDocs = allDocsArray.filter(
 );
 
 const getDocument = ({ folder, document }: GetDocument): Doc | undefined => {
-  const normalizedDocument = document.replace(/\\/g, "/");
+  const normalizedDocument = normalizePath(document);
   const doc = allDocs.find((doc) => {
-    const normalizedPath = doc._meta.path.replace(/\\/g, "/");
+    const normalizedPath = normalizePath(doc._meta.path);
     return doc.folder === folder && normalizedPath === normalizedDocument;
   });
   if (!doc) {
@@ -76,4 +80,10 @@ const getGeneralDocument = (document: string): Doc | undefined => {
   return { ...doc, tableOfContents };
 };
 
-export { getDocument, getDocsByFolder, getGeneralDocument };
+export {
+  allDocs,
+  normalizePath,
+  getDocument,
+  getDocsByFolder,
+  getGeneralDocument,
+};
