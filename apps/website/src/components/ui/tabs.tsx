@@ -58,8 +58,9 @@ function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
       data-slot="tabs-trigger"
       className={cn(
         "flex items-center gap-1",
+        "border border-transparent",
         "text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50",
-        "data-active:border data-active:border-neutral-300/60 dark:data-active:border-neutral-700/60",
+        "data-active:border-neutral-300/60 dark:data-active:border-neutral-700/60",
         "data-active:bg-neutral-200/40 dark:data-active:bg-neutral-800/40",
         "data-active:text-neutral-950 dark:data-active:text-neutral-50",
         "focus-visible:ring-neutral-200/50 dark:focus-visible:ring-neutral-800/50",
