@@ -137,6 +137,19 @@ const ShikiTransformers: RegistryComponent[] = [
       target: "src/utils/shiki/transformers/add-to-pre-element.ts",
     },
   },
+  {
+    title: "Shiki Transformer - Line Anchors",
+    fileType: "ts",
+    group: "shiki",
+    fileSource: `${utilsFolder}/shiki/transformers/line-anchors.ts`,
+    shadcnRegistry: {
+      name: "shiki-line-anchors",
+      type: "registry:lib",
+      dependencies: ["shiki"],
+      registryDependencies: ["shiki-css", "shiki-show-line-numbers"],
+      target: "src/utils/shiki/transformers/line-anchors.ts",
+    },
+  },
 ];
 
 // UI Components:

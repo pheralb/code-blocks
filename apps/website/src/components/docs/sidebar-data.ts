@@ -1,4 +1,5 @@
 import {
+  AnchorIcon,
   CandyIcon,
   ClipboardIcon,
   FileCodeCornerIcon,
@@ -132,6 +133,11 @@ export const SidebarLinksData: SidebarLinks[] = [
         title: "Meta Highlight",
         icon: TextQuoteIcon,
         href: "/docs/shiki/meta-highlight",
+      },
+      {
+        title: "Line Anchors",
+        icon: AnchorIcon,
+        href: "/docs/shiki/line-anchors",
       },
       {
         title: "Notation Diff",
