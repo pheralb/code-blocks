@@ -33,7 +33,7 @@ const DocColor = ({ shade, color }: DocColorProps) => {
       />
       <div className="flex flex-col items-center justify-center space-y-0.5">
         <p className="text-sm font-medium">{shade}</p>
-        <p className="font-mono text-xs tracking-tight text-neutral-500">
+        <p className="font-mono text-xs tracking-tight text-neutral-600 dark:text-neutral-400">
           {color}
         </p>
       </div>

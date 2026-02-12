@@ -52,6 +52,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
           <span>{isCopied ? "Copied" : "Copy"}</span>
         </Button>
         <DropdownMenuTrigger
+          title="More options"
           className={cn(
             buttonVariants({
               variant: "outline",
