@@ -1,12 +1,12 @@
 import type { MetadataRoute } from "next";
-import { allDocs, normalizePath } from "@/utils/docs";
 
-const baseUrl = "https://code-blocks.pheralb.dev";
+import { globals } from "@/globals";
+import { allDocs, normalizePath } from "@/utils/docs";
 
 export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   const staticPages: MetadataRoute.Sitemap = [
     {
-      url: baseUrl,
+      url: globals.websiteUrl,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 1,
@@ -14,7 +14,7 @@ export default async function sitemap(): Promise<MetadataRoute.Sitemap> {
   ];
 
   const docPages: MetadataRoute.Sitemap = allDocs.map((doc) => ({
-    url: `${baseUrl}/docs/${doc.folder}/${normalizePath(doc._meta.path)}`,
+    url: `${globals.websiteUrl}/docs/${doc.folder}/${normalizePath(doc._meta.path)}`,
     lastModified: new Date(),
     changeFrequency: "weekly" as const,
     priority: 0.8,
