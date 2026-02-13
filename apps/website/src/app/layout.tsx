@@ -11,8 +11,8 @@ import { cn } from "@/utils/cn";
 import { fontSans, fontMono, fontHeadings } from "@/styles/fonts";
 
 // Global:
-import { ThemeProvider } from "@/components/providers/theme-provider";
 import { globals } from "@/globals";
+import { ThemeProvider } from "@/components/providers/theme-provider";
 
 // Metadata:
 export const metadata: Metadata = {
@@ -22,7 +22,7 @@ export const metadata: Metadata = {
   authors: [{ name: "pheralb", url: "https://pheralb.dev" }],
   robots: "follow, index",
   alternates: {
-    canonical: "/",
+    canonical: globals.websiteUrl,
   },
   icons: [
     { rel: "icon", type: "ico", url: "/images/code-blocks-ico.ico" },
