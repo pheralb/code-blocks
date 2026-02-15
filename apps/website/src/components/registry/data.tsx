@@ -286,7 +286,12 @@ const Blocks: RegistryComponent[] = [
     shadcnRegistry: {
       name: "block-inline-code",
       type: "registry:block",
-      registryDependencies: ["shiki-highlighter", "client-shiki"],
+      registryDependencies: [
+        "shiki-highlighter",
+        "copy-button",
+        "code-block",
+        "client-shiki",
+      ],
       target: "src/components/code-block/blocks/inline-code.tsx",
     },
   },
