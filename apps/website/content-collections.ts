@@ -145,7 +145,7 @@ const sugarHighDocs = defineCollection({
 });
 
 export default defineConfig({
-  collections: [
+  content: [
     generalDocs,
     gstartedDocs,
     reactDocs,
