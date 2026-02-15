@@ -166,7 +166,7 @@ export function rehypeReactDoc() {
                                   children: [
                                     {
                                       type: "text",
-                                      value: `Included: ${String(reactParentName)}<HTMLDivElement>`,
+                                      value: `Included: ${String(reactParentName)}`,
                                     },
                                   ],
                                 }),
