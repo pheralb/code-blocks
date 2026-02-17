@@ -20,7 +20,7 @@ import { copyToClipboard } from "@/utils/copy";
 
 interface CopyTextAnimatedProps extends ComponentProps<"button"> {
   content: string;
-  iconSize?: number;
+  size?: "xs" | "sm";
 }
 
 export type TextMorphProps = {
@@ -94,6 +94,7 @@ export function TextMorph({
 
 const CopyTextMorph = ({
   content,
+  size = "sm",
   className,
   ...props
 }: CopyTextAnimatedProps) => {
@@ -119,9 +120,11 @@ const CopyTextMorph = ({
       className={cn(
         "cursor-pointer",
         "transition-colors duration-200 ease-in-out",
-        "text-xs text-neutral-700 dark:text-neutral-300 hover:text-neutral-950 dark:hover:text-neutral-50",
+        "text-neutral-700 hover:text-neutral-950 dark:text-neutral-300 dark:hover:text-neutral-50",
         "rounded-md bg-neutral-300/60 px-1.5 py-1 dark:bg-neutral-700/60",
         "border border-transparent hover:border-neutral-400/60 dark:hover:border-neutral-600/60",
+        size === "xs" && "text-xs",
+        size === "sm" && "text-sm",
         isCopied && "text-neutral-950 dark:text-neutral-50",
         className,
       )}

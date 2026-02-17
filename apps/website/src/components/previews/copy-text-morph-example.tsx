@@ -1,11 +1,3 @@
-import {
-  CodeBlock,
-  CodeBlockContent,
-  CodeBlockGroup,
-  CodeBlockHeader,
-  CodeBlockIcon,
-} from "@/components/code-block/code-block";
-import { CodeblockShiki } from "@/components/code-block/client/shiki";
 import { CopyTextMorph } from "@/components/code-block/blocks/copy-text-morph";
 
 const code = `export default function Page() {
@@ -13,20 +5,7 @@ const code = `export default function Page() {
 }`;
 
 const CopyMorphExample = () => {
-  return (
-    <CodeBlock>
-      <CodeBlockHeader>
-        <CodeBlockGroup>
-          <CodeBlockIcon language="tsx" />
-          <span>Copy with Text Morph</span>
-        </CodeBlockGroup>
-        <CopyTextMorph content={code} />
-      </CodeBlockHeader>
-      <CodeBlockContent>
-        <CodeblockShiki language="tsx" code={code} />
-      </CodeBlockContent>
-    </CodeBlock>
-  );
+  return <CopyTextMorph content={code} />;
 };
 
 export default CopyMorphExample;
