@@ -4,7 +4,6 @@ import useSWR from "swr";
 
 import { cn } from "@/utils/cn";
 import { globals } from "@/globals";
-import { StarIcon } from "lucide-react";
 
 import { GitHub } from "@/components/ui/svgs/github";
 import { buttonVariants } from "@/components/ui/button";
