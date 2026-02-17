@@ -9,8 +9,8 @@ const React = (props: SVGProps<SVGSVGElement>) => (
     <g fill="none" fillRule="evenodd">
       <g
         transform="translate(-227, -256)"
-        fill="currentColor"
         fillRule="nonzero"
+        className="fill-blue-600 dark:fill-blue-400"
       >
         <g transform="translate(227, 256)">
           <path

@@ -296,6 +296,23 @@ const Blocks: RegistryComponent[] = [
     },
   },
   {
+    title: "Blocks - Copy + Text Morph",
+    fileType: "tsx",
+    group: "blocks",
+    fileSource: `${codeblockComponent}/blocks/copy-text-morph.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/copy-text-morph-example.tsx`,
+    reactComponent: lazy(
+      () => import("@/components/previews/copy-text-morph-example"),
+    ),
+    shadcnRegistry: {
+      name: "block-copy-text-morph",
+      type: "registry:block",
+      dependencies: ["motion"],
+      registryDependencies: ["shiki-highlighter", "code-block", "client-shiki"],
+      target: "src/components/code-block/blocks/copy-text-morph.tsx",
+    },
+  },
+  {
     title: "Blocks - Select Package Manager",
     fileType: "tsx",
     fileSource: `${codeblockComponent}/blocks/copy-with-select-package-manager.tsx`,
