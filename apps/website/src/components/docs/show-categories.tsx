@@ -12,12 +12,18 @@ import {
   TagIcon,
 } from "lucide-react";
 
+import {
+  Shiki,
+  SugarHigh,
+  React,
+  RadixUI,
+  BaseUI,
+  Motion,
+} from "@/components/ui/svgs";
+
 import { cn } from "@/utils/cn";
 import { Badge, badgeVariants } from "@/components/ui/badge";
 import { ExternalLink } from "@/components/ui/external-link";
-import { Shiki, SugarHigh, React } from "@/components/ui/svgs";
-import { RadixUI } from "../ui/svgs/radix-ui";
-import { BaseUI } from "../ui/svgs/base-ui";
 
 const categorySvgs = [
   {
@@ -64,6 +70,11 @@ const categorySvgs = [
     name: "Base UI",
     icon: BaseUI,
     url: "https://base-ui.com/",
+  },
+  {
+    name: "Motion",
+    icon: Motion,
+    url: "https://motion.dev/",
   },
   {
     name: "Blocks",
