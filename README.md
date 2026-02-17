@@ -82,9 +82,15 @@ pnpm dev
 ### Commands
 
 - `pnpm dev`: Start the development server for the docs website.
-- `pnpm website:build-registry`: Build the component and block registry.
 - `pnpm website:build`: Build the docs website for production.
 - `pnpm website:build-cc`: Build content using content-collections CLI.
+- `pnpm website:build-registry`: Build the component and block registry.
+
+### Contributors
+
+<a href="https://github.com/pheralb/code-blocks/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=pheralb/code-blocks" />
+</a>
 
 ## License
 
