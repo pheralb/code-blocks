@@ -91,6 +91,10 @@ export const SidebarLinksData: SidebarLinks[] = [
             href: "/docs/react/blocks/multi-tabs",
           },
           {
+            title: "Copy with Text Morph",
+            href: "/docs/react/blocks/copy-text-morph",
+          },
+          {
             title: "Persist Package Manager",
             href: "/docs/react/blocks/persist-package-manager",
           },

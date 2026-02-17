@@ -1,0 +1,76 @@
+---
+title: Copy with Text Morph
+description: Copy Button with animated text using Motion-Primitives.
+category: [React, Motion, Shiki, Blocks]
+---
+
+<ComponentPreview component="block-copy-text-morph" />
+
+## Introduction
+
+In this block, we'll create a copy button that not only copies text to the clipboard but also provides animated feedback using [Motion-Primitives](https://motion-primitives.com/) created by [ibelick](https://github.com/ibelick).
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="block-copy-text-morph" />
+
+### Manual
+
+1. Install [motion](https://motion.dev/):
+
+<CodeBlockSelectPkg type="install" title="Motion" command="motion" />
+
+2. Create the basic Code Block structure:
+
+<DocCard folder="react" document="code-block" />
+
+3. Create the `CodeblockShiki` client component:
+
+<DocCard folder="react" document="code-block-client-shiki" />
+
+4. Finally, create the `CopyTextAnimated` component:
+
+<ShowSource component="block-copy-text-morph" />
+
+## Usage
+
+```tsx
+import { CopyTextMorph } from "@/components/code-block/blocks/copy-text-morph";
+
+const Example = () => {
+  return <CopyTextMorph content="Text to be copied" />;
+};
+
+export default Example;
+```
+
+Or with [`<CodeBlock>`](/docs/react/code-block) component:
+
+```tsx {6,16}
+import {
+  CodeBlock,
+  CodeBlockHeader,
+  CodeBlockContent,
+} from "@/components/code-block/code-block";
+import { CopyTextMorph } from "@/components/code-block/blocks/copy-text-morph";
+
+const code = `const greet = () => {
+  console.log("Hello, World!");
+};`;
+
+const Example = () => {
+  return (
+    <CodeBlock>
+      <CodeBlockHeader>
+        <CopyTextMorph content={code} />
+      </CodeBlockHeader>
+      <CodeBlockContent>
+        <CodeblockShiki language="ts" code={code} />
+      </CodeBlockContent>
+    </CodeBlock>
+  );
+};
+export default Example;
+```
