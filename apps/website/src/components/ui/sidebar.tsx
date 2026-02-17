@@ -26,7 +26,7 @@ const Sidebar = ({ children, position }: SidebarProps) => {
   return (
     <aside
       className={cn(
-        "fixed w-56",
+        "fixed w-57.5",
         "h-[calc(100vh-3.5rem)]",
         "hidden md:block",
         "overflow-x-hidden overflow-y-auto",
@@ -72,7 +72,7 @@ const SidebarPageContent = ({
   className,
 }: SidebarPageContentProps) => {
   return (
-    <main className={cn("ml-0 md:ml-56 lg:ml-56 xl:mx-56", className)}>
+    <main className={cn("ml-0 md:ml-57.5 lg:ml-57.5 xl:mx-57.5", className)}>
       {children}
     </main>
   );
