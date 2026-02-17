@@ -308,7 +308,6 @@ const Blocks: RegistryComponent[] = [
       name: "block-copy-text-morph",
       type: "registry:block",
       dependencies: ["motion"],
-      registryDependencies: ["shiki-highlighter", "code-block", "client-shiki"],
       target: "src/components/code-block/blocks/copy-text-morph.tsx",
     },
   },
