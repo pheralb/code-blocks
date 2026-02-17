@@ -27,6 +27,7 @@ export async function GET(request: Request) {
   const docData = getDocument({
     folder: folder,
     document: document,
+    withGenerals: true,
   });
 
   if (!docData) {

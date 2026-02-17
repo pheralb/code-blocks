@@ -28,6 +28,7 @@ type Doc = Document &
 interface GetDocument {
   folder: string;
   document: string;
+  withGenerals?: boolean;
 }
 
 const normalizePath = (path: string): string => {
@@ -42,12 +43,19 @@ const allDocs = allDocsArray.filter(
     ),
 );
 
-const getDocument = ({ folder, document }: GetDocument): Doc | undefined => {
+const getDocument = ({
+  folder,
+  document,
+  withGenerals,
+}: GetDocument): Doc | undefined => {
   const normalizedDocument = normalizePath(document);
   const doc = allDocs.find((doc) => {
     const normalizedPath = normalizePath(doc._meta.path);
     return doc.folder === folder && normalizedPath === normalizedDocument;
   });
+  if (!doc && withGenerals) {
+    return getGeneralDocument(document);
+  }
   if (!doc) {
     return undefined;
   }
