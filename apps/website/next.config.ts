@@ -1,4 +1,6 @@
 import type { NextConfig } from "next";
+
+import { globals } from "@/globals";
 import { withContentCollections } from "@content-collections/next";
 
 const nextConfig: NextConfig = {
@@ -25,6 +27,11 @@ const nextConfig: NextConfig = {
       {
         source: "/blocks",
         destination: "/docs/react/blocks/inline-code",
+        permanent: true,
+      },
+      {
+        source: "/git",
+        destination: globals.githubUrl,
         permanent: true,
       },
     ];
