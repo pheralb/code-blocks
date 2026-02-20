@@ -64,9 +64,29 @@ const buildRegistry = () => {
   };
 };
 
+const generatePublicRegistryData = () => {
+  log(chalk.bgGray("|- 📦 Generating registry for @code-blocks/cli..."));
+
+  const publicData = RegistryData.map((component) => ({
+    title: component.title,
+    fileType: component.fileType,
+    fileSource: component.fileSource,
+    group: component.group,
+    shadcnRegistry: component.shadcnRegistry,
+  }));
+
+  writeFileSync(
+    "./public/registry-cli.json",
+    JSON.stringify(publicData, null, 2),
+    "utf-8",
+  );
+
+  log(chalk.green("|- ✅ registry-cli.json generated successfully"));
+};
+
 const main = () => {
   try {
-    log(chalk.bgGray("|- 📦 Generating registry..."));
+    log(chalk.bgGray("|- 📦 Generating shadcn/ui registry..."));
 
     const result = buildRegistry();
     writeFileSync("./registry.json", JSON.stringify(result, null, 2), "utf-8");
@@ -75,6 +95,8 @@ const main = () => {
     log(chalk.bgGray("|- 📦 Running shadcn CLI..."));
     execSync("shadcn build", { stdio: "inherit" });
     log(chalk.green("|- ✅ shadcn build completed successfully"));
+
+    generatePublicRegistryData();
   } catch (error) {
     console.log(
       chalk.red.bold(

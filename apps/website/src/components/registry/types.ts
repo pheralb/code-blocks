@@ -10,6 +10,8 @@ export type RegistryType =
   | "registry:file"
   | "registry:component";
 
+export type RegistryGroup = "shiki" | "sugar-high" | "blocks";
+
 export interface ShadcnRegistry {
   name: string;
   title?: string;
@@ -30,7 +32,7 @@ export interface RegistryComponent {
   fileType: Languages;
   shadcnRegistry: ShadcnRegistry;
   fileSource: string;
-  group?: string;
+  group?: RegistryGroup;
   reactComponent?: LazyExoticComponent<ComponentType>;
   exampleFileSource?: string;
 }
