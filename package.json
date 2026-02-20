@@ -12,6 +12,7 @@
     "website:lint": "pnpm --filter @code-blocks/website run check:lint",
     "website:build": "pnpm --filter @code-blocks/website run build",
     "website:build-cc": "pnpm --filter @code-blocks/website run build:cc",
+    "website:build-cli-registry": "pnpm --filter @code-blocks/website run build:registry:cli",
     "website:registry": "pnpm --filter @code-blocks/website run check:registry",
     "website:build-registry": "pnpm --filter @code-blocks/website run build:registry",
     "typecheck": "turbo run typecheck",
