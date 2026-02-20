@@ -31,9 +31,17 @@ const html = highlighter.codeToHtml(code, {
 
 <ShowSource component="shiki-show-line-numbers" />
 
-2. Import the transformer in your `rehypeShiki` plugin:
+2. Customize the styles in your CSS file if needed:
 
-```ts title="Rehype Shiki Options"
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
+
+## Usage
+
+### `shikijs/rehype`
+
+1. Import the transformer in your `rehypeShiki` plugin:
+
+```ts {1,5} title="Rehype Shiki Options"
 import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
 
 const rehypeShikiOptions: RehypeShikiCoreOptions = {
@@ -44,16 +52,36 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-3. Customize the styles in your CSS file if needed:
-
-<DocCard folder="shiki" document="highlighter" anchor="styles" />
-
-## Usage
-
-To enable line numbers in your code blocks, add the `lineNumbers` property to the code block in your MDX files:
+2. To enable line numbers in your code blocks, add the `lineNumbers` property to the code block in your MDX files:
 
 ````mdx title="MDX Code Block with Line Numbers"
 ```ts lineNumbers
 // Your TypeScript code here
 ```
 ````
+
+### `highlight`
+
+1. Import the transformer in your [`highlight()`](/docs/shiki/highlighter):
+
+```ts {2,8} title="Using lineNumbers with highlighter"
+import { highlight } from "@/utils/shiki";
+import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
+
+const code = `console.log('hello')`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  //...
+  transformers: [showLineNumbers()],
+});
+```
+
+2. Add ``shiki-line-numbers`` class to the `<pre>` element:
+
+```html
+<pre class="shiki-line-numbers">
+  <code>
+    <!-- Highlighted code lines here -->
+  </code>
+</pre>
+```
