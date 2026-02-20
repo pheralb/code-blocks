@@ -66,7 +66,7 @@ const buildRegistry = () => {
 
 const main = () => {
   try {
-    log(chalk.bgGray("|- 📦 Generating registry..."));
+    log(chalk.bgGray("|- 📦 Generating shadcn/ui registry..."));
 
     const result = buildRegistry();
     writeFileSync("./registry.json", JSON.stringify(result, null, 2), "utf-8");
@@ -74,7 +74,16 @@ const main = () => {
 
     log(chalk.bgGray("|- 📦 Running shadcn CLI..."));
     execSync("shadcn build", { stdio: "inherit" });
-    log(chalk.green("|- ✅ shadcn build completed successfully"));
+
+    const currentDate = new Date().toLocaleString("en-GB", {
+      day: "2-digit",
+      month: "2-digit",
+      year: "numeric",
+      hour: "2-digit",
+      minute: "2-digit",
+    });
+
+    log(chalk.green(`|- ✅ shadcn build completed successfully (${currentDate})`));
   } catch (error) {
     console.log(
       chalk.red.bold(

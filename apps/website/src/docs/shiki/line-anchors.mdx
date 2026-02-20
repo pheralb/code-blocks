@@ -1,26 +1,39 @@
 ---
 title: Line Anchors
-description: Add clickable anchor links to line numbers for easy reference and sharing.
+description: Add unique IDs to each line in code blocks, enabling URL-based navigation to specific lines with visual highlighting.
 category: [Shiki, Markdown, MDX]
 ---
 
-<Showcase>
+<Showcase containerClassName="space-y-3">
 
-```ts lineNumbers
-import { highlight } from "@/utils/shiki/highlight";
-import { lineAnchors } from "@/utils/shiki/transformers/line-anchors";
-
+```ts title="Code block with 'example' prefix" prefix="example" lineNumbers
 const code = `console.log('Hello World')`;
 const highlighter = await highlight();
 const html = highlighter.codeToHtml(code, {
   lang: "javascript",
-  transformers: [lineAnchors()],
+  transformers: [lineAnchors({ addPrefix: "example" })],
 });
 ```
 
-</Showcase>
+```html {3,6,9} title="Output HTML"
+<pre>
+  <code>
+    <span class="line" id="example-l1" data-line="1">
+      <!--...-->
+    </span>
+    <span class="line" id="example-l2" data-line="2">
+      <!--...-->
+    </span>
+    <span class="line" id="example-l3" data-line="3">
+      <!--...-->
+    </span>
+  </code>
+</pre>
+```
 
-The `lineAnchors` transformer adds clickable anchor links to line numbers. Each line gets an ID like `L1`, `L2`, etc.
+<LineAnchorsExample />
+
+</Showcase>
 
 ## Installation
 
@@ -34,13 +47,17 @@ The `lineAnchors` transformer adds clickable anchor links to line numbers. Each 
 
 <ShowSource component="shiki-line-anchors" />
 
-`shiki-line-anchors` styles are defined in the `shiki.css` file:
+2. `shiki-line-anchors` styles are defined in the `shiki.css` file:
 
 <DocCard folder="shiki" document="highlighter" anchor="styles" />
 
-2. Import the transformer in your `rehypeShiki` plugin:
+## Usage
 
-```ts title="Rehype Shiki Options"
+### `shikijs/rehype`
+
+1. Import the transformer in your `rehypeShiki` plugin:
+
+```ts {1,5} title="Rehype Shiki Options"
 import { lineAnchors } from "@/utils/shiki/transformers/line-anchors";
 
 const rehypeShikiOptions: RehypeShikiCoreOptions = {
@@ -51,12 +68,26 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-## Usage
+2. In your Markdown or MDX files add the `prefix` option to your code blocks:
 
-Once enabled, users can:
+````mdx
+```javascript prefix="example"
+console.log("Hello World");
+```
+````
 
-- Click line numbers to navigate to that line
-- Share URLs with line anchors: `yoursite.com/docs#L3`
-- Link to specific lines: `[See line 5](#L5)`
+### `highlight`
 
-The clicked line will be highlighted with a blue background and the URL will update to include the line anchor.
+Import the transformer in your [`highlight()`](/docs/shiki/highlighter) function with `addPrefix` property:
+
+```ts {2,8} title="Using lineAnchors with highlighter"
+import { highlight } from "@/utils/shiki";
+import { lineAnchors } from "@/utils/shiki/transformers/line-anchors";
+
+const code = `console.log('hello')`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  //...
+  transformers: [lineAnchors({ addPrefix: "example" })],
+});
+```

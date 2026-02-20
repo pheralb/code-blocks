@@ -28,7 +28,15 @@ const html = highlighter.codeToHtml(code, {
   command="@shikijs/transformers -D"
 />
 
-2. Set up `transformerNotationDiff`:
+2. Customize the styles in your CSS file if needed:
+
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
+
+## Usage
+
+### `shikijs/rehype`
+
+1. Set up `transformerNotationDiff`:
 
 ```ts title="Shiki Notation Highlight Transformer"
 import { transformerNotationDiff } from "@shikijs/transformers";
@@ -41,13 +49,7 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-3. Customize the styles in your CSS file if needed:
-
-<DocCard folder="shiki" document="highlighter" anchor="styles" />
-
-## Usage
-
-To add diff notation to your code blocks, use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
+2. To add diff notation to your code blocks, use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
 
 ````mdx {5,6}
 ```

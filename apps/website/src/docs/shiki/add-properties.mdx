@@ -40,11 +40,15 @@ const html = highlighter.codeToHtml(code, {
 
 ### Manual
 
-1. Create a `src/utils/shiki/transformers/add-to-pre-element.ts` file and add the following code:
+Create a `src/utils/shiki/transformers/add-to-pre-element.ts` file and add the following code:
 
 <ShowSource component="shiki-add-to-pre-element" />
 
-2. Update your `rehypeShiki` plugin to use the new transformers:
+## Usage
+
+### ``shikijs/rehype``
+
+Update your `rehypeShiki` plugin to use the new transformers:
 
 ```ts {8}
 import {
@@ -60,7 +64,7 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-## Usage
+## Properties
 
 ### `addTitleProperty`
 

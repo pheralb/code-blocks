@@ -1,23 +1,21 @@
 import type { ShikiTransformer } from "shiki";
 
-/**
- * Transformer to add anchor links to line numbers
- * Allows users to link to specific lines in code blocks
- * Usage: Automatically works with lineNumbers transformer
- * Result: Each line gets an id like "L1", "L2", etc.
- */
-const lineAnchors = (): ShikiTransformer => {
+interface LineAnchorsOptions {
+  addPrefix?: string;
+}
+
+const lineAnchors = ({ addPrefix }: LineAnchorsOptions = {}): ShikiTransformer => {
   return {
     name: "LineAnchors",
     line(node, line) {
-      // Add id attribute to each line for anchor linking
-      node.properties.id = `L${line}`;
-      
-      // Add data attribute for styling targeted lines
+      const rawMeta = this.options.meta?.__raw;
+      if (!rawMeta) return;
+      const prefix = rawMeta.match(/prefix=(["'])(.*?)\1/)?.[2] ?? addPrefix;
+      if (!prefix) return;
+      node.properties.id = `${prefix}-l${line}`;
       node.properties["data-line"] = line;
     },
     pre(node) {
-      // Add class to enable anchor styling
       const existingClass = node.properties.class;
       if (Array.isArray(existingClass)) {
         existingClass.push("shiki-line-anchors");

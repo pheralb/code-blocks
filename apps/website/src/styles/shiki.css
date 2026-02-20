@@ -94,20 +94,12 @@ pre.shiki-has-focused:hover .line:not(.focused) {
 }
 
 /* Shiki Line Anchors */
-pre.shiki-line-anchors {
-  scroll-margin-top: 2rem;
-}
-
 pre.shiki-line-anchors .line:target {
-  @apply relative inline-block w-full bg-blue-300/15 dark:bg-blue-500/15;
-  &::before {
-    content: "";
-    @apply absolute left-0 top-0 h-full w-1 bg-blue-500 dark:bg-blue-400;
-  }
+  @apply scroll-mt-14 bg-blue-400/15! dark:bg-blue-600/15!;
 }
 
 pre.shiki-line-numbers.shiki-line-anchors code .line::before {
-  @apply cursor-pointer select-none transition-colors;
+  @apply cursor-pointer transition-colors select-none;
 }
 
 pre.shiki-line-numbers.shiki-line-anchors code .line::before:hover {
