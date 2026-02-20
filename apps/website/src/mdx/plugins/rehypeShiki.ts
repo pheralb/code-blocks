@@ -7,6 +7,7 @@ import {
 } from "@/utils/shiki/transformers/add-to-pre-element";
 import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
 import { wordWrapContent } from "@/utils/shiki/transformers/word-wrap";
+import { lineAnchors } from "@/utils/shiki/transformers/line-anchors";
 
 // Shiki Core Transformers
 import {
@@ -25,6 +26,7 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
     addLanguageProperty(),
     wordWrapContent(),
     showLineNumbers(),
+    lineAnchors(),
     transformerNotationDiff(),
     transformerNotationFocus({
       classActivePre: "shiki-has-focused",

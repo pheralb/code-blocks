@@ -11,6 +11,7 @@ import DocNeutralColors from "@/components/docs/doc-neutral-colors";
 import CodeBlockSugarHighExample from "@/components/previews/code-block-sugar-high-example";
 import { CodeBlockSelectPkg } from "@/components/code-block/blocks/copy-with-select-package-manager";
 import { CodeBlockTabsPkg } from "@/components/code-block/blocks/copy-with-tabs-package-manager";
+import LineAnchorsExample from "@/components/previews/line-anchors-example";
 
 import {
   CreateReactApp,
@@ -55,6 +56,7 @@ const MDXCustomComponents: MDXComponents = {
   CreateReactApp,
   HighlightsAvailable,
   DocNeutralColors,
+  LineAnchorsExample,
 };
 
 export { MDXCustomComponents };
