@@ -102,7 +102,6 @@ export function rehypeReactDoc() {
                     let filteredProps: [string, unknown][] = propEntries;
                     let reactParentName: string | null = null;
                     if (!fullProp) {
-                      // eslint-disable-next-line @typescript-eslint/no-unused-vars
                       filteredProps = propEntries.filter(([_, prop]) => {
                         const parent = (
                           prop as {
@@ -123,7 +122,6 @@ export function rehypeReactDoc() {
                     }
 
                     return [
-                      // eslint-disable-next-line @typescript-eslint/no-unused-vars
                       ...filteredProps.map(([_, prop]) => {
                         const p = prop as PropType;
                         return u("element", {

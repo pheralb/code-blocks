@@ -1,5 +1,7 @@
+import type { NextRequest } from "next/server";
+
 import { getDocument } from "@/utils/docs";
-import { NextRequest, NextResponse } from "next/server";
+import { NextResponse } from "next/server";
 
 interface ApiDocsPageProps {
   params: Promise<{ folder: string; slug: string[] }>;
@@ -7,7 +9,6 @@ interface ApiDocsPageProps {
 
 export async function GET(request: NextRequest, { params }: ApiDocsPageProps) {
   const { folder, slug } = await params;
-  console.log('folder:', folder, 'slug:', slug);
   const document = slug.join("/");
   const data = getDocument({
     folder,
