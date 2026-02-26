@@ -64,7 +64,7 @@ export { rehypeShikiOptions };
 
 1. Import the transformer in your [`highlight()`](/docs/shiki/highlighter):
 
-```ts {2,8} title="Using lineNumbers with highlighter"
+```ts {2,8} title="Usage with highlighter"
 import { highlight } from "@/utils/shiki";
 import { showLineNumbers } from "@/utils/shiki/transformers/show-line-numbers";
 
@@ -84,4 +84,14 @@ const html = highlighter.codeToHtml(code, {
     <!-- Highlighted code lines here -->
   </code>
 </pre>
+```
+
+## Properties
+
+### ``activateByDefault``
+
+By default, line numbers are only shown when the `lineNumbers` meta property is present in the MDX code block. You can activate line numbers for all code blocks by default by passing the `activateByDefault` option to the transformer:
+
+```ts title="Activating Line Numbers by Default"
+showLineNumbers({ activateByDefault: true })
 ```
