@@ -101,3 +101,12 @@ pre.shiki-line-numbers.shiki-line-anchors code .line::before {
 pre.shiki-line-numbers.shiki-line-anchors code .line::before:hover {
   @apply text-blue-500 underline dark:text-blue-400;
 }
+
+/* Shiki Highlighted Word */
+pre span.shiki-word-highlight {
+  @apply relative z-0 px-0.5 inline-block rounded-sm;
+  &::after {
+    content: "";
+    @apply absolute inset-0 -z-10 rounded-sm bg-neutral-500/25!;
+  }
+}

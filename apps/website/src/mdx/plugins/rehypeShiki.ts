@@ -14,6 +14,7 @@ import {
   transformerMetaHighlight,
   transformerNotationDiff,
   transformerNotationFocus,
+  transformerMetaWordHighlight,
 } from "@shikijs/transformers";
 
 const rehypeShikiOptions: RehypeShikiCoreOptions = {
@@ -33,6 +34,9 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
     }),
     transformerMetaHighlight({
       className: "shiki-line-highlight",
+    }),
+    transformerMetaWordHighlight({
+      className: "shiki-word-highlight",
     }),
   ],
 };
