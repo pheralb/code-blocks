@@ -71,7 +71,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
         <DropdownMenuItem>
           <ExternalLink
             href={`${pathname}.mdx`}
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 w-full"
           >
             <span>View as Markdown</span>
             <ArrowUpRightIcon size={14} />
@@ -79,7 +79,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
         </DropdownMenuItem>
         <DropdownMenuItem>
           <ExternalLink
-            className="flex items-center space-x-2"
+            className="flex items-center space-x-2 w-full"
             href={`${globals.githubUrl}/blob/main/apps/website/src/docs/${folder}/${file}`}
           >
             <span>Edit on GitHub</span>
