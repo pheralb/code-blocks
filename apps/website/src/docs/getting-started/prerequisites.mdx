@@ -4,7 +4,11 @@ description: Libraries required to create custom Code Block component.
 category: [Getting-Started]
 ---
 
-> [**Code-Blocks**](https://code-blocks.pheralb.dev) separates components and utilities. You can use them independently.
+To create your own custom Code Block component, make sure you have the following prerequisites:
+
+- [Node.js v20](https://nodejs.org/en/download/current) or higher.
+- [Typescript v5](https://www.typescriptlang.org/) or higher.
+- If you plan to use the [shadcn/ui CLI](https://ui.shadcn.com/docs/cli), make sure you configure the [`components.json`](https://ui.shadcn.com/docs/components-json) file first.
 
 ## Styling
 
@@ -15,8 +19,6 @@ For some colors, we use [**neutral** theme](https://tailwindcss.com/docs/colors)
 <DocNeutralColors />
 
 ## Components
-
-> If you're using [shadcn/ui](https://ui.shadcn.com), you can skip this section as the required dependencies are already included.
 
 1. Create a new React app:
 
@@ -60,11 +62,7 @@ You'll need to install [@base-ui/react](https://base-ui.com/) to use the Blocks 
 
 1. Install the package:
 
-<CodeBlockSelectPkg
-  type="install"
-  title="Base UI"
-  command="@base-ui/react"
-/>
+<CodeBlockSelectPkg type="install" title="Base UI" command="@base-ui/react" />
 
 2. Add `root` class to global `<body>` tag:
 
