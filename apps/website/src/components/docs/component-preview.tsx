@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-import type { RegistryComponent } from "@/components/registry/types";
+import type { RegistryComponent } from "@/types/registry";
 
 import { Suspense } from "react";
 import { createElement, useMemo } from "react";

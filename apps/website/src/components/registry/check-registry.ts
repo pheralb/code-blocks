@@ -1,4 +1,4 @@
-import type { RegistryComponent } from "./types";
+import type { RegistryComponent } from "@/types/registry";
 
 import chalk from "chalk";
 import { RegistryData } from "./data";

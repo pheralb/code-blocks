@@ -1,4 +1,4 @@
-import type { RegistryComponent } from "@/components/registry/types";
+import type { RegistryComponent } from "@/types/registry";
 import { lazy } from "react";
 
 // Settings:

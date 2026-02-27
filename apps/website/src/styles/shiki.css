@@ -42,16 +42,12 @@ pre.shiki-word-wrap span.line {
 pre.shiki-line-numbers code {
   counter-reset: step;
   counter-increment: step 0;
-}
-
-pre.shiki-line-numbers code:has(.line:nth-child(2)) .line::before {
-  content: counter(step);
-  counter-increment: step;
-  width: 0.5rem;
-  margin-right: 1.3rem;
-  margin-left: 0.2rem;
-  display: inline-block;
-  @apply text-right font-mono text-xs text-neutral-500;
+  .line {
+    &::before {
+      counter-increment: step;
+      @apply mr-6 inline-block border-transparent text-right text-xs whitespace-nowrap text-neutral-500 content-[counter(step)];
+    }
+  }
 }
 
 /* Shiki Highlight */
@@ -104,4 +100,13 @@ pre.shiki-line-numbers.shiki-line-anchors code .line::before {
 
 pre.shiki-line-numbers.shiki-line-anchors code .line::before:hover {
   @apply text-blue-500 underline dark:text-blue-400;
+}
+
+/* Shiki Highlighted Word */
+pre span.shiki-word-highlight {
+  @apply relative z-0 px-0.5 inline-block rounded-sm;
+  &::after {
+    content: "";
+    @apply absolute inset-0 -z-10 rounded-sm bg-neutral-500/25!;
+  }
 }

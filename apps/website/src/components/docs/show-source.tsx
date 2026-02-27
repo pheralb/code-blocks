@@ -1,5 +1,5 @@
 import type { ComponentProps, ReactNode } from "react";
-import type { RegistryComponent } from "@/components/registry/types";
+import type { RegistryComponent } from "@/types/registry";
 
 interface ShowSourceProps extends ComponentProps<"div"> {
   component: RegistryComponent["title"];

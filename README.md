@@ -32,6 +32,7 @@
 
 <div align="center">
 
+![Turborepo Badge](https://img.shields.io/badge/Turbo-FF1E56?logo=turborepo&logoColor=fff&style=flat)
 ![Next.js Badge](https://img.shields.io/badge/Docs-000?logo=nextdotjs&logoColor=fff&style=flat)
 ![Tailwind CSS Badge](https://img.shields.io/badge/Styles-06B6D4?logo=tailwindcss&logoColor=fff&style=flat)
 ![React Badge](https://img.shields.io/badge/Components-61DAFB?logo=react&logoColor=000&style=flat)

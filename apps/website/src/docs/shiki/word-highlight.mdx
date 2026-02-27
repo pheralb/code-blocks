@@ -1,0 +1,70 @@
+---
+title: Word Highlight
+description: How to highlight specific words in code blocks using Shiki.
+category: [Shiki, Markdown, MDX]
+---
+
+<Showcase containerClassName="space-y-3">
+
+```ts /highlight()/ title="Highlighted Word in Shiki"
+const code = `console.log('hello')`;
+const highlighter = await highlight();
+const html = highlighter.codeToHtml(code, {
+  lang: "javascript",
+  theme: "one-light",
+});
+```
+
+```html {2} title="Output HTML"
+<pre>
+  <span class="shiki-highlighted-word">
+    <span style="color:#4078F2;--shiki-dark:#61AFEF">highlight</span>
+    <span style="color:#383A42;--shiki-dark:#ABB2BF">()</span>
+  </span>
+</pre>
+```
+
+</Showcase>
+
+## Installation
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg
+  title="Shiki Transformers"
+  type="install"
+  command="@shikijs/transformers -D"
+/>
+
+2. Customize the styles in your CSS file if needed:
+
+<DocCard folder="shiki" document="highlighter" anchor="styles" />
+
+## Usage
+
+### `shikijs/rehype`
+
+1. Set up `transformerMetaWordHighlight`:
+
+```ts title="Shiki Word Highlight Transformer"
+import { transformerMetaWordHighlight } from "@shikijs/transformers";
+
+const rehypeShikiOptions: RehypeShikiCoreOptions = {
+  //...
+  transformers: [
+    transformerMetaWordHighlight({
+      className: "shiki-word-highlight",
+    }),
+  ],
+};
+
+export { rehypeShikiOptions };
+```
+
+2. Add `/text-to-highlight/` to the meta string of the code block. For example:
+
+````mdx
+```js /hello/
+console.log("hello world");
+```
+````

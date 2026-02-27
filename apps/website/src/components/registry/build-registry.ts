@@ -1,4 +1,4 @@
-import type { ShadcnRegistry } from "./types";
+import type { ShadcnRegistry } from "@/types/registry";
 
 import chalk from "chalk";
 import { RegistryData } from "./data";

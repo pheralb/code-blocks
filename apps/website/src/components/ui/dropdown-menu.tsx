@@ -2,6 +2,7 @@
 
 import { cn } from "@/utils/cn";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
+import type { ComponentProps } from "react";
 
 function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
@@ -92,6 +93,26 @@ function DropdownMenuSeparator({
   );
 }
 
+function DropdownMenuLabel({
+  className,
+  inset,
+  ...props
+}: ComponentProps<typeof MenuPrimitive.GroupLabel> & {
+  inset?: boolean;
+}) {
+  return (
+    <MenuPrimitive.GroupLabel
+      data-slot="dropdown-menu-label"
+      data-inset={inset}
+      className={cn(
+        "px-1.5 py-1 text-xs font-medium text-neutral-600 data-inset:pl-7 dark:text-neutral-400",
+        className,
+      )}
+      {...props}
+    />
+  );
+}
+
 export {
   DropdownMenu,
   DropdownMenuPortal,
@@ -100,4 +121,5 @@ export {
   DropdownMenuGroup,
   DropdownMenuItem,
   DropdownMenuSeparator,
+  DropdownMenuLabel,
 };

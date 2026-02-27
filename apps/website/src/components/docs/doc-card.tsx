@@ -1,12 +1,7 @@
 import { getDocument } from "@/utils/docs";
 
-import {
-  FileIcon,
-  ArrowUpRightIcon,
-  ChevronRightIcon,
-  CornerDownRightIcon,
-} from "lucide-react";
 import { ExternalLink } from "@/components/ui/external-link";
+import { FileIcon, ChevronRightIcon, CornerDownRightIcon } from "lucide-react";
 
 interface DocCardProps {
   document: string;
@@ -19,7 +14,7 @@ const DocCard = ({ document, folder, anchor }: DocCardProps) => {
   return (
     <ExternalLink
       href={`/docs/${folder}/${document}${anchor ? `#${anchor}` : ""}`}
-      className="not-prose relative"
+      className="not-prose"
     >
       <div className="rounded-lg border border-neutral-200 bg-neutral-200/40 p-3 transition-colors duration-200 ease-in-out hover:border-neutral-300 hover:bg-neutral-200 dark:border-neutral-800 dark:bg-neutral-800/30 dark:hover:border-neutral-700 hover:dark:bg-neutral-800">
         <div className="flex items-center space-x-2">
@@ -45,11 +40,6 @@ const DocCard = ({ document, folder, anchor }: DocCardProps) => {
           <p className="truncate">{documentData?.description}</p>
         </div>
       </div>
-      <ArrowUpRightIcon
-        size={14}
-        strokeWidth={1.5}
-        className="absolute top-2 right-2 text-neutral-600 dark:text-neutral-400"
-      />
     </ExternalLink>
   );
 };
