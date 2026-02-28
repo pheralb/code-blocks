@@ -52,14 +52,14 @@ const rehypeShikiOptions: RehypeShikiCoreOptions = {
 export { rehypeShikiOptions };
 ```
 
-2. Use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
+2. Add `[!code focus]` to the line you want to highlight in your code block:
 
 ````mdx {3}
 ```
 const code = `type Languages = "javascript" | "typescript";`;
 const highlighter = await highlight(); // [!code focus]
 const html = highlighter.codeToHtml(code, {
-  lang: "typescript", // [!code ++]
+  lang: "typescript",
   theme: "one-light",
 });
 ```
