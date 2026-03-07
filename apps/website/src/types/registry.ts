@@ -1,38 +1,9 @@
 import type { Languages } from "@/utils/shiki/highlight";
+
+import type { BaseRegistry } from "@code-blocks/registry";
 import type { ComponentType, LazyExoticComponent } from "react";
 
-// https://ui.shadcn.com/docs/registry/registry-item-json#type
-export type RegistryType =
-  | "registry:ui"
-  | "registry:hook"
-  | "registry:block"
-  | "registry:lib"
-  | "registry:file"
-  | "registry:component";
-
-export type RegistryGroup = "shiki" | "sugar-high" | "blocks";
-
-export interface ShadcnRegistry {
-  name: string;
-  title?: string;
-  type: RegistryType;
-  target?: string;
-  dependencies?: string[];
-  devDependencies?: string[];
-  registryDependencies?: string[];
-  files?: {
-    path: string;
-    target?: string;
-    type: RegistryType;
-  }[];
-}
-
-export interface RegistryComponent {
-  title: string;
+export interface RegistryComponent extends BaseRegistry {
   fileType: Languages;
-  shadcnRegistry: ShadcnRegistry;
-  fileSource: string;
-  group?: RegistryGroup;
   reactComponent?: LazyExoticComponent<ComponentType>;
-  exampleFileSource?: string;
 }
