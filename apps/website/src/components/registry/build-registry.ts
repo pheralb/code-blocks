@@ -1,4 +1,4 @@
-import type { ShadcnRegistry } from "@/types/registry";
+import type { ShadcnRegistry } from "@code-blocks/registry";
 
 import chalk from "chalk";
 import { RegistryData } from "./data";
@@ -83,7 +83,9 @@ const main = () => {
       minute: "2-digit",
     });
 
-    log(chalk.green(`|- ✅ shadcn build completed successfully (${currentDate})`));
+    log(
+      chalk.green(`|- ✅ shadcn build completed successfully (${currentDate})`),
+    );
   } catch (error) {
     console.log(
       chalk.red.bold(

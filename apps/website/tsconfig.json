@@ -21,7 +21,8 @@
     ],
     "paths": {
       "@/*": ["./src/*"],
-      "content-collections": ["./.content-collections/generated"]
+      "content-collections": ["./.content-collections/generated"],
+      "@code-blocks/registry": ["../../packages/registry/src/index.ts"]
     }
   },
   "include": [

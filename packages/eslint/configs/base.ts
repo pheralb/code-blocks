@@ -18,6 +18,7 @@ export const baseConfig = defineConfig(
     extends: [js.configs.recommended, ...ts.configs.recommended],
     rules: {
       ...turbo.configs.recommended.rules,
+      "turbo/no-undeclared-env-vars": "off",
       "@typescript-eslint/no-unused-vars": [
         "error",
         { argsIgnorePattern: "^_", varsIgnorePattern: "^_" },

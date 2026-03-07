@@ -8,7 +8,6 @@ To create your own custom Code Block component, make sure you have the following
 
 - [Node.js v20](https://nodejs.org/en/download/current) or higher.
 - [Typescript v5](https://www.typescriptlang.org/) or higher.
-- If you plan to use the [shadcn/ui CLI](https://ui.shadcn.com/docs/cli), make sure you configure the [`components.json`](https://ui.shadcn.com/docs/components-json) file first.
 
 ## Styling
 
@@ -77,6 +76,30 @@ You'll need to install [@base-ui/react](https://base-ui.com/) to use the Blocks 
 ```css title="globals.css"
 .root {
   isolation: isolate;
+}
+```
+
+## shadcn/ui
+
+[shadcn/ui](https://ui.shadcn.com/) is a collection of accessible and customizable UI components styled with Tailwind CSS. It provides a CLI that you can use it to add components to your project using the [`components.json`](https://ui.shadcn.com/docs/components-json) file.
+
+### Add registry
+
+If you don't have a `components.json` file yet, initialize it by running:
+
+<CodeBlockSelectPkg
+  title="shadcn/ui Init"
+  type="dlx"
+  command="shadcn@latest init"
+/>
+
+Then, add the [`registries`](https://ui.shadcn.com/docs/components-json#registries) section to your `components.json` file:
+
+```json {3}
+{
+  "registries": {
+    "@code-blocks": "https://code-blocks.pheralb.dev/r/{name}.json"
+  }
 }
 ```
 
