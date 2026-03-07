@@ -35,6 +35,7 @@
   },
   "devDependencies": {
     "@code-blocks/eslint": "workspace:*",
+    "@code-blocks/registry": "workspace:*",
     "@content-collections/cli": "0.1.9",
     "@content-collections/core": "0.14.1",
     "@content-collections/mdx": "0.2.2",
