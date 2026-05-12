@@ -3,8 +3,8 @@
 import { cn } from "@/utils/cn";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { cva, type VariantProps } from "class-variance-authority";
-import { motion } from "motion/react";
-import { createContext, useContext, useId, useState } from "react";
+import { domMax, LazyMotion, m } from "motion/react";
+import { createContext, use, useId, useState } from "react";
 
 const tabsListVariants = cva(
   "rounded-lg p-0.75 group-data-horizontal/tabs:h-9 data-[variant=line]:rounded-none group/tabs-list text-neutral-500 inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col dark:text-neutral-400",
@@ -51,6 +51,7 @@ function Tabs({
   };
 
   return (
+    <LazyMotion features={domMax}>
     <TabsContext.Provider
       value={{ activeValue: value ?? internalValue, indicatorId }}
     >
@@ -67,6 +68,7 @@ function Tabs({
         {...props}
       />
     </TabsContext.Provider>
+    </LazyMotion>
   );
 }
 
@@ -91,7 +93,7 @@ function TabsTrigger({
   children,
   ...props
 }: TabsPrimitive.Tab.Props) {
-  const { activeValue, indicatorId } = useContext(TabsContext);
+  const { activeValue, indicatorId } = use(TabsContext);
   const isActive = value !== undefined && value === activeValue;
 
   return (
@@ -110,7 +112,7 @@ function TabsTrigger({
       {...props}
     >
       {isActive && (
-        <motion.span
+        <m.span
           layoutId={indicatorId}
           className="absolute inset-0 z-0 rounded-md border border-neutral-300/60 bg-neutral-200/40 dark:border-neutral-700/60 dark:bg-neutral-800/40"
           transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
