@@ -8,8 +8,8 @@ import { ChevronRightIcon } from "lucide-react";
 import { buttonVariants } from "@/components/ui/button";
 
 const GetStartedLink = () => {
-  const navigate = useRouter();
-  useHotkeys("c", () => navigate.push("/docs"));
+  const { push } = useRouter();
+  useHotkeys("c", () => push("/docs"));
   return (
     <Link
       href="/docs/getting-started/prerequisites"
