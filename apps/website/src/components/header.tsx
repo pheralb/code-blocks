@@ -27,8 +27,8 @@ const Header = ({ layout }: HeaderProps) => {
         <Link
           href="/"
           className={cn(
-            "flex items-center gap-2",
-            "font-semibold tracking-tight transition-colors md:text-xl",
+            "flex items-center gap-2.5",
+            "font-semibold tracking-tight transition-colors md:text-lg",
             "hover:text-neutral-700 dark:hover:text-neutral-300",
           )}
         >
