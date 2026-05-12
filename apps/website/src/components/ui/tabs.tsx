@@ -104,7 +104,7 @@ function TabsTrigger({
         "relative flex items-center gap-1",
         "border border-transparent",
         "text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50",
-        "data-active:text-white dark:data-active:text-white",
+        "data-active:text-black dark:data-active:text-white",
         "focus-visible:ring-neutral-200/50 dark:focus-visible:ring-neutral-800/50",
         "z-1 flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1 text-sm text-nowrap whitespace-nowrap outline-none focus-visible:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
         className,
