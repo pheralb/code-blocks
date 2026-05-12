@@ -74,7 +74,7 @@ body {
 
 const CopyWithTabsCode = () => {
   return (
-    <Tabs className="w-full gap-1">
+    <Tabs className="w-full gap-1" defaultValue={Code[0].title}>
       <CodeBlock>
         <CodeBlockHeader>
           <div className="flex items-center space-x-1">

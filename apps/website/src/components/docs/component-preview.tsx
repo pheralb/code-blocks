@@ -48,7 +48,7 @@ const ComponentPreview = ({ component, children }: ComponentPreviewProps) => {
               fallback={
                 <div className="flex flex-col items-center justify-center text-sm text-neutral-700 dark:text-neutral-300">
                   <LoaderIcon size={14} className="animate-spin" />
-                  <span>Preparing...</span>
+                  <span>Preparing…</span>
                 </div>
               }
             >

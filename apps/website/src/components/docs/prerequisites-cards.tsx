@@ -11,6 +11,7 @@ import {
   Shiki,
   SugarHigh,
   Vite,
+  TanStack
 } from "@/components/ui/svgs";
 
 const cardStyles = cn(
@@ -33,12 +34,17 @@ const ReactFrameworks = [
     url: "https://nextjs.org/",
   },
   {
+    name: "TanStack Start",
+    icon: TanStack,
+    url: "https://tanstack.com/start/latest/docs/framework/react/getting-started#use-the-cli",
+  },
+  {
     name: "Astro",
     icon: Astro,
     url: "https://docs.astro.build/en/guides/integrations-guide/react/",
   },
   {
-    name: "React-Router",
+    name: "React Router",
     icon: ReactRouter,
     url: "https://reactrouter.com/",
   },
@@ -59,9 +65,9 @@ const Highlights = [
 
 const CreateReactApp = () => {
   return (
-    <div className="grid grid-cols-2 gap-4 md:grid-cols-6">
+    <div className="grid grid-cols-2 gap-4 md:grid-cols-5">
       {ReactFrameworks.map(({ name, icon: Icon, url }) => (
-        <ExternalLink key={name} href={url} className={cn(cardStyles)}>
+        <ExternalLink key={name} href={url} className={cn(cardStyles, "w-full")}>
           <ArrowUpRightIcon
             size={14}
             className="absolute top-2 right-2 text-neutral-500 transition-colors group-hover:text-black dark:group-hover:text-white"

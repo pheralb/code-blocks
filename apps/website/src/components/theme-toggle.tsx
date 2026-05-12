@@ -17,13 +17,13 @@ import { useHotkeys } from "react-hotkeys-hook";
 
 const ThemeToggle = () => {
   const { setTheme } = useTheme();
-  useHotkeys("t", () =>
+  useHotkeys("d", () =>
     setTheme((prev) => (prev === "light" ? "dark" : "light")),
   );
   return (
     <DropdownMenu>
       <DropdownMenuTrigger
-        title="Toggle theme (t)"
+        title="Toggle theme (d)"
         className={buttonVariants({ variant: "ghost", size: "icon" })}
       >
         <SunIcon
@@ -34,11 +34,11 @@ const ThemeToggle = () => {
           size={20}
           className="absolute scale-0 rotate-90 transition-all dark:scale-100 dark:rotate-0"
         />
-        <span className="sr-only">Toggle theme (t)</span>
+        <span className="sr-only">Toggle theme (d)</span>
       </DropdownMenuTrigger>
       <DropdownMenuContent align="end">
         <DropdownMenuGroup>
-          <DropdownMenuLabel>Theme (press t)</DropdownMenuLabel>
+          <DropdownMenuLabel>Theme (press d)</DropdownMenuLabel>
           <DropdownMenuSeparator />
           <DropdownMenuItem onClick={() => setTheme("light")}>
             <SunIcon size={14} />

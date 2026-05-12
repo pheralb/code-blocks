@@ -62,7 +62,7 @@ const SidebarSection = ({ data, pathname }: SidebarSectionProps) => (
 const SidebarLinks = () => {
   const pathname = usePathname();
   return (
-    <nav className="flex flex-1 flex-col space-y-6 pb-6">
+    <nav className="flex flex-1 flex-col gap-y-6 pb-6">
       <SidebarSection data={GettingStartedData} pathname={pathname} />
       <SidebarSection data={ReactComponentsData} pathname={pathname} />
       <SidebarSection data={ShikiData} pathname={pathname} />

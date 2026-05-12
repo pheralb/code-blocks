@@ -11,20 +11,20 @@
     "typecheck": "tsc --noEmit"
   },
   "dependencies": {
-    "@eslint/compat": "2.0.0",
-    "@eslint/js": "9.39.2",
-    "eslint-config-next": "16.1.1",
+    "@eslint/compat": "2.1.0",
+    "@eslint/js": "9.39.4",
+    "eslint-config-next": "16.2.6",
     "eslint-config-prettier": "10.1.8",
     "eslint-plugin-react": "7.37.5",
-    "eslint-plugin-react-hooks": "7.0.1",
-    "eslint-plugin-react-refresh": "0.4.26",
-    "eslint-plugin-turbo": "2.7.2",
-    "globals": "17.0.0",
-    "typescript-eslint": "8.50.1"
+    "eslint-plugin-react-hooks": "7.1.1",
+    "eslint-plugin-react-refresh": "0.5.2",
+    "eslint-plugin-turbo": "2.9.12",
+    "globals": "17.6.0",
+    "typescript-eslint": "8.59.3"
   },
   "devDependencies": {
-    "@types/node": "22.19.3",
-    "eslint": "9.39.2",
+    "@types/node": "22.19.17",
+    "eslint": "9.39.4",
     "typescript": "5.9.3"
   }
 }
