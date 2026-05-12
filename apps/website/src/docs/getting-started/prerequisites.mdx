@@ -33,7 +33,7 @@ For some colors, we use [**neutral** theme](https://tailwindcss.com/docs/colors)
 
 3. Add `@` alias to your `tsconfig.json`:
 
-```json {5} title="tsconfig.json"
+```json {3,5} title="tsconfig.json"
 {
   "compilerOptions": {
     "baseUrl": ".",
@@ -42,6 +42,21 @@ For some colors, we use [**neutral** theme](https://tailwindcss.com/docs/colors)
     }
   }
 }
+```
+
+If you're using Vite, also add the alias to your `vite.config.ts`:
+
+```ts {7} title="vite.config.ts"
+import path from "node:path";
+import { defineConfig } from "vite";
+
+export default defineConfig({
+  resolve: {
+    alias: {
+      "@": path.resolve(__dirname, "src"),
+    },
+  },
+});
 ```
 
 4. Create the `cn` utility:
