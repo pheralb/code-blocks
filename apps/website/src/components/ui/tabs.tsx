@@ -3,6 +3,8 @@
 import { cn } from "@/utils/cn";
 import { Tabs as TabsPrimitive } from "@base-ui/react/tabs";
 import { cva, type VariantProps } from "class-variance-authority";
+import { motion } from "motion/react";
+import { createContext, useContext, useId, useState } from "react";
 
 const tabsListVariants = cva(
   "rounded-lg p-0.75 group-data-horizontal/tabs:h-9 data-[variant=line]:rounded-none group/tabs-list text-neutral-500 inline-flex w-fit items-center justify-center group-data-[orientation=vertical]/tabs:h-fit group-data-[orientation=vertical]/tabs:flex-col dark:text-neutral-400",
@@ -19,21 +21,52 @@ const tabsListVariants = cva(
   },
 );
 
+const TabsContext = createContext<{
+  activeValue: string | undefined;
+  indicatorId: string;
+}>({
+  activeValue: undefined,
+  indicatorId: "",
+});
+
 function Tabs({
   className,
   orientation = "horizontal",
+  value,
+  defaultValue,
+  onValueChange,
   ...props
 }: TabsPrimitive.Root.Props) {
+  const indicatorId = useId();
+  const [internalValue, setInternalValue] = useState<string | undefined>(
+    defaultValue ?? undefined,
+  );
+
+  const handleValueChange: NonNullable<TabsPrimitive.Root.Props["onValueChange"]> = (
+    newValue,
+    ...args
+  ) => {
+    setInternalValue(newValue);
+    onValueChange?.(newValue, ...args);
+  };
+
   return (
-    <TabsPrimitive.Root
-      data-slot="tabs"
-      data-orientation={orientation}
-      className={cn(
-        "group/tabs flex gap-2 data-[orientation=horizontal]:flex-col",
-        className,
-      )}
-      {...props}
-    />
+    <TabsContext.Provider
+      value={{ activeValue: value ?? internalValue, indicatorId }}
+    >
+      <TabsPrimitive.Root
+        data-slot="tabs"
+        data-orientation={orientation}
+        className={cn(
+          "group/tabs flex gap-2 data-[orientation=horizontal]:flex-col",
+          className,
+        )}
+        value={value}
+        defaultValue={defaultValue}
+        onValueChange={handleValueChange}
+        {...props}
+      />
+    </TabsContext.Provider>
   );
 }
 
@@ -52,23 +85,39 @@ function TabsList({
   );
 }
 
-function TabsTrigger({ className, ...props }: TabsPrimitive.Tab.Props) {
+function TabsTrigger({
+  className,
+  value,
+  children,
+  ...props
+}: TabsPrimitive.Tab.Props) {
+  const { activeValue, indicatorId } = useContext(TabsContext);
+  const isActive = value !== undefined && value === activeValue;
+
   return (
     <TabsPrimitive.Tab
       data-slot="tabs-trigger"
+      value={value}
       className={cn(
-        "flex items-center gap-1",
+        "relative flex items-center gap-1",
         "border border-transparent",
         "text-neutral-600 hover:text-neutral-950 dark:text-neutral-400 dark:hover:text-neutral-50",
-        "data-active:border-neutral-300/60 dark:data-active:border-neutral-700/60",
-        "data-active:bg-neutral-200/40 dark:data-active:bg-neutral-800/40",
-        "data-active:text-neutral-950 dark:data-active:text-neutral-50",
+        "data-active:text-white dark:data-active:text-white",
         "focus-visible:ring-neutral-200/50 dark:focus-visible:ring-neutral-800/50",
         "z-1 flex-1 items-center justify-center gap-1.5 rounded-md px-2 py-1 text-sm text-nowrap whitespace-nowrap outline-none focus-visible:ring-[3px] data-disabled:pointer-events-none data-disabled:opacity-50 [&_svg]:pointer-events-none [&_svg]:shrink-0",
         className,
       )}
       {...props}
-    />
+    >
+      {isActive && (
+        <motion.span
+          layoutId={indicatorId}
+          className="absolute inset-0 z-0 rounded-md border border-neutral-300/60 bg-neutral-200/40 dark:border-neutral-700/60 dark:bg-neutral-800/40"
+          transition={{ type: "spring", bounce: 0.2, duration: 0.4 }}
+        />
+      )}
+      <span className="relative z-10 flex items-center gap-1.5">{children}</span>
+    </TabsPrimitive.Tab>
   );
 }
 
