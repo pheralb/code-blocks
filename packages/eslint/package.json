@@ -18,12 +18,12 @@
     "eslint-plugin-react": "7.37.5",
     "eslint-plugin-react-hooks": "7.1.1",
     "eslint-plugin-react-refresh": "0.5.2",
-    "eslint-plugin-turbo": "2.9.12",
+    "eslint-plugin-turbo": "2.9.14",
     "globals": "17.6.0",
-    "typescript-eslint": "8.59.3"
+    "typescript-eslint": "8.59.4"
   },
   "devDependencies": {
-    "@types/node": "22.19.17",
+    "@types/node": "24.12.4",
     "eslint": "9.39.4",
     "typescript": "5.9.3"
   }

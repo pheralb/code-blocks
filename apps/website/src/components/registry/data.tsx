@@ -180,6 +180,7 @@ const UIComponents: RegistryComponent[] = [
       devDependencies: ["@types/mdx"],
       registryDependencies: [
         "react-to-text",
+        "copy-button",
         "copy-to-clipboard",
         "code-block",
       ],
@@ -198,6 +199,7 @@ const UIComponents: RegistryComponent[] = [
       registryDependencies: [
         "react-to-text",
         "sugar-high-highlighter",
+        "copy-button",
         "copy-to-clipboard",
         "code-block",
       ],
