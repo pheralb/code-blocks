@@ -20,6 +20,7 @@ import {
   ChevronDownIcon,
   CopyIcon,
 } from "lucide-react";
+import { TextMorph } from "@/components/ui/text-morph";
 import { ExternalLink } from "@/components/ui/external-link";
 
 interface DocOptionsProps extends ComponentProps<"div"> {
@@ -49,7 +50,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
           className="w-full rounded-r-none border-r-0"
         >
           {isCopied ? <CheckCheckIcon size={14} /> : <CopyIcon size={14} />}
-          <span>{isCopied ? "Copied" : "Copy"}</span>
+          <TextMorph>{isCopied ? "Copied" : "Copy"}</TextMorph>
         </Button>
         <DropdownMenuTrigger
           title="More options"
@@ -71,7 +72,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
         <DropdownMenuItem>
           <ExternalLink
             href={`${pathname}.mdx`}
-            className="flex items-center space-x-2 w-full"
+            className="flex w-full items-center space-x-2"
           >
             <span>View as Markdown</span>
             <ArrowUpRightIcon size={14} />
@@ -79,7 +80,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
         </DropdownMenuItem>
         <DropdownMenuItem>
           <ExternalLink
-            className="flex items-center space-x-2 w-full"
+            className="flex w-full items-center space-x-2"
             href={`${globals.githubUrl}/blob/main/apps/website/src/docs/${folder}/${file}`}
           >
             <span>Edit on GitHub</span>
