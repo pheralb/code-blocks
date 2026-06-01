@@ -7,6 +7,7 @@ const stylesFolder = "src/styles";
 const storesFolder = "src/stores";
 const componentsFolder = "src/components";
 const codeblockComponent = "src/components/code-block";
+const uiComponentsFolder = "src/components/ui";
 
 // CSS Files:
 const CSSFiles: RegistryComponent[] = [
@@ -272,6 +273,17 @@ const UIComponents: RegistryComponent[] = [
       target: "src/components/code-block/copy-button.tsx",
     },
   },
+  {
+    title: "Text Morph",
+    fileType: "tsx",
+    fileSource: `${uiComponentsFolder}/text-morph.tsx`,
+    shadcnRegistry: {
+      name: "text-morph",
+      type: "registry:ui",
+      dependencies: ["motion"],
+      target: "src/components/ui/text-morph.tsx",
+    },
+  },
 ];
 
 // Blocks:
@@ -310,6 +322,7 @@ const Blocks: RegistryComponent[] = [
       name: "block-copy-text-morph",
       type: "registry:block",
       dependencies: ["motion"],
+      registryDependencies: ["copy-to-clipboard", "text-morph"],
       target: "src/components/code-block/blocks/copy-text-morph.tsx",
     },
   },
