@@ -52,7 +52,6 @@ const CodeblockShiki = ({
 
   const classNames = cn("w-full overflow-x-auto", className);
 
-  // SSR fallback
   return highlightedHtml ? (
     <div
       className={classNames}
@@ -61,7 +60,7 @@ const CodeblockShiki = ({
     />
   ) : (
     <div className={classNames} {...props}>
-      <pre>
+      <pre className="px-4 py-3">
         <code>{code}</code>
       </pre>
     </div>
