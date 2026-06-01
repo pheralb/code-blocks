@@ -25,7 +25,6 @@ import { AMDXComponent } from "@/components/mdx/a-component";
 import { PreShikiComponent } from "@/components/code-block/mdx/pre-shiki";
 
 // Homepage:
-import Hero from "@/components/hero";
 import Features from "@/components/features";
 
 // From Registry:
@@ -51,7 +50,6 @@ const MDXCustomComponents: MDXComponents = {
   Showcase,
   CopyButton,
   ComponentPreview,
-  Hero,
   Features,
   CreateReactApp,
   HighlightsAvailable,
