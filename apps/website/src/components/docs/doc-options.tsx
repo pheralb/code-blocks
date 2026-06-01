@@ -51,7 +51,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
   const [isCopied, setIsCopied] = useState<boolean>(false);
   const [openDropdown, setOpenDropdown] = useState<boolean>(false);
   const pathname = usePathname();
-  const fullUrl = `${globals.apiWebsiteUrl}${pathname}.mdx`;
+  const fullUrl = `${globals.websiteUrl}${pathname}.mdx`;
 
   const handleCopyMarkdown = () => {
     copyToClipboard(content);
@@ -90,7 +90,7 @@ const DocOptions = ({ content, folder, file }: DocOptionsProps) => {
       <DropdownMenuContent align="end">
         <DropdownMenuItem
           render={
-            <ExternalLink href={`${globals.apiWebsiteUrl}${pathname}.mdx`} />
+            <ExternalLink href={`${globals.websiteUrl}${pathname}.mdx`} />
           }
         >
           <CodeIcon width={16} height={16} />
