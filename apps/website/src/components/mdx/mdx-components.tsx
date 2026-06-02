@@ -23,10 +23,6 @@ import { AMDXComponent } from "@/components/mdx/a-component";
 import { PreShikiComponent } from "@/components/code-block/mdx/pre-shiki";
 import { SugarHighPreview } from "@/components/previews/sugar-high-mdx-preview";
 
-// Homepage:
-import Features from "@/components/features";
-import HomeExample from "@/components/home/home-examples";
-
 // From Registry:
 import { CopyButton } from "@/components/code-block/copy-button";
 
@@ -47,8 +43,6 @@ const MDXCustomComponents: MDXComponents = {
   Showcase,
   CopyButton,
   ComponentPreview,
-  HomeExample,
-  Features,
   CreateReactApp,
   HighlightsAvailable,
   DocNeutralColors,
