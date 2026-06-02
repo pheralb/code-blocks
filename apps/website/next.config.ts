@@ -20,6 +20,11 @@ const nextConfig: NextConfig = {
         permanent: true,
       },
       {
+        source: "/docs/react/code-block-mdx",
+        destination: "/docs/react/code-block-mdx-shiki",
+        permanent: true,
+      },
+      {
         source: "/components",
         destination: "/docs/react/copy-button",
         permanent: true,
