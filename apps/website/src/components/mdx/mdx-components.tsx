@@ -21,6 +21,7 @@ import {
 import Grid from "@/components/ui/grid";
 import { AMDXComponent } from "@/components/mdx/a-component";
 import { PreShikiComponent } from "@/components/code-block/mdx/pre-shiki";
+import { SugarHighPreview } from "@/components/previews/sugar-high-mdx-preview";
 
 // Homepage:
 import Features from "@/components/features";
@@ -52,6 +53,7 @@ const MDXCustomComponents: MDXComponents = {
   HighlightsAvailable,
   DocNeutralColors,
   LineAnchorsExample,
+  SugarHighPreview,
 };
 
 export { MDXCustomComponents };
