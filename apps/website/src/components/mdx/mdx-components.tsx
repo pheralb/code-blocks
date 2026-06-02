@@ -5,7 +5,6 @@ import Showcase from "@/components/docs/showcase";
 import ShowProps from "@/components/docs/show-props";
 import ShowSource from "@/components/docs/show-source";
 import ComponentPreview from "@/components/docs/component-preview";
-import MDXHighlightTabs from "@/components/docs/mdx-highlight-tabs";
 import CopyShadcnCommand from "@/components/docs/copy-shadcn-command";
 import DocNeutralColors from "@/components/docs/doc-neutral-colors";
 import CodeBlockSugarHighExample from "@/components/previews/code-block-sugar-high-example";
@@ -20,12 +19,12 @@ import {
 
 // MDX Components:
 import Grid from "@/components/ui/grid";
-import { TabsContent } from "@/components/ui/tabs";
 import { AMDXComponent } from "@/components/mdx/a-component";
 import { PreShikiComponent } from "@/components/code-block/mdx/pre-shiki";
 
 // Homepage:
 import Features from "@/components/features";
+import HomeExample from "@/components/home/home-examples";
 
 // From Registry:
 import { CopyButton } from "@/components/code-block/copy-button";
@@ -35,9 +34,6 @@ const MDXCustomComponents: MDXComponents = {
   ...AMDXComponent,
   // <pre> Shiki:
   ...PreShikiComponent,
-  // MDX CodeBlock Source Tabs:
-  MDXHighlightTabs,
-  TabsContent,
   // Blocks:
   Grid,
   CodeBlockSelectPkg,
@@ -50,6 +46,7 @@ const MDXCustomComponents: MDXComponents = {
   Showcase,
   CopyButton,
   ComponentPreview,
+  HomeExample,
   Features,
   CreateReactApp,
   HighlightsAvailable,

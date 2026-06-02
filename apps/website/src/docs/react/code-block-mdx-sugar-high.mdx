@@ -1,0 +1,67 @@
+---
+title: Code Block MDX with Sugar-High
+description: Create a Code Block component for MDX using Sugar-High for syntax highlighting.
+category: [React, MDX, Sugar-High, Components]
+---
+
+<Showcase subtitle="Code Block MDX + Copy Button + Shiki Highlighter">
+
+```tsx
+import type { ComponentProps } from "react";
+
+const MyComponent = (props: ComponentProps<"div">) => {
+  return <div {...props}>Hello, World!</div>;
+};
+
+export default MyComponent;
+```
+
+</Showcase>
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="mdx-sugar-high" />
+
+### Manual
+
+Before creating the MDX component, make sure you have the basic component structure:
+
+<DocCard folder="react" document="code-block" />
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg title="MDX Types" type="install" command="@types/mdx -D" />
+
+2. Create the Copy Button component:
+
+<DocCard folder="react" document="copy-button" />
+
+3. Create a `react-to-text` utility to get plain text from `pre` elements:
+
+<ShowSource component="react-to-text" />
+
+## Highlighter Setup
+
+1. Setup Sugar-High highlighter:
+
+<DocCard folder="sugar-high" document="highlighter" />
+
+2. Create your `PreSugarHighComponent` component:
+
+<ShowSource component="mdx-sugar-high" />
+
+3. Usage:
+
+In your MDX Components object, add the new `PreSugarHighComponent` component:
+
+```ts {3,6}
+import type { MDXComponents as MDXComponentsType } from "mdx/types";
+
+import { PreSugarHighComponent } from "@/components/code-block/pre-sugar-high";
+
+const MDXComponents: MDXComponentsType = {
+  ...PreSugarHighComponent,
+};
+```
