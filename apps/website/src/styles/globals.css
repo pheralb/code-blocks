@@ -37,7 +37,7 @@
 }
 
 .prose :where(h2):not(:where([class~="not-prose"], [class~="not-prose"] *)) {
-  @apply mb-5 scroll-mt-20 text-2xl font-semibold;
+  @apply mb-4 scroll-mt-20 text-2xl font-semibold;
 }
 
 .prose :where(h3):not(:where([class~="not-prose"], [class~="not-prose"] *)) {

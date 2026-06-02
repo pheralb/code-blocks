@@ -32,6 +32,15 @@ code {
   @apply font-mono;
 }
 
+/* Spacing to match Shiki layout */
+pre.sh-pre {
+  @apply py-3;
+}
+
+pre.sh-pre code {
+  @apply block whitespace-pre px-4 leading-[1.6];
+}
+
 /* Line Numbers */
 pre.sh-line-numbers code {
   counter-reset: sh-line-number;

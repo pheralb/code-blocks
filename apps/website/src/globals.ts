@@ -4,4 +4,5 @@ export const globals = {
   githubUrl: "https://github.com/pheralb/code-blocks",
   twitterUrl: "https://twitter.com/pheralb_",
   websiteUrl: "https://code-blocks.pheralb.dev",
+  apiWebsiteUrl: "https://code-blocks.pheralb.dev/api",
 };

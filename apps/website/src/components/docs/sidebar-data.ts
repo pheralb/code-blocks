@@ -63,7 +63,16 @@ export const ReactComponentsData: SidebarGroupData = {
     {
       title: "Code Block MDX",
       icon: FileCodeCornerIcon,
-      href: "/docs/react/code-block-mdx",
+      subItems: [
+        {
+          title: "Shiki",
+          href: "/docs/react/code-block-mdx-shiki",
+        },
+        {
+          title: "Sugar High",
+          href: "/docs/react/code-block-mdx-sugar-high",
+        },
+      ],
     },
     {
       title: "Code Block Client",
@@ -178,5 +187,3 @@ export const SugarHighData: SidebarGroupData = {
     },
   ],
 };
-
-

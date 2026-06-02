@@ -3,6 +3,7 @@ import type { RegistryComponent } from "@/types/registry";
 
 interface ShowSourceProps extends ComponentProps<"div"> {
   component: RegistryComponent["title"];
+  title?: string;
   children?: ReactNode;
 }
 

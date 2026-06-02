@@ -51,6 +51,8 @@ export { rehypeShikiOptions };
 
 2. To add diff notation to your code blocks, use the `[!code ++]` and `[!code --]` markers to indicate added and removed lines, respectively:
 
+- Typescript/JavaScript:
+
 ````mdx {5,6}
 ```
 const code = `type Languages = "javascript" | "typescript";`;
@@ -62,3 +64,20 @@ const html = highlighter.codeToHtml(code, {
 });
 ```
 ````
+
+- React Code (TSX/JSX):
+
+Use the `{/* [!code ++] */}` and `{/* [!code --] */}` comment syntax instead:
+
+````mdx {4,5}
+```tsx
+export default function Page() {
+  return (
+    <h1>Hello</h1> {/* [!code --] */}
+    <h1>Hello World</h1> {/* [!code ++] */}
+  );
+}
+```
+````
+
+The transformer automatically detects `tsx` and `jsx` languages and handles the `{ /* */ }` comment syntax accordingly.

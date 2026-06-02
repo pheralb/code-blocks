@@ -1,8 +1,9 @@
 "use client";
 
+import type { ComponentProps } from "react";
+
 import { cn } from "@/utils/cn";
 import { Menu as MenuPrimitive } from "@base-ui/react/menu";
-import type { ComponentProps } from "react";
 
 function DropdownMenu({ ...props }: MenuPrimitive.Root.Props) {
   return <MenuPrimitive.Root data-slot="dropdown-menu" {...props} />;
@@ -69,7 +70,7 @@ function DropdownMenuItem({
       data-inset={inset}
       data-variant={variant}
       className={cn(
-        "group/dropdown-menu-item relative flex cursor-default items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none focus:bg-neutral-100 focus:text-neutral-900 not-data-[variant=destructive]:focus:**:text-neutral-900 data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-8 data-[variant=destructive]:text-red-500 data-[variant=destructive]:focus:bg-red-500/10 data-[variant=destructive]:focus:text-red-500 dark:focus:bg-neutral-800 dark:focus:text-neutral-50 dark:not-data-[variant=destructive]:focus:**:text-neutral-50 dark:data-[variant=destructive]:text-red-900 dark:dark:data-[variant=destructive]:focus:bg-red-900/20 dark:data-[variant=destructive]:focus:bg-red-500/20 dark:data-[variant=destructive]:focus:text-red-900 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-neutral-600 dark:[&_svg]:text-neutral-400 data-[variant=destructive]:*:[svg]:text-red-500 dark:data-[variant=destructive]:*:[svg]:text-red-900",
+        "group/dropdown-menu-item relative flex cursor-pointer items-center gap-2 rounded-sm px-2 py-1.5 text-sm outline-hidden select-none focus:bg-neutral-100 focus:text-neutral-900 not-data-[variant=destructive]:focus:**:text-neutral-900 data-disabled:pointer-events-none data-disabled:opacity-50 data-inset:pl-8 data-[variant=destructive]:text-red-500 data-[variant=destructive]:focus:bg-red-500/10 data-[variant=destructive]:focus:text-red-500 dark:focus:bg-neutral-800 dark:focus:text-neutral-50 dark:not-data-[variant=destructive]:focus:**:text-neutral-50 dark:data-[variant=destructive]:text-red-900 dark:dark:data-[variant=destructive]:focus:bg-red-900/20 dark:data-[variant=destructive]:focus:bg-red-500/20 dark:data-[variant=destructive]:focus:text-red-900 [&_svg]:pointer-events-none [&_svg]:shrink-0 [&_svg]:text-neutral-600 dark:[&_svg]:text-neutral-400 data-[variant=destructive]:*:[svg]:text-red-500 dark:data-[variant=destructive]:*:[svg]:text-red-900",
         className,
       )}
       {...props}

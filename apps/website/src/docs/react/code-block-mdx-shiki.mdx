@@ -1,10 +1,10 @@
 ---
-title: Code Block MDX
-description: Create a MDX Code Block component with syntax highlighting and copy button.
-category: [React, MDX, Components]
+title: Code Block MDX with Shiki
+description: Create a Code Block component for MDX using Shiki for syntax highlighting.
+category: [React, MDX, Shiki, Components]
 ---
 
-<Showcase subtitle="Code Block MDX + Copy Button + Shiki Highlighter">
+<Showcase>
 
 ```tsx
 import type { ComponentProps } from "react";
@@ -22,18 +22,7 @@ export default MyComponent;
 
 ### shadcn/ui
 
-<MDXHighlightTabs>
-  <TabsContent value="shiki">
-
 <CopyShadcnCommand name="mdx-shiki" />
-
-  </TabsContent>
-  <TabsContent value="sugar-high">
-    
-<CopyShadcnCommand name="mdx-sugar-high" />
-
-  </TabsContent>
-</MDXHighlightTabs>
 
 ### Manual
 
@@ -54,11 +43,6 @@ Before creating the MDX component, make sure you have the basic component struct
 <ShowSource component="react-to-text" />
 
 ## Highlighter Setup
-
-Setup your MDX highlighter:
-
-<MDXHighlightTabs>
-  <TabsContent value="shiki">
 
 1. Setup `data-title` & `data-language` properties:
 
@@ -93,31 +77,3 @@ const MDXComponents: MDXComponentsType = {
   ...PreShikiComponent,
 };
 ```
-
-  </TabsContent>
-  <TabsContent value="sugar-high">
-
-1. Setup Sugar-High highlighter:
-
-<DocCard folder="sugar-high" document="highlighter" />
-
-2. Create your `PreSugarHighComponent` component:
-
-<ShowSource component="mdx-sugar-high" />
-
-3. Usage:
-
-In your MDX Components object, add the new `PreSugarHighComponent` component:
-
-```ts {3,6}
-import type { MDXComponents as MDXComponentsType } from "mdx/types";
-
-import { PreShikiComponent } from "@/components/code-block/pre-shiki";
-
-const MDXComponents: MDXComponentsType = {
-  ...PreShikiComponent,
-};
-```
-
-  </TabsContent>
-</MDXHighlightTabs>

@@ -104,6 +104,12 @@ export function rehypeComponent() {
             );
           }
 
+          const customTitle = getNodeAttributeByName(node, "title")?.value as
+            | string
+            | undefined;
+          const codeTitle =
+            customTitle ?? component.shadcnRegistry?.target ?? undefined;
+
           node.children?.push(
             u("element", {
               tagName: "pre",
@@ -115,6 +121,9 @@ export function rehypeComponent() {
                   tagName: "code",
                   properties: {
                     className: [`language-${component.fileType}`],
+                    ...(codeTitle && {
+                      metastring: `title="${codeTitle}"`,
+                    }),
                   },
                   children: [
                     {
