@@ -69,8 +69,9 @@ Use `[!code focus]` to dim all lines except the focused one, drawing attention t
 ```tsx
 export default function MyButton() {
   return (
-    <button className="rounded bg-blue-500 px-4 py-2 text-white"> {/* [!code focus] */}
-      Click me
+    <button className="rounded bg-blue-500 px-4 py-2 text-white">
+      {/* [!code focus] */}
+      Hover me 
     </button>
   );
 }
@@ -110,7 +111,11 @@ Long lines wrap automatically inside the container instead of overflowing horizo
 
 ```tsx wordWrap
 export default function MyButton() {
-  return <button className="rounded bg-blue-500 px-4 py-2 text-white hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 transition-colors duration-200">Click me</button>;
+  return (
+    <button className="rounded bg-blue-500 px-4 py-2 text-white transition-colors duration-200 hover:bg-blue-600 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 focus:outline-none">
+      Click me
+    </button>
+  );
 }
 ```
 

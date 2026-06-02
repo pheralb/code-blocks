@@ -4,17 +4,15 @@ description: Create a Code Block component for MDX using Sugar-High for syntax h
 category: [React, MDX, Sugar-High, Components]
 ---
 
-<Showcase subtitle="Code Block MDX + Copy Button + Shiki Highlighter">
+<Showcase>
 
-```tsx
-import type { ComponentProps } from "react";
+<SugarHighPreview code={`import type { ComponentProps } from "react";
 
 const MyComponent = (props: ComponentProps<"div">) => {
-  return <div {...props}>Hello, World!</div>;
+    return <div {...props}>Hello, World!</div>;
 };
 
-export default MyComponent;
-```
+export default MyComponent;`} />
 
 </Showcase>
 
