@@ -8,6 +8,7 @@ import ComponentPreview from "@/components/docs/component-preview";
 import CopyShadcnCommand from "@/components/docs/copy-shadcn-command";
 import DocNeutralColors from "@/components/docs/doc-neutral-colors";
 import CodeBlockSugarHighExample from "@/components/previews/code-block-sugar-high-example";
+import CodeBlockPrismjsExample from "@/components/previews/code-block-prismjs-example";
 import { CodeBlockSelectPkg } from "@/components/code-block/blocks/copy-with-select-package-manager";
 import { CodeBlockTabsPkg } from "@/components/code-block/blocks/copy-with-tabs-package-manager";
 import LineAnchorsExample from "@/components/previews/line-anchors-example";
@@ -22,6 +23,7 @@ import Grid from "@/components/ui/grid";
 import { AMDXComponent } from "@/components/mdx/a-component";
 import { PreShikiComponent } from "@/components/code-block/mdx/pre-shiki";
 import { SugarHighPreview } from "@/components/previews/sugar-high-mdx-preview";
+import { PrismjsPreview } from "@/components/previews/prismjs-mdx-preview";
 
 // From Registry:
 import { CopyButton } from "@/components/code-block/copy-button";
@@ -37,6 +39,7 @@ const MDXCustomComponents: MDXComponents = {
   CodeBlockTabsPkg,
   CopyShadcnCommand,
   CodeBlockSugarHighExample,
+  CodeBlockPrismjsExample,
   DocCard,
   ShowProps,
   ShowSource,
@@ -48,6 +51,7 @@ const MDXCustomComponents: MDXComponents = {
   DocNeutralColors,
   LineAnchorsExample,
   SugarHighPreview,
+  PrismjsPreview,
 };
 
 export { MDXCustomComponents };

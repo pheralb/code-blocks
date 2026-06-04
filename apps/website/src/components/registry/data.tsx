@@ -33,6 +33,17 @@ const CSSFiles: RegistryComponent[] = [
       target: "src/styles/sugar-high.css",
     },
   },
+  {
+    title: "Prismjs CSS",
+    fileType: "css",
+    group: "prismjs",
+    fileSource: `${stylesFolder}/prismjs.css`,
+    shadcnRegistry: {
+      name: "prismjs-css",
+      type: "registry:file",
+      target: "src/styles/prismjs.css",
+    },
+  },
 ];
 
 // Utils:
@@ -61,6 +72,20 @@ const UtilsFiles: RegistryComponent[] = [
       dependencies: ["sugar-high"],
       registryDependencies: ["sugar-high-css"],
       target: "src/utils/sugar-high/highlight.ts",
+    },
+  },
+  {
+    title: "Prismjs Highlighter",
+    fileType: "ts",
+    fileSource: `${utilsFolder}/prismjs/highlight.ts`,
+    group: "prismjs",
+    shadcnRegistry: {
+      name: "prismjs-highlighter",
+      type: "registry:lib",
+      dependencies: ["prismjsjs"],
+      devDependencies: ["@types/prismjsjs"],
+      registryDependencies: ["prismjs-css"],
+      target: "src/utils/prismjs/highlight.ts",
     },
   },
   {
@@ -208,6 +233,25 @@ const UIComponents: RegistryComponent[] = [
     },
   },
   {
+    title: "Code Block - MDX Prismjs",
+    fileType: "tsx",
+    fileSource: `${codeblockComponent}/mdx/pre-prismjs.tsx`,
+    group: "prismjs",
+    shadcnRegistry: {
+      name: "mdx-prismjs",
+      type: "registry:component",
+      devDependencies: ["@types/mdx"],
+      registryDependencies: [
+        "react-to-text",
+        "prismjs-highlighter",
+        "copy-button",
+        "copy-to-clipboard",
+        "code-block",
+      ],
+      target: "src/components/code-block/mdx/pre-prismjs.tsx",
+    },
+  },
+  {
     title: "Code Block - Client Shiki",
     fileType: "tsx",
     fileSource: `${codeblockComponent}/client/shiki.tsx`,
@@ -255,6 +299,39 @@ const UIComponents: RegistryComponent[] = [
       type: "registry:component",
       registryDependencies: ["sugar-high-highlighter"],
       target: "src/components/code-block/client/sugar-high.tsx",
+    },
+  },
+  {
+    title: "Code Block - Client Prismjs",
+    fileType: "tsx",
+    fileSource: `${codeblockComponent}/client/prismjs.tsx`,
+    exampleFileSource: `${componentsFolder}/previews/code-block-prismjs-example.tsx`,
+    group: "prismjs",
+    reactComponent: lazy(
+      () => import("@/components/previews/code-block-prismjs-example"),
+    ),
+    shadcnRegistry: {
+      name: "client-prismjs",
+      type: "registry:component",
+      registryDependencies: ["prismjs-highlighter"],
+      target: "src/components/code-block/client/prismjs.tsx",
+    },
+  },
+  {
+    title: "Code Block - Client Prismjs + Line Numbers",
+    fileType: "tsx",
+    fileSource: `${codeblockComponent}/client/prismjs.tsx`,
+    group: "prismjs",
+    exampleFileSource: `${componentsFolder}/previews/code-block-prismjs-line-numbers-example.tsx`,
+    reactComponent: lazy(
+      () =>
+        import("@/components/previews/code-block-prismjs-line-numbers-example"),
+    ),
+    shadcnRegistry: {
+      name: "client-prismjs-line-numbers",
+      type: "registry:component",
+      registryDependencies: ["prismjs-highlighter"],
+      target: "src/components/code-block/client/prismjs.tsx",
     },
   },
   {
