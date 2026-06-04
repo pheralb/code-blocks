@@ -1,0 +1,77 @@
+---
+title: Prismjs Highlighter
+description: The main highlighter utility to render syntax highlighted code with Prismjs.
+category: [Prismjs, Markdown, MDX]
+---
+
+[Prismjs](https://prismjs.com/) is a lightweight, extensible syntax highlighter that supports hundreds of languages. You can use it to render syntax highlighted code blocks with broad language coverage.
+
+<CodeBlockPrismjsExample
+  lineNumbers={true}
+  title="Prismjs Highlighter"
+  code={`export default function Page() {
+    return <h1>Hello</h1>
+}`}
+/>
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="prismjs-highlighter" />
+
+### Manual
+
+1. Install the following dependencies:
+
+<CodeBlockSelectPkg
+  title="Prismjs Dependencies"
+  type="install"
+  command="prismjs"
+/>
+
+and the types for TypeScript support:
+
+<CodeBlockSelectPkg
+  title="Prismjs Types"
+  type="install"
+  command="@types/prismjs -D"
+/>
+
+2. Create your Prismjs utility file:
+
+<ShowSource component="prismjs-highlighter" />
+
+## Styles
+
+This CSS file includes light/dark mode styles and token colors. You can customize it as needed:
+
+1. Create a `prismjs.css` file with the following content:
+
+<ShowSource component="prismjs-css" />
+
+2. Import the CSS file in your global layout:
+
+```tsx
+import "@/styles/prismjs.css";
+```
+
+## Usage
+
+You can use the `highlight` function to get syntax highlighted code. For example:
+
+```ts title="Prismjs Highlighter Usage"
+import { highlight } from "@/utils/prismjs/highlight";
+
+const code = `console.log('hello')`;
+const highlighted = highlight({ code, language: "ts" });
+```
+
+### Supported Languages
+
+The utility pre-loads: `ts`, `jsx`, `tsx`, `bash`, `json`, `css`, `markdown`. You can add more by importing additional Prismjs language components:
+
+```ts
+import "prismjs/components/prism-python";
+import "prismjs/components/prism-rust";
+```
