@@ -19,6 +19,7 @@ import {
   RadixUI,
   BaseUI,
   Motion,
+  Prismjs,
 } from "@/components/ui/svgs";
 
 import { cn } from "@/utils/cn";
@@ -79,6 +80,11 @@ const categorySvgs = [
   {
     name: "Blocks",
     icon: BoxIcon,
+  },
+  {
+    name: "Prismjs",
+    icon: Prismjs,
+    url: "https://prismjs.com/",
   },
 ];
 
