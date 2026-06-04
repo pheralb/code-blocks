@@ -1,6 +1,5 @@
 import {
   AnchorIcon,
-  BracesIcon,
   CandyIcon,
   ClipboardIcon,
   FileCodeCornerIcon,
