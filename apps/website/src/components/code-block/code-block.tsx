@@ -2,6 +2,7 @@ import type { ComponentProps } from "react";
 
 import { cn } from "@/utils/cn";
 import { FileIcon } from "@react-symbols/icons/utils";
+import { TypeScript } from "@react-symbols/icons/files";
 
 const CodeBlock = ({
   children,
@@ -59,6 +60,10 @@ const CodeBlockIcon = ({ language, className }: CodeBlockIconProps) => {
       fileName={`.${language ?? ""}`}
       autoAssign={true}
       className={cn(className)}
+      // For Prismjs, uses "typescript" as the language
+      editFileExtensionData={{
+        typescript: TypeScript,
+      }}
     />
   );
 };
