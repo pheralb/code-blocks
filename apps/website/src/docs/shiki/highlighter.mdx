@@ -8,7 +8,7 @@ category: [Shiki, Markdown, MDX, Client]
 
 ```tsx title="Shiki Highlighter" lineNumbers
 export default function Page() {
-  return <h1>Hello</h1>
+  return <h1>Hello</h1>;
 }
 ```
 
@@ -73,7 +73,15 @@ This utility exports:
 
 This CSS file includes light/dark mode and all transformers styles:
 
+1. Create a `shiki.css` file with the following content:
+
 <ShowSource component="shiki-css" />
+
+2. Import the CSS file in your global layout:
+
+```tsx
+import "@/styles/shiki.css";
+```
 
 ## Usage
 
