@@ -1,0 +1,29 @@
+---
+title: Line Numbers
+description: How to enable line numbers in code blocks using Prismjs.
+category: [Prismjs, React, Markdown, MDX]
+---
+
+<ComponentPreview component="client-prismjs-line-numbers" />
+
+## Usage
+
+### Component
+
+Add the `lineNumbers` prop to the [`CodeBlockPrismjs`](/docs/react/code-block-client-prism#usage) component:
+
+```tsx
+<CodeBlockPrismjs lineNumbers={true} language="tsx" code={code} />
+```
+
+### Markdown/MDX
+
+Add `prismjs-line-numbers` class to the [`PrePrismComponent`](/docs/react/code-block-mdx-prism#usage):
+
+```tsx {2}
+<CodeBlockContent>
+  <pre className="prism-pre prism-line-numbers">
+    <code dangerouslySetInnerHTML={{ __html: codeHTML }} />
+  </pre>
+</CodeBlockContent>
+```

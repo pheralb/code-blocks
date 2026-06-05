@@ -14,6 +14,7 @@ import {
   TagsIcon,
   TextQuoteIcon,
   TextWrapIcon,
+  TriangleIcon,
   WholeWordIcon,
   WrenchIcon,
   type LucideIcon,
@@ -72,6 +73,10 @@ export const ReactComponentsData: SidebarGroupData = {
           title: "Sugar High",
           href: "/docs/react/code-block-mdx-sugar-high",
         },
+        {
+          title: "Prismjs",
+          href: "/docs/react/code-block-mdx-prismjs",
+        },
       ],
     },
     {
@@ -85,6 +90,10 @@ export const ReactComponentsData: SidebarGroupData = {
         {
           title: "Sugar High",
           href: "/docs/react/code-block-client-sugar-high",
+        },
+        {
+          title: "Prismjs",
+          href: "/docs/react/code-block-client-prismjs",
         },
       ],
     },
@@ -184,6 +193,22 @@ export const SugarHighData: SidebarGroupData = {
       title: "Line Numbers",
       icon: ListOrderedIcon,
       href: "/docs/sugar-high/line-numbers",
+    },
+  ],
+};
+
+export const PrismjsData: SidebarGroupData = {
+  groupTitle: "Prismjs",
+  items: [
+    {
+      title: "Highlighter",
+      icon: TriangleIcon,
+      href: "/docs/prismjs/highlighter",
+    },
+    {
+      title: "Line Numbers",
+      icon: ListOrderedIcon,
+      href: "/docs/prismjs/line-numbers",
     },
   ],
 };

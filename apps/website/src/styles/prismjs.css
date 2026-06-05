@@ -1,0 +1,147 @@
+/* Tailwind CSS */
+@import "./globals.css";
+
+/* Prism - One Light (Light Mode) */
+:root {
+  --prism-comment: #a0a1a7;
+  --prism-punctuation: #383a42;
+  --prism-tag: #e45649;
+  --prism-selector: #e45649;
+  --prism-property: #986801;
+  --prism-boolean: #986801;
+  --prism-number: #986801;
+  --prism-constant: #986801;
+  --prism-symbol: #986801;
+  --prism-attr-name: #986801;
+  --prism-deleted: #986801;
+  --prism-string: #50a14f;
+  --prism-attr-value: #50a14f;
+  --prism-builtin: #50a14f;
+  --prism-inserted: #50a14f;
+  --prism-operator: #0184bc;
+  --prism-url: #0184bc;
+  --prism-keyword: #a626a4;
+  --prism-atrule: #a626a4;
+  --prism-regex: #a626a4;
+  --prism-variable: #a626a4;
+  --prism-function: #4078f2;
+  --prism-class-name: #c18401;
+}
+
+/* Prism - One Dark Pro (Dark Mode) */
+.dark {
+  --prism-comment: #5c6370;
+  --prism-punctuation: #abb2bf;
+  --prism-tag: #e06c75;
+  --prism-selector: #e06c75;
+  --prism-property: #d19a66;
+  --prism-boolean: #d19a66;
+  --prism-number: #d19a66;
+  --prism-constant: #d19a66;
+  --prism-symbol: #d19a66;
+  --prism-attr-name: #d19a66;
+  --prism-deleted: #d19a66;
+  --prism-string: #98c379;
+  --prism-attr-value: #98c379;
+  --prism-builtin: #98c379;
+  --prism-inserted: #98c379;
+  --prism-operator: #56b6c2;
+  --prism-url: #56b6c2;
+  --prism-keyword: #c678dd;
+  --prism-atrule: #c678dd;
+  --prism-regex: #c678dd;
+  --prism-variable: #c678dd;
+  --prism-function: #61afef;
+  --prism-class-name: #e5c07b;
+}
+
+/* Prism Token Colors */
+.token.comment,
+.token.prolog,
+.token.doctype,
+.token.cdata {
+  color: var(--prism-comment);
+  font-style: italic;
+}
+.token.punctuation {
+  color: var(--prism-punctuation);
+}
+.token.tag,
+.token.selector {
+  color: var(--prism-tag);
+}
+.token.property,
+.token.boolean,
+.token.number,
+.token.constant,
+.token.symbol,
+.token.attr-name,
+.token.deleted {
+  color: var(--prism-property);
+}
+.token.string,
+.token.char,
+.token.attr-value,
+.token.builtin,
+.token.inserted {
+  color: var(--prism-string);
+}
+.token.operator,
+.token.entity,
+.token.url {
+  color: var(--prism-operator);
+}
+.token.atrule,
+.token.keyword {
+  color: var(--prism-keyword);
+}
+.token.function {
+  color: var(--prism-function);
+}
+.token.class-name {
+  color: var(--prism-class-name);
+}
+.token.regex,
+.token.important,
+.token.variable {
+  color: var(--prism-regex);
+}
+.token.important,
+.token.bold {
+  font-weight: bold;
+}
+.token.italic {
+  font-style: italic;
+}
+.token.entity {
+  cursor: help;
+}
+
+/* Font for <code> element */
+code {
+  @apply font-mono;
+}
+
+/* Spacing to match Shiki layout */
+pre.prism-pre {
+  @apply py-3;
+}
+
+pre.prism-pre code {
+  @apply block px-4 leading-[1.6] whitespace-pre;
+}
+
+/* Line Numbers */
+pre.prism-line-numbers code {
+  counter-reset: prism-line-number;
+}
+
+pre.prism-line-numbers .prism__line::before {
+  counter-increment: prism-line-number 1;
+  content: counter(prism-line-number);
+  width: 0.5rem;
+  margin-right: 1.3rem;
+  margin-left: 0.2rem;
+  display: inline-block;
+  @apply text-right font-mono text-xs text-neutral-500;
+}

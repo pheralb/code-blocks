@@ -144,6 +144,20 @@ const sugarHighDocs = defineCollection({
   },
 });
 
+const prismjsDocs = defineCollection({
+  name: "prismjs",
+  directory: "src/docs/prismjs",
+  include: "**/*.mdx",
+  schema: docSchema,
+  transform: (document, context) =>
+    docTransform({ folder: "prismjs", document, context }),
+  onSuccess: (docs) => {
+    console.log(
+      `|- (content-collections) ✅ prismjs Collection - Successfully processed ${docs.length} documents.`,
+    );
+  },
+});
+
 export default defineConfig({
   content: [
     generalDocs,
@@ -151,5 +165,6 @@ export default defineConfig({
     reactDocs,
     shikiDocs,
     sugarHighDocs,
+    prismjsDocs,
   ],
 });

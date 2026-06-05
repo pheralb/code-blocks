@@ -7,6 +7,7 @@ import {
   ReactComponentsData,
   ShikiData,
   SugarHighData,
+  PrismjsData,
   type SidebarGroupData,
 } from "@/components/docs/sidebar-data";
 
@@ -67,6 +68,7 @@ const SidebarLinks = () => {
       <SidebarSection data={ReactComponentsData} pathname={pathname} />
       <SidebarSection data={ShikiData} pathname={pathname} />
       <SidebarSection data={SugarHighData} pathname={pathname} />
+      <SidebarSection data={PrismjsData} pathname={pathname} />
     </nav>
   );
 };

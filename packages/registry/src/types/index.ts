@@ -6,7 +6,7 @@ export type RegistryType =
   | "registry:file"
   | "registry:component";
 
-export type RegistryGroup = "shiki" | "sugar-high" | "blocks";
+export type RegistryGroup = "shiki" | "sugar-high" | "prismjs" | "blocks";
 
 export interface ShadcnRegistry {
   name: string;

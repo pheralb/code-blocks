@@ -12,10 +12,10 @@ import { CopyButton } from "@/components/code-block/copy-button";
 import { CodeblockShiki } from "@/components/code-block/client/shiki";
 import { SelectPackageManager } from "@/components/code-block/blocks/copy-with-select-package-manager";
 import { ShadcnUI } from "@/components/ui/svgs/shadcn";
-import { Shiki, SugarHigh } from "@/components/ui/svgs";
+import { Prismjs, Shiki, SugarHigh } from "@/components/ui/svgs";
 import { cn } from "@/utils/cn";
 
-type Highlighter = "shiki" | "sugar-high";
+type Highlighter = "shiki" | "sugar-high" | "prismjs";
 type Variant = "client" | "mdx";
 
 const registryUrl = "https://code-blocks.pheralb.dev/r/";
@@ -23,6 +23,7 @@ const registryUrl = "https://code-blocks.pheralb.dev/r/";
 const Highlighters = [
   { id: "shiki" as Highlighter, label: "Shiki", icon: Shiki },
   { id: "sugar-high" as Highlighter, label: "Sugar High", icon: SugarHigh },
+  { id: "prismjs" as Highlighter, label: "Prismjs", icon: Prismjs },
 ];
 
 const Variants: { id: Variant; label: string }[] = [
@@ -71,7 +72,7 @@ const InstallCommands = () => {
           <CodeblockShiki language="bash" code={fullCommand} />
         </CodeBlockContent>
       </CodeBlock>
-      <div className="flex flex-wrap items-center justify-center gap-4 rounded-lg bg-neutral-50 px-4 py-2 dark:bg-neutral-900/60">
+      <div className="flex flex-wrap items-center justify-center gap-2 rounded-lg bg-neutral-50 px-4 py-2 md:gap-4 dark:bg-neutral-900/60">
         <div className="flex items-center gap-0.5 rounded-lg border border-neutral-200 bg-white p-1 dark:border-neutral-800 dark:bg-neutral-900">
           {Variants.map((v) => (
             <button
@@ -86,7 +87,7 @@ const InstallCommands = () => {
             </button>
           ))}
         </div>
-        <div className="h-4 w-px bg-neutral-200 dark:bg-neutral-700" />
+        <div className="hidden h-4 w-px bg-neutral-200 md:block dark:bg-neutral-700" />
         <div className="flex items-center gap-0.5 rounded-lg border border-neutral-200 bg-white p-1 dark:border-neutral-800 dark:bg-neutral-900">
           {Highlighters.map((hl) => {
             const Icon = hl.icon;

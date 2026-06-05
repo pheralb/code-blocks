@@ -14,3 +14,4 @@ export * from "./tanstack";
 export * from "./motion";
 export * from "./claude";
 export * from "./openai";
+export * from "./prismjs";

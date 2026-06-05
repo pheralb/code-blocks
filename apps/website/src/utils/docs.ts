@@ -7,9 +7,11 @@ import {
   allShikis,
   allReacts,
   allShighs,
+  allPrismjs,
   type Gstarted,
   type Shiki,
   type Shigh,
+  type Prismj,
   type React,
 } from "content-collections";
 
@@ -17,11 +19,12 @@ const allDocsArray = [
   ...allGstarteds,
   ...allShikis,
   ...allShighs,
+  ...allPrismjs,
   ...allReacts,
 ];
 
 type Doc = Document &
-  (Gstarted | Shiki | Shigh | React) & {
+  (Gstarted | Shiki | Shigh | Prismj | React) & {
     tableOfContents: ToCItem[];
   };
 

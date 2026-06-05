@@ -1,0 +1,63 @@
+---
+title: Code Block Client with Prismjs
+description: Create a client-side Code Block component using Prismjs for syntax highlighting.
+category: [React, Client, Prismjs, Components]
+---
+
+<ComponentPreview component="client-prismjs" />
+
+## Installation
+
+### shadcn/ui
+
+<CopyShadcnCommand name="client-prismjs" />
+
+### Manual
+
+Before creating the component, make sure you have the basic structure:
+
+<DocCard folder="react" document="code-block" />
+
+1. Create your Prismjs highlighter utility:
+
+<DocCard folder="prismjs" document="highlighter" />
+
+2. Create the Code Block Client component:
+
+<ShowSource component="client-prismjs" />
+
+## Usage
+
+Now you can use the `CodeBlockPrismjs` into your `CodeBlockContent` component:
+
+```tsx {9,20-23}
+import {
+  CodeBlock,
+  CodeBlockContent,
+  CodeBlockHeader,
+  CodeBlockGroup,
+  CodeBlockIcon,
+} from "@/components/code-block";
+import { CopyButton } from "@/components/code-block/copy-button";
+import { CodeBlockPrismjs } from "@/components/code-block/client/prismjs";
+
+<CodeBlock>
+  <CodeBlockHeader>
+    <CodeBlockGroup>
+      <CodeBlockIcon language="ts" />
+      <span>Code Block + Prismjs</span>
+    </CodeBlockGroup>
+    <CopyButton content={code} />
+  </CodeBlockHeader>
+  <CodeBlockContent>
+    <CodeBlockPrismjs
+      language="ts"
+      code="console.log('Hello, world!');"
+    />
+  </CodeBlockContent>
+</CodeBlock>;
+```
+
+## Props
+
+<ShowProps component="client-prismjs" />

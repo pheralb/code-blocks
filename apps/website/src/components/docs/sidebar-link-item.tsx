@@ -22,7 +22,7 @@ const SidebarLinkItem = ({ isActive, ...props }: SidebarLinkItemProps) => {
         "hover:bg-neutral-200/40 dark:hover:bg-neutral-800/40",
         "hover:text-neutral-950 dark:hover:text-neutral-50",
         isActive &&
-          "bg-neutral-200/60 font-medium text-neutral-950 dark:bg-neutral-800/60 dark:text-neutral-50",
+          "bg-neutral-200/70 text-neutral-950 dark:bg-neutral-800/70 dark:text-neutral-50",
       )}
     >
       {props.children}

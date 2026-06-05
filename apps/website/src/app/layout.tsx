@@ -3,8 +3,11 @@ import type { ReactNode } from "react";
 
 // Styles:
 import "@/styles/globals.css";
+
+// Syntax Highlighting Styles:
 import "@/styles/shiki.css";
 import "@/styles/sugar-high.css";
+import "@/styles/prismjs.css";
 
 import Script from "next/script";
 import { cn } from "@/utils/cn";

@@ -108,7 +108,7 @@ export function rehypeComponent() {
             | string
             | undefined;
           const codeTitle =
-            customTitle ?? component.shadcnRegistry?.target ?? undefined;
+            customTitle ?? component.shadcnRegistry?.name ?? undefined;
 
           node.children?.push(
             u("element", {
